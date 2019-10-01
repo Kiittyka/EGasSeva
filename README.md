@@ -15,8 +15,8 @@ A Single Page Application for providing online gas booking
     git commit -m "Some message"
     git push origin test-branch
 #### 4. Pull commands
-    git checkout master
-    git pull <files to edit>
+    git checkout test-branch
+    git pull origin test-branch
     Edit the files
  #### 5. Push commands after editing
     git add <files edited>
