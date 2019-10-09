@@ -9,9 +9,18 @@ A Single Page Application for providing online gas booking
   ` git clone https://github.com/Kiittyka/EGasSeva`
  #### 2. Open the file in VSCode and install dependencies
   ` npm install`
- #### 3. Push comands
+ #### 3. Push commands
     git checkout test-branch
     git add .
     git commit -m "Some message"
-    git push
+    git push origin test-branch
+#### 4. Pull commands
+    git checkout test-branch
+    git pull origin test-branch
+    Edit the files
+ #### 5. Push commands after editing
+    git add <files edited>
+    git commit -m "Some meaningful message"
+    git push origin test-branch
+    
   
