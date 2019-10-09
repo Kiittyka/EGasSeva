@@ -1,0 +1,56 @@
+<!-- dealer Form-->
+<div class="container">
+
+    <form [formGroup]="dealerForm">
+        <!-- dealer Name -->
+        <div class="form-group">
+            <label for="name">Dealer Name : </label>
+            <input type="text" class="form-control" id="name" formControlName="dealerName">
+        </div>
+
+        <!-- dealer EmailId-->
+        <div class="form-group">
+            <label for="email">Email : </label>
+            <input type="email" class="form-control" id="email" formControlName="dealerEmail">
+        </div>
+
+        <!-- dealer Password -->
+        <div class="form-group">
+            <label for="password">Password : </label>
+            <input type="password" class="form-control" id="password" formControlName="dealerPassword">
+        </div>
+
+        <!--dealer Contact No-->
+        <div class="form-group">
+            <label for="contact">Contact No : </label>
+            <input type="tel" class="form-control" id="contact" formControlName="dealerContactNo">
+        </div>
+
+        <!-- dealer Address -->
+        <div formGroupName="dealerAddress" >
+            <h4> Dealer Address </h4>
+            <div class="form-group">
+                <label>
+                    Street:
+                    <input type="text" class="form-control" formControlName="street">
+                </label>
+      
+                <label>
+                    City:
+                    <input type="text" class="form-control" formControlName="city">
+                </label>
+            
+                <label>
+                    State:
+                    <input type="text" class="form-control" formControlName="state">
+                </label>
+           
+                <label>
+                    Zip Code:
+                    <input type="number" class="form-control" formControlName="zip">
+                </label>
+            </div>   
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>

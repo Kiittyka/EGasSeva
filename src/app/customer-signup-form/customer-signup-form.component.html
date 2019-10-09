@@ -1,0 +1,71 @@
+<div class="container">
+    <form [formGroup]="customerForm" >
+        <!-- Customer Name -->
+        <div class="form-group">
+            <label for="name">Customer Name : </label>
+            <input type="text" class="form-control" id="name" formControlName="customerName" required>
+
+        </div>
+
+        <!-- Customer EmailId-->
+        <div class="form-group">
+            <label for="email">Email : </label>
+            <input type="email" class="form-control" id="email" formControlName="customerEmail" required>
+
+        </div>
+
+        <!-- Customer Password -->
+        <div class="form-group">
+            <label for="password">Password : </label>
+            <input type="password" class="form-control" id="password" formControlName="customerPassword" required>
+
+        </div>
+
+        <!-- Gas Agency -->
+        <div class="form-group">
+            <label for="agency">Gas Agency : </label>
+            <input type="text" class="form-control" id="agency" formControlName="gasAgency" required>
+
+        </div>
+
+        <!--Customer Contact No-->
+        <div class="form-group">
+            <label for="contact">Contact No : </label>
+            <input type="tel" class="form-control" id="contact" formControlName="customerContactNo" required>
+
+        </div>
+
+        <!-- Customer Address -->
+        <div formGroupName="customerAddress">
+            <h4> Customer Address </h4>
+            <div class="form-group">
+                <label>
+                    Street:
+                    <input type="text" class="form-control" formControlName="street" required>
+
+                </label>
+
+                <label>
+                    City:
+                    <input type="text" class="form-control" formControlName="city" required>
+
+                </label>
+
+                <label>
+                    State:
+                    <input type="text" class="form-control" formControlName="state" required>
+
+                </label>
+
+                <label>
+                    Zip Code:
+                    <input type="number" class="form-control" formControlName="zip" required>
+
+                </label>
+            </div>
+        </div>
+        <!-- <p> {{ customerForm.value | json }} </p>
+        <p> Form Status : {{ customerForm.status| json }} </p> -->
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
