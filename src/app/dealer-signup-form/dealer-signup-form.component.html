@@ -27,8 +27,8 @@
         <!-- dealer Password -->
         <div class="form-group">
             <label for="password">Password : </label>
-            <input type="password" class="form-control" [class.is-invalid]="dPassword.invalid && dPassword.touched" 
-            id="password" formControlName="dealerPassword">
+            <input type="password" class="form-control" [class.is-invalid]="dPassword.invalid && dPassword.touched"
+                id="password" formControlName="dealerPassword">
 
             <!-- <div *ngIf="dPasword.invalid && dPassword.touched">
                 <small class="text-danger" *ngIf="dPassword.errors?.required">Passowrd is required</small>
@@ -39,13 +39,13 @@
         <!--dealer Contact No-->
         <div class="form-group">
             <label for="contact">Contact No : </label>
-            <input type="number" class="form-control" 
-            [class.is-invalid]="dealerPhone.invalid && dealerPhone.touched"
-            id="contact" formControlName="dealerContactNo">
+            <input type="number" class="form-control" [class.is-invalid]="dealerPhone.invalid && dealerPhone.touched"
+                id="contact" formControlName="dealerContactNo">
 
             <div *ngIf="dealerPhone.invalid && dealerPhone.touched">
                 <small class="text-danger" *ngIf="dealerPhone.errors?.required">Phone number is required</small>
-                <small class="text-danger" *ngIf="dealerPhone.errors?.pattern">Phone number should consist atleast 10 characters</small>
+                <small class="text-danger" *ngIf="dealerPhone.errors?.pattern">Phone number should consist atleast 10
+                    characters</small>
             </div>
         </div>
 
@@ -53,25 +53,33 @@
         <div formGroupName="dealerAddress">
             <h4> Dealer Address </h4>
             <div class="form-group">
-                <label>
-                    Street:
-                    <input type="text" class="form-control" formControlName="street">
-                </label>
+                <label>Street </label>
+                <input type="text" class="form-control"
+                    [class.is-invalid]="dealerStreet.invalid && dealerStreet.touched" formControlName="street">
+                <div *ngIf="dealerStreet.invalid && dealerStreet.touched">
+                    <small class="text-danger" *ngIf="dealerStreet.errors?.required">Street is required</small>
+                </div>
 
-                <label>
-                    City:
-                    <input type="text" class="form-control" formControlName="city">
-                </label>
+                <label>City:</label>
+                <input type="text" class="form-control" [class.is-invalid]="dealerCity.invalid && dealerCity.touched"
+                    formControlName="city">
+                <div *ngIf="dealerCity.invalid && dealerCity.touched">
+                    <small class="text-danger" *ngIf="dealerCity.errors?.required">City is required</small>
+                </div>
 
-                <label>
-                    State:
-                    <input type="text" class="form-control" formControlName="state">
-                </label>
+                <label>State:</label>
+                <input type="text" class="form-control" [class.is-invalid]="dealerState.invalid && dealerState.touched"
+                    formControlName="state">
+                <div *ngIf="dealerState.invalid && dealerState.touched">
+                    <small class="text-danger" *ngIf="dealerState.errors?.required">State is required</small>
+                </div>
 
-                <label>
-                    Zip Code:
-                    <input type="number" class="form-control" formControlName="zip">
-                </label>
+                <label>Zip Code:</label>
+                <input type="number" class="form-control" [class.is-invalid]="dealerZip.invalid && dealerZip.touched"
+                    formControlName="zip">
+                <div *ngIf="dealerZip.invalid && dealerZip.touched">
+                    <small class="text-danger" *ngIf="dealerZip.errors?.required">Zip code is required</small>
+                </div>
             </div>
         </div>
         <div>
