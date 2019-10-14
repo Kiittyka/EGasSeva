@@ -26,21 +26,46 @@ export class CustomerSignupFormComponent {
     return this.customerForm.get('customerContactNo')
   }
 
+  get customerStreet(){
+    return this.customerForm.get('customerAddress.street')
+  }
+
+  get customerCity(){
+    return this.customerForm.get('customerAddress.city')
+  }
+
+  get customerState(){
+    return this.customerForm.get('customerAddress.state')
+  }
+
+  get customerZip(){
+    return this.customerForm.get('customerAddress.zip')
+  }
+ x = "";
   emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+  numberRegEx = /^[0-9]{10}/; 
   customerForm = this.fb.group({
-    customerName: ['', Validators.required],
+    customerName: [this.x, Validators.required],
     customerEmail: ['', [Validators.required, Validators.pattern(this.emailRegEx)]],
     customerPassword: ['',[Validators.required,Validators.minLength(8)]],
     //confirmPassword: [''],
     gasAgency: ['',Validators.required],
-    customerContactNo: ['',[Validators.required,Validators.minLength(10)]],
+    customerContactNo: ['',[Validators.required,Validators.pattern(this.numberRegEx)]],
     customerAddress: this.fb.group({
-      street: [''],
-      city: [''],
-      state: [''],
-      zip: ['']
+      street: ['',Validators.required],
+      city: ['',Validators.required],
+      state: ['',Validators.required],
+      zip: ['',Validators.required]
     })
   } )
+
+  zip(){
+    this.x = "deepraj";
+  }
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+}
 
   
   // aadharValidation(customerName);

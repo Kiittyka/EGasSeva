@@ -4,7 +4,8 @@
         <!-- Customer Name -->
         <div class="form-group">
             <label for="name">Customer Name : </label>
-            <input type="text" [class.is-invalid]="customerName.invalid && customerName.touched" class="form-control"
+            <input type="text" 
+            [class.is-invalid]="customerName.invalid && customerName.touched" class="form-control"
                 id="name" formControlName="customerName" required>
 
             <!-- Validation for Name field -->
@@ -56,13 +57,12 @@
         <!--Customer Contact No-->
         <div class="form-group">
             <label for="contact">Contact No : </label>
-            <input type="tel" class="form-control" [class.is-invalid]="customerPhone.invalid && customerPhone.touched"
+            <input type="number" class="form-control" [class.is-invalid]="customerPhone.invalid && customerPhone.touched"
                 id="contact" formControlName="customerContactNo" required>
 
             <div *ngIf="customerPhone.invalid && customerPhone.touched">
-                <small class="text-danger" *ngIf="customerPhone.errors?.required">Password is required</small>
-                <small class="text-danger" *ngIf="customerPhone.errors?.minlength">Password must have atleast 10
-                    characters</small>
+                <small class="text-danger" *ngIf="customerPhone.errors?.required">Phone number is required</small>
+                <small class="text-danger" *ngIf="customerPhone.errors?.pattern">Phone number must have atleast 10 characters</small>
             </div>
         </div>
 
@@ -72,26 +72,44 @@
             <div class="form-group">
                 <label>
                     Street:
-                    <input type="text" class="form-control" formControlName="street" required>
+                    <input type="text" class="form-control" 
+                        [class.is-invalid]="customerStreet.invalid && customerStreet.touched"
+                        formControlName="street" required>
+                    <small class="text-danger" [class.d-none]="customerStreet.valid || customerStreet.untouched">Street is required</small>
                 </label>
 
                 <label>
                     City:
-                    <input type="text" class="form-control" formControlName="city" required>
+                    <input type="text" class="form-control" 
+                    [class.is-invalid]="customerCity.invalid && customerCity.touched"
+                        formControlName="city" required>
+                        <small class="text-danger" [class.d-none]="customerCity.valid || customerCity.untouched">city is required</small>
                 </label>
 
                 <label>
                     State:
-                    <input type="text" class="form-control" formControlName="state" required>
+                    <input type="text" class="form-control" 
+                    [class.is-invalid]="customerState.invalid && customerState.touched"
+                    formControlName="state" required>
+                    <small class="text-danger" [class.d-none]="customerState.valid || customerState.untouched">state is required</small>
                 </label>
 
                 <label>
                     Zip Code:
-                    <input type="number" class="form-control" formControlName="zip" required>
+                    <input type="number" class="form-control" 
+                    [class.is-invalid]="customerZip.invalid && customerZip.touched" 
+                    (onBlur)="zip()"
+                    formControlName="zip" required>
+                    <small class="text-danger" [class.d-none]="customerZip.valid || customerZip.untouched">zip is required</small>
                 </label>
             </div>
+            <div>
+                <!-- <a href="http://postalpincode.in/api/pincode/">Click</a> -->
+            </div>
         </div>
-
+        <div>
+            <re-captcha (resolved)="resolved($event)" siteKey="6Le2GL0UAAAAAGat2fVpOMp7UOS1hjAcbNXnGEKd"></re-captcha>
+        </div>
         <p> Form Status : {{ customerForm.status| json }} </p>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
