@@ -5,51 +5,77 @@
         <!-- dealer Name -->
         <div class="form-group">
             <label for="name">Dealer Name : </label>
-            <input type="text" class="form-control" id="name" formControlName="dealerName">
+            <input type="text" [class.is-invalid]="dName.invalid && dName.touched" class="form-control" id="name"
+                formControlName="dealerName" required>
+
+            <div *ngIf="dName.invalid && dName.touched">
+                <small class="text-danger" *ngIf="dName.errors?.required">Name is required</small>
+            </div>
         </div>
 
         <!-- dealer EmailId-->
         <div class="form-group">
             <label for="email">Email : </label>
-            <input type="email" class="form-control" id="email" formControlName="dealerEmail">
+            <input type="email" class="form-control" [class.is-invalid]="dealerEmail.invalid && dealerEmail.touched"
+                id="email" formControlName="dealerEmail">
+            <div *ngIf="dealerEmail.invalid && dealerEmail.touched">
+                <small class="text-danger" *ngIf="dealerEmail.errors?.required">Email is required</small>
+                <small class="text-danger" *ngIf="dealerEmail.errors?.pattern">Enter Valid Email</small>
+            </div>
         </div>
 
         <!-- dealer Password -->
         <div class="form-group">
             <label for="password">Password : </label>
-            <input type="password" class="form-control" id="password" formControlName="dealerPassword">
+            <input type="password" class="form-control" [class.is-invalid]="dPassword.invalid && dPassword.touched" 
+            id="password" formControlName="dealerPassword">
+
+            <!-- <div *ngIf="dPasword.invalid && dPassword.touched">
+                <small class="text-danger" *ngIf="dPassword.errors?.required">Passowrd is required</small>
+                <small class="text-danger" *ngIf="dPassword.errors?.minlength">Passowrd should contain atleast 8 characters</small>
+            </div> -->
         </div>
 
         <!--dealer Contact No-->
         <div class="form-group">
             <label for="contact">Contact No : </label>
-            <input type="tel" class="form-control" id="contact" formControlName="dealerContactNo">
+            <input type="number" class="form-control" 
+            [class.is-invalid]="dealerPhone.invalid && dealerPhone.touched"
+            id="contact" formControlName="dealerContactNo">
+
+            <div *ngIf="dealerPhone.invalid && dealerPhone.touched">
+                <small class="text-danger" *ngIf="dealerPhone.errors?.required">Phone number is required</small>
+                <small class="text-danger" *ngIf="dealerPhone.errors?.pattern">Phone number should consist atleast 10 characters</small>
+            </div>
         </div>
 
         <!-- dealer Address -->
-        <div formGroupName="dealerAddress" >
+        <div formGroupName="dealerAddress">
             <h4> Dealer Address </h4>
             <div class="form-group">
                 <label>
                     Street:
                     <input type="text" class="form-control" formControlName="street">
                 </label>
-      
+
                 <label>
                     City:
                     <input type="text" class="form-control" formControlName="city">
                 </label>
-            
+
                 <label>
                     State:
                     <input type="text" class="form-control" formControlName="state">
                 </label>
-           
+
                 <label>
                     Zip Code:
                     <input type="number" class="form-control" formControlName="zip">
                 </label>
-            </div>   
+            </div>
+        </div>
+        <div>
+            <re-captcha (resolved)="resolved($event)" siteKey="6Le2GL0UAAAAAGat2fVpOMp7UOS1hjAcbNXnGEKd"></re-captcha>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

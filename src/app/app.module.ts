@@ -8,7 +8,8 @@ import { AdminComponent } from './admin/admin.component';
 import { DealerComponent } from './dealer/dealer.component';
 import { CustomerSignupFormComponent } from './customer-signup-form/customer-signup-form.component';
 import { DealerSignupFormComponent } from './dealer-signup-form/dealer-signup-form.component';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
