@@ -1,1 +1,120 @@
-<p>customer works!</p>
+<!-- <h2>Customer</h2>
+<form [formGroup]="CustomerForm" (ngSubmit)="onSubmit()">
+    <label>
+        First Name:
+        <input type="text" formControlName="firstName" required>
+
+    </label>
+    <br>
+    <label> 
+        Last Name:
+        <input type="text" formControlName="lastName">
+    </label>
+    <br>
+    <div formGroupName="address">
+        <h3>Address</h3>
+        <label>
+            Street:
+            <input type="text" formControlName="street">
+        </label>
+        <br>
+        <label>
+            City:
+            <input type="text" formControlName="city">
+        </label>
+        <br>
+        <label>
+            State:
+            <input type="text" formControlName="state">
+        </label>
+        <br>
+        <label>
+            Zip Code:
+            <input type="text" formControlName="zip">
+        </label>
+        <br>
+        <div formArrayName="aliases">
+            <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
+
+            <div *ngFor="let address of aliases.controls; let i=index">
+                 The repeated alias template 
+                <label>
+                    Alias:
+                    <input type="text" [formControlName]="i">
+                </label>
+            </div>
+        </div>
+        <p>Form Status : {{CustomerForm.status}}</p>
+        <p>Form Value : {{CustomerForm.value | json}}</p>
+        <button type="submit" [disabled]="!CustomerForm.valid">CLick</button>
+    </div>
+</form>  -->
+
+<div class="container">
+    <form [formGroup]="CustomerForm">
+        <!-- Customer Name -->
+        <div class="form-group">
+            <label for="name">Customer Name : </label>
+            <input type="text" class="form-control" id="name" formControlName="CustomerName">
+        </div>
+
+        <!-- Customer EmailId-->
+        <div class="form-group">
+            <label for="email">Email : </label>
+            <input type="email" class="form-control" id="email" formControlName="CustomerEmail">
+        </div>
+
+        <!-- Customer Password -->
+        <div class="form-group">
+            <label for="password">Password : </label>
+            <input type="password" class="form-control" id="password" formControlName="CustomerPassword">
+        </div>
+
+        <!-- Gas Agency -->
+        <div class="form-group">
+            <label for="agency">Gas Agency : </label>
+            <input type="text" class="form-control" id="agency" formControlName="GasAgency">
+        </div>
+
+        <!--Customer Contact No-->
+        <div class="form-group">
+            <label for="contact">Contact No : </label>
+            <input type="tel" class="form-control" id="contact" formControlName="CustomerContactNo">
+        </div>
+
+        <!-- Customer Address -->
+        <div formGroupName="CustomerAddress">
+            <h4> Customer Address </h4>
+            <div class="form-group">
+                <label>
+                    Street:
+                    <input type="text" class="form-control" formControlName="street">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+                <label>
+                    City:
+                    <input type="text" class="form-control" formControlName="city">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+                <label>
+                    State:
+                    <input type="text" class="form-control" formControlName="state">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+                <label>
+                    Zip Code:
+                    <input type="number" class="form-control" formControlName="zip">
+                </label>
+
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>

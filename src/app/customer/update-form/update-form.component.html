@@ -10,7 +10,7 @@
         <!-- Full Name -->
         <div class="form-group">
             <label for="name">Full Name : </label>
-            <input type="text" class="form-control" id="name" formControlName="fullName">
+            <input type="text" class="form-control" id="name" name="name" formControlName="fullName">
         </div>
 
 
@@ -19,7 +19,7 @@
         <div class="form-group">
             <label for="email">Email : </label>
             <input [class.is-invalid]="updateprofile.get('Email').invalid && updateprofile.get('Email').touched  "
-                type="email" class="form-control" id="email" formControlName="Email">
+                type="email" class="form-control" id="email" name="name"formControlName="Email">
             <small [class.d-none]="updateprofile.get('Email').valid ||
         updateprofile.get('Email').untouched " class="text-danger"> Email is required.</small>
         </div>
@@ -35,7 +35,7 @@
         <div class="form-group">
 
             <label for="New _password">New Pasword: </label>
-            <input    type="password" class="form-control" id="password " formControlName="new_password">
+            <input    type="password" class="form-control" id="new_password "   name="new_password" formControlName="new_password">
             
         </div>
 
@@ -44,7 +44,7 @@
         <div class="form-group">
 
             <label for="Confirm _password">Confirm Pasword: </label>
-            <input [class.is-invalid]="updateprofile.errors?.missMatch" type="password" class="form-control" id="password " formControlName="confirm_password">
+            <input [class.is-invalid]="updateprofile.errors?.missMatch" type="password" class="form-control" id="confirm_password " name="confirm_password" formControlName="confirm_password">
             <small class="text-danger" *ngIf="updateprofile.errors?.missMatch">Password do not Match</small>
             
         </div>

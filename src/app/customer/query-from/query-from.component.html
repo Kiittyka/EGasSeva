@@ -9,7 +9,7 @@
         <!-- Full Name -->
         <div class="form-group">
             <label for="name">Full Name : </label>
-            <input [class.is-invalid]="queryform.get('fullName').invalid && queryform.get('fullName').touched  " type="text" class="form-control" id="name" formControlName="fullName" >
+            <input [class.is-invalid]="queryform.get('fullName').invalid && queryform.get('fullName').touched  " type="text" class="form-control" id="name" name="name" formControlName="fullName" >
             <small [class.d-none]="queryform.get('fullName').valid ||
              queryform.get('fullName').untouched " class="text-danger">Full Name is required.</small>
         </div>
@@ -19,7 +19,7 @@
         <!-- Customer EmailId  -->   
              <div class="form-group">
             <label for="email">Email : </label>
-            <input  [class.is-invalid]="queryform.get('Email').invalid && queryform.get('Email').touched  " type="email" class="form-control" id="email" formControlName="Email" >
+            <input  [class.is-invalid]="queryform.get('Email').invalid && queryform.get('Email').touched  " type="email" class="form-control" id="email" id="email" formControlName="Email" >
             <small [class.d-none]="queryform.get('Email').valid ||
             queryform.get('Email').untouched " class="text-danger"> Email is required.</small>
        </div>
@@ -33,7 +33,7 @@
         <!--Customer Contact No-->
         <div class="form-group">
                 <label for="contact">Contact No : </label>
-                <input type="tel" class="form-control" id="contact" formControlName="CustomerContactNo">
+                <input type="tel" class="form-control" id="contact" name="contact" formControlName="CustomerContactNo">
             </div>
 
 
@@ -41,7 +41,7 @@
     <div class="form-group">
                 <label for="query">How can we help you?  </label>
                 </div>
-                <textarea rows="5" cols="155" formControlName="query" >
+                <textarea rows="5" cols="155" formControlName="query" name="query" >
                     </textarea> <br><br>
            
 
