@@ -1,6 +1,6 @@
 import { FormBuilder } from '@angular/forms';
 import { HttpClientService } from './../service/httpclient.service';
-import { Registration } from './../registration/registration.model';
+import { Registration } from './registration.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

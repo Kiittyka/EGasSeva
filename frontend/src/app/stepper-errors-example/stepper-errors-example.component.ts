@@ -5,8 +5,6 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { HttpClientService } from '../service/httpclient.service';
 import { Zipcode } from '../zipcode.model';
-import { PasswordValidator } from '../password.validator';
-
 
 /**
  * @title Stepper that displays errors in the steps

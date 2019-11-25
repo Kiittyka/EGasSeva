@@ -1,7 +1,8 @@
 import { Zipcode } from './../zipcode.model';
-import { Registration } from './../registration/registration.model';
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Registration } from '../home-page-signup/registration.model';
 
 export class Employee{
   constructor(

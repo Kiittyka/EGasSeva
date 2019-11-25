@@ -14,9 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
+
 import { LogoutComponent } from './logout/logout.component';
-import { RegistrationComponent } from './registration/registration.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { AdminComponent } from './admin/admin.component';
@@ -36,9 +36,9 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
+    
     LogoutComponent,
-    RegistrationComponent,
+    
     AdminComponent,
     CustomerComponent,
     NewConnectionComponent,
@@ -67,7 +67,7 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     ],
   providers: [],
   bootstrap: [AppComponent,StepperErrorsExampleComponent],
-  entryComponents: [RegistrationComponent]
+  entryComponents: []
 
 })
 export class AppModule { }
