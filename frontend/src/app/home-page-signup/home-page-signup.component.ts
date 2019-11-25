@@ -1,3 +1,6 @@
+import { FormBuilder } from '@angular/forms';
+import { HttpClientService } from './../service/httpclient.service';
+import { Registration } from './../registration/registration.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page-signup.component.css']
 })
 export class HomePageSignupComponent implements OnInit {
+  user: Registration = new Registration("", "", "", true);
+  constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
+  }
 
-  constructor() { }
+  
+  
 
   ngOnInit() {
   }
-
+  register(): void {
+    console.log(this.user);
+    this.httpClientService.registerUser(this.user)
+      .subscribe(data => {
+        alert("Customer created successfully.");
+      });
+  }
 }

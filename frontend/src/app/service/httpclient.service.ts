@@ -29,7 +29,7 @@ export class HttpClientService {
   constructor(
     private httpClient: HttpClient
   ) {
-    this.url = 'http://localhost:3000/register';
+    this.url = 'http://localhost:3000/api/register';
   }
   public registerUser(user: Registration) {
     return this.httpClient.post<Registration[]>(this.url, user, this.httpOptions);
