@@ -1101,15 +1101,18 @@ input[type='checkbox'] {
 	/* end of header */
 	/* Details 1 */
 	.basic-1 .text-container {
-		margin-top: 6.125rem;
+		margin-top: 3rem;
 		margin-right: 4rem;
 		margin-left: 1rem;
     }
     
     #office-worker{
+      
         background: url('src/assets/images/header-background.jpg');
     }
-    
+  #signup{
+    margin-top:150px;
+  }
 	/* end of details 1 */
 	/* Pricing */
 	.cards-2 .card {

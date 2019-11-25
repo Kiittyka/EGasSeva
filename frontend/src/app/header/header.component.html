@@ -1,17 +1,43 @@
-<header>
-  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
-  <div><a href="#" class="navbar-brand nav-link">EGasSeva</a></div>
+<link rel="stylesheet" type="text/css"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+  <!-- Text Logo - Use this if you don't have a graphic logo -->
+  <a class="navbar-brand logo-text page-scroll" href="#">E Gas Seva</a>
+
+  <!-- Image Logo         <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a>-->
+
+  <!-- Mobile Menu Toggle Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <fa name="bars"></fa><a routerLink="registrationStepper"></a>
+  </button>
+  <!-- end of mobile menu toggle button -->
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault" >
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link page-scroll" routerLink="/Home">Home</a>
+          <!-- <a class="nav-link page-scroll" href="#">Home</a> -->
+        </li>
+        <li class="nav-item">
+            <a class="nav-link page-scroll" routerLink="/Services" >Services</a>
+          <!-- <a class="nav-link page-scroll" href="#services">Services</a> -->
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link page-scroll" href="#">Sign In</a>
+        </li> -->
+        <li class="nav-item">
+            <a class="nav-link page-scroll" routerLink="/SignUp">Sign Up</a>
+          <!-- <a class="nav-link page-scroll" href="/#signup">Sign Up</a> -->
+        </li>
   
-  <ul class="navbar-nav">
-    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Employees</a></li>
-    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addemployee" class="nav-link">Add New Employee</a></li>
-    <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
-    <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a></li>
+      </ul>
+    </div>
 
   
-  </ul>
-  
-  </nav>
-  
-  </header>
+</nav> <!-- end of navbar -->
+<!-- end of navigation -->
+
+<router-outlet></router-outlet>
+

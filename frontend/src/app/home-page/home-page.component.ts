@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
   selector: 'app-home-page',
@@ -9,13 +7,9 @@ import { AuthenticationService } from '../service/authentication.service';
 })
 export class HomePageComponent implements OnInit {
 
-  username = ''
-  password = ''
-  invalidLogin = false
-
-  constructor(private router: Router,
-    private loginservice: AuthenticationService) { }
-
+  constructor() { 
+    
+  }
 
   ngOnInit() {
     (function ($) {
@@ -42,15 +36,6 @@ export class HomePageComponent implements OnInit {
       });
     })
 
-  }
-  
-  checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)
-    ) {
-      this.router.navigate(['customer'])
-      this.invalidLogin = false
-    } else
-      this.invalidLogin = true
   }
   
 }

@@ -28,6 +28,9 @@ import '../polyfills';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule} from 'angular-bootstrap-md';
 import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageServicesComponent } from './home-page-services/home-page-services.component';
+import { HomePageSignupComponent } from './home-page-signup/home-page-signup.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     QueryFromComponent,
     UpdateFormComponent,
     StepperErrorsExampleComponent,
-    HomePageComponent
+    HomePageComponent,
+    HomePageServicesComponent,
+    HomePageSignupComponent
    
   ],
   imports: [

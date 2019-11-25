@@ -10,6 +10,11 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './service/auth-gaurd.service';
 import { RegistrationComponent} from './registration/registration.component';
 import { CustomerComponent } from './customer/customer/customer.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageServicesComponent } from './home-page-services/home-page-services.component';
+import { HomePageSignupComponent } from './home-page-signup/home-page-signup.component';
+import { HeaderComponent } from './header/header.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register',component: RegistrationComponent},
@@ -21,7 +26,12 @@ const routes: Routes = [
   {path:'query',component: QueryFromComponent},
   {path:'registrationStepper',component: StepperErrorsExampleComponent}
 ]},
-  { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
+{ path:'',component:HomePageComponent},
+{ path: 'home-page-header', component: HeaderComponent},
+{ path: 'Home', component: HomePageComponent},
+{ path: 'Services', component: HomePageServicesComponent},
+{ path: 'SignUp', component: HomePageSignupComponent},
+  { path: 'logout', component: LogoutComponent},
 ];
 
 @NgModule({
