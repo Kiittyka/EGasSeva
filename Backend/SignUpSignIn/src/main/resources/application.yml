@@ -1,0 +1,9 @@
+Server:
+  port: 3001
+  
+spring:  datasource:    url: jdbc:mysql://localhost:3306/project
+    username: root
+    password: pass@word1  data:    mongodb:      database: zipcode
+      host: 127.0.0.1
+      port: 27017
+    
