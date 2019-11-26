@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { StepperErrorsExampleComponent } from './stepper-errors-example/stepper-errors-example.component';
 import { QueryFromComponent } from './customer/query-from/query-from.component';
 import { OnlineBookingComponent } from './customer/online-booking/online-booking.component';
@@ -17,20 +18,22 @@ import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
 
-  { path: 'admin', component: AdminComponent,canActivate:[AuthGaurdService]},
-  { path: 'customer', component: CustomerComponent,canActivate:[AuthGaurdService],
-  children:[
-  {path:'newconnection',component: NewConnectionComponent},
-  {path:'gasBooking',component: OnlineBookingComponent},
-  {path:'query',component: QueryFromComponent},
-  {path:'registrationStepper',component: StepperErrorsExampleComponent}
-]},
-{ path:'',component:HomePageComponent},
-{ path: 'home-page-header', component: HeaderComponent},
-{ path: 'Home', component: HomePageComponent},
-{ path: 'Services', component: HomePageServicesComponent},
-{ path: 'SignUp', component: HomePageSignupComponent},
-  { path: 'logout', component: LogoutComponent},
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGaurdService] },
+  {
+    path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService],
+    children: [
+      { path: 'newconnection', component: NewConnectionComponent },
+      { path: 'gasBooking', component: OnlineBookingComponent },
+      { path: 'query', component: QueryFromComponent },
+      { path: 'registrationStepper', component: StepperErrorsExampleComponent }
+    ]
+  },
+  { path: '', component: HomePageComponent },
+  { path: 'home-page-header', component: HeaderComponent },
+  { path: 'Home', component: HomePageComponent },
+  { path: 'Services', component: HomePageServicesComponent },
+  { path: 'SignUp', component: HomePageSignupComponent },
+  { path: 'logout', component: LogoutComponent }
 ];
 
 @NgModule({
