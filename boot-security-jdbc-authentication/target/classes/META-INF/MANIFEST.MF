@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: boot-form-handling
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: b8ibmjava21
+Built-By: b8ibmjava22
 Implementation-Vendor-Id: com.javainuse
-Build-Jdk: 1.8.0_231
+Build-Jdk: 1.8.0_191
 Implementation-URL: http://projects.spring.io/spring-boot/boot-form-ha
  ndling/
 Created-By: Maven Integration for Eclipse
