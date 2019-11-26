@@ -4,6 +4,14 @@
 
 /******************************/
 
+/* to display error message if email already exists */
+.error{
+  color : red;
+  font-size: 14px;
+  padding-left:15px;
+    }
+
+
 body, html {
 	width: 100%;
 	height: 100%;
@@ -199,13 +207,14 @@ a.white {
 
 .label-control {
 	position: absolute;
-	top: 0.87rem;
+	top: 0.45rem;
 	left: 1.375rem;
 	color: #626262;
 	opacity: 1;
 	font: 400 0.875rem/1.375rem "Raleway", sans-serif;
 	cursor: text;
   transition: all 0.2s ease;
+  
 }
 
 /* IE10+ hack to solve lower label text position compared to the rest of the browsers */
@@ -220,7 +229,8 @@ a.white {
 	top: 0.125rem;
 	opacity: 1;
 	font-size: 0.75rem;
-	font-weight: 700;
+  font-weight: 700;
+  padding:5px;
 }
 
 .form-control-input, .form-control-select {

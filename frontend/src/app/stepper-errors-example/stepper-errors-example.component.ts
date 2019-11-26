@@ -22,7 +22,7 @@ export class StepperErrorsExampleComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-
+  message: string;
   
   constructor(private _formBuilder: FormBuilder, private httpClientService: HttpClientService
   ) { }
@@ -56,7 +56,13 @@ export class StepperErrorsExampleComponent implements OnInit {
     this.thirdFormGroup.get('confirm_password').valueChanges.subscribe(value=>{
       this.confirmPassword();
     })
-  
+
+
+    this.httpClientService.confirmAccount().subscribe(data=>{
+      this.message = data;
+      console.log(this.message)
+      alert("calling confirm-account in spring")
+    })
 
   }
 
