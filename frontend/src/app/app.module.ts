@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { ChatModule } from './chat/chat-dialog/chat.module';
 import { DemoMaterialModule } from './material-module';
 import { StepperErrorsExampleComponent } from './stepper-errors-example/stepper-errors-example.component';
@@ -36,9 +37,8 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    
-    LogoutComponent,
-    
+    LoginComponent,
+    LogoutComponent, 
     AdminComponent,
     CustomerComponent,
     NewConnectionComponent,
