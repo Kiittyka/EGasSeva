@@ -58,7 +58,7 @@
       <mat-form-field>
           <label>Agency</label>
 
-        <input matInput type="text" class="form-control" formControlName="agency" required>
+        <input matInput type="text" [(ngModel)]="zip.dealer" class="form-control" [disabled]="true" formControlName="agency" required>
       </mat-form-field>
 
       <div>
@@ -97,7 +97,7 @@
     You are now done.
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="createCustomer()">Submit</button>
+      <button mat-button (click)="createCustomer()" routerLink="/Home">Submit</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

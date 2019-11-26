@@ -51,7 +51,8 @@ export class HttpClientService {
 
 
   getzipcode(value) {
-    return this.httpClient.get<Zipcode>("http://localhost:8080/zipcode" + "/" + value);
+    console.log(value)
+    return this.httpClient.get<Zipcode>("http://localhost:3001/zipcode" + "/" + value);
   }
 
 
@@ -59,7 +60,7 @@ export class HttpClientService {
 
   public createCustomer(customer) {
     console.log(customer);
-    return this.httpClient.post<Customer>("http://localhost:8080/customers", customer);
+    return this.httpClient.post<Customer>("http://localhost:3001/customers", customer);
   }
 
 
