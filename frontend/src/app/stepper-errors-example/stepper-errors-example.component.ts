@@ -1,5 +1,5 @@
 
-import { Employee } from './../service/httpclient.service';
+import { Customer } from './../service/httpclient.service';
 import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
@@ -97,11 +97,11 @@ getzipcode(value){
     let agency = this.secondFormGroup.controls['agency'].value;
     let password = this.thirdFormGroup.controls['password'].value;
 
-    let employee = new Employee(email, name, contact, zipcode, city, state, country, agency, password);
+    let customer = new Customer(email, name, contact, zipcode, city, state, country, agency, password);
 
-    this.httpClientService.createEmployee(employee)
+    this.httpClientService.createCustomer(customer)
       .subscribe(data => {
-        alert("Employee created successfully.");
+        alert("Customer created successfully.");
       })
   }
 

@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Registration } from '../home-page-signup/registration.model';
 import { ActivatedRoute } from '@angular/router';
 
-export class Employee {
+export class Customer {
   
   constructor(
     public name: string,
@@ -57,9 +57,9 @@ export class HttpClientService {
 
 
 
-  public createEmployee(employee) {
-    console.log(employee);
-    return this.httpClient.post<Employee>("http://localhost:8080/employees", employee);
+  public createCustomer(customer) {
+    console.log(customer);
+    return this.httpClient.post<Customer>("http://localhost:8080/customers", customer);
   }
 
 
