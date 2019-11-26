@@ -24,11 +24,11 @@ const routes: Routes = [
     children: [
       { path: 'newconnection', component: NewConnectionComponent },
       { path: 'gasBooking', component: OnlineBookingComponent },
-      
-      { path: 'registrationStepper', component: StepperErrorsExampleComponent }
+      { path: 'query', component: QueryFromComponent }
+     
     ]
   },
-  { path: 'query', component: QueryFromComponent },
+  { path: 'registrationStepper', component: StepperErrorsExampleComponent },
   { path: '', component: HomePageComponent },
   { path: 'home-page-header', component: HeaderComponent },
   { path: 'Home', component: HomePageComponent },

@@ -1,5 +1,5 @@
 
-import { Employee } from './../service/httpclient.service';
+import { Customer } from './../service/httpclient.service';
 import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
@@ -22,7 +22,7 @@ export class StepperErrorsExampleComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-
+  message: string;
   
   constructor(private _formBuilder: FormBuilder, private httpClientService: HttpClientService
   ) { }
@@ -56,7 +56,13 @@ export class StepperErrorsExampleComponent implements OnInit {
     this.thirdFormGroup.get('confirm_password').valueChanges.subscribe(value=>{
       this.confirmPassword();
     })
-  
+
+
+    this.httpClientService.confirmAccount().subscribe(data=>{
+      this.message = data;
+      console.log(this.message)
+      alert("calling confirm-account in spring")
+    })
 
   }
 
@@ -91,11 +97,11 @@ getzipcode(value){
     let agency = this.secondFormGroup.controls['agency'].value;
     let password = this.thirdFormGroup.controls['password'].value;
 
-    let employee = new Employee(email, name, contact, zipcode, city, state, country, agency, password);
+    let customer = new Customer(email, name, contact, zipcode, city, state, country, agency, password);
 
-    this.httpClientService.createEmployee(employee)
+    this.httpClientService.createCustomer(customer)
       .subscribe(data => {
-        alert("Employee created successfully.");
+        alert("Customer created successfully.");
       })
   }
 
