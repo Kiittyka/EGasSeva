@@ -1,96 +1,175 @@
-<app-header></app-header>
-<div id="pricing" class="cards-2">
+
+         
+<div class="bg">
+  
+  <div id="pricing" class="cards-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Business Services</h2>
+          <p class="p-heading p-large">E-gas seva will provide the users by with
+            all the service online. Customers can view all the services provided at all the
+            locations. It is highly befitting to provide services to customers.</p>
+        </div> <!-- end of col -->
+      </div> <!-- end of row -->
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Rate of LPG</div>
+              <hr class="cell-divide-hr">
+              <ul class="list-unstyled li-space-lg">
+                <li class="media">
+                  <div class="media-body"><fa name="angle-double-right"> </fa>The recent rate of LPG gas cylinder declared by the Indian government.
+                  </div>
+                </li>
+              </ul>
+              <button
+              class="btn btn-outline-info" (click)="basicModal1.show()" mdbWavesEffect>Read More</button>
+            </div>
+          </div> <!-- end of card -->
+
+          <!--Start of Modal -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Security aspects</div>
+              <hr class="cell-divide-hr">
+              <ul class="list-unstyled li-space-lg">
+                <li class="media">
+                  
+                  <div class="media-body"><fa name="angle-double-right"></fa>The Security aspects about Usability of LPG Gas can be known.
+                  </div>
+                </li>
+              </ul>
+              <button
+              class="btn btn-outline-info" (click)="basicModal2.show()" mdbWavesEffect>Read More</button>
+            </div>
+          </div> <!-- end of card -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">Procedure</div>
+              <hr class="cell-divide-hr">
+              <ul class="list-unstyled li-space-lg">
+                <li class="media">
+                  
+                  <div class="media-body"><fa name="angle-double-right"></fa>The procedures to be followed for getting a new LPG Gas Connection.
+                  </div>
+                </li>
+              </ul>
+              <button
+              class="btn btn-outline-info" (click)="basicModal3.show()" mdbWavesEffect>Read More</button>
+            </div>
+          </div> <!-- end of card -->
+        </div>
+      </div>
+
+
+      <div mdbModal #basicModal1="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-mm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal1.hide()">
+                <span aria-hidden="true">×</span>
+              </button>
+              <h4 class="modal-title w-100" id="myModalLabel">Recent rate of LPG</h4>
+            </div>
+            <div class="modal-body">
+                <img id="myImg" src="https://cdn.pixabay.com/photo/2016/11/25/15/13/teapots-1858601__340.jpg" alt="Snow" style="width:100%;max-width:300px">
+              <p>
+                  <fa name="mars"></fa>LPG Price in India is determined by the state-run oil companies and is revised on a monthly basis.
+                Almost all the household in India has a LPG connection and it is mainly used for cooking purpose. <br>
+                <fa name="mars"></fa>An
+                increase in LPG prices will affect the common man in general as they have to bear the brunt of the
+                rising fuel prices in the current market scenario. 
+                <br><fa name="mars"></fa>The best part of it is the government of India is
+                currently providing subsidy on the sale of domestic LPG cylinders to the consumers. The subsidy amount
+                is directly credited to the individuals bank account after the purchase of the cylinder.
+                <br><fa name="mars"></fa> The subsidy
+                amount varies every month and is dependent on the changes in the average international benchmark LPG
+                prices added with the foreign exchange rate.
+
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div mdbModal #basicModal2="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-mm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal2.hide()">
+                <span aria-hidden="true">×</span>
+              </button>
+              <h4 class="modal-title w-100" id="myModalLabel">Security aspects</h4>
+            </div>
+            <div class="modal-body">
+                <img id="myImg" src="https://www.istockphoto.com/pl/zdj%C4%99cie/van-having-lpg-cylinder-and-a-worker-distributing-a-cylinder-in-a-residental-area-gm1158582996-316531201" alt="Snow" style="width:100%;max-width:300px">
+              <p><fa name="mars"></fa>The regulations are framework in character. They lay down general requirements but rely for detailed
+                guidance upon codes of practice which may be approved from time to time by the Health and Safety
+                Authority. These regulations apply in addition to any other requirements under relevant statutory
+                provisions.<br><fa name="mars"></fa>
+            LPG must be stored in adequate location wherein vessels or cylinders are suitably positioned having
+                regard to the relevant codes of practice
+                LPG plant must be designed to appropriate standards and be properly installed and commissioned by
+                competent persons<br><fa name="mars"></fa>
+              Plant must be fitted with adequate safety and monitoring control devices and operated by competent
+                persons
+                Occupiers must notify the gas supplier of any structural or other changes which might affect the gas
+                installation
+                There must be a suitable programme of maintenance and testing by competent persons</p>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div mdbModal #basicModal3="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-mm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal3.hide()">
+                <span aria-hidden="true">×</span>
+              </button>
+              <h4 class="modal-title w-100" id="myModalLabel">Recent rate of LPG</h4>
+            </div>
+            <div class="modal-body">
+                <img id="myImg" src="https://t3.ftcdn.net/jpg/01/90/98/10/240_F_190981046_EG2shjDiwv73cWgkZ6nm19zL2STEAtnF.jpg" alt="Snow" style="width:100%;max-width:300px">
+              <p><fa name="mars"></fa>There are many ways you can book your Gas. Some of them are as follows:
+
+                You can visit the website and book your refill online using your login credentials.<br><fa name="mars"></fa>
+                If you are a new user,
+                  you will be asked to register. This is one of the online booking methods.
+                  You can send an SMS from your registered phone number to book your Gas. 
+                <br><fa name="mars"></fa>
+                To be able to book an Indane cylinder online, you should be a registered customer. If you are not
+                  registered, you can register online by providing details
+                </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Copyright -->
+<div class="copyright">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h2>Business Services</h2>
-        <p class="p-heading p-large">E-gas seva will provide the users by with
-          all the service online. Customers can view all the services provided at all the
-          locations. It is highly befitting to provide services to customers.</p>
+        <p class="p-small">Copyright © E Gas Sewa - Making LPG connection and services in a smooth way.</p>
       </div> <!-- end of col -->
-    </div> <!-- end of row -->
-    <div class="row">
-      <div class="col-lg-12">
-
-        <!-- Card-->
-        <div class="card">
-          <div class="card-body">
-            <div class="card-title">ADDITIONAL FEATURES</div>
-            <hr class="cell-divide-hr">
-            <ul class="list-unstyled li-space-lg">
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">A Guest User can see the recent Rate of LPG Gas
-                  Cylinder declared by Indian Government
-                </div>
-              </li>
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">A Guest User can see the Security aspects about Usability of
-                  LPG Gas.</div>
-              </li>
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">A Guest user can see the procedures to be followed for
-                  getting a new LPG Gas Connection.</div>
-              </li>
-
-            </ul>
-          </div>
-        </div> <!-- end of card -->
-        <!-- end of card -->
-
-        <!-- Card-->
-        <div class="card">
-          <div class="card-body">
-            <div class="card-title">USER INTERFACE</div>
-            <hr class="cell-divide-hr">
-            <ul class="list-unstyled li-space-lg">
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">Professional look and feel</div>
-              </li>
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">Browser testing and support for Internet Explorer, Netscape
-                  Navigator, Mozila, and Firefox.</div>
-              </li>
-
-            </ul>
-          </div>
-        </div> <!-- end of card -->
-        <!-- end of card -->
-
-        <!-- Card-->
-        <div class="card">
-          <div class="card-body">
-            <div class="card-title">FEATURES</div>
-            <hr class="cell-divide-hr">
-            <ul class="list-unstyled li-space-lg">
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">Online booking facility for LPG Gas</div>
-              </li>
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">Nearest LPG Gas center</div>
-              </li>
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">Transfer LPG connection from one location to another</div>
-              </li>
-              <li class="media">
-                <i class="fas fa-check"></i>
-                <div class="media-body">Search and request for accessories</div>
-              </li>
-            </ul>
-          </div>
-        </div> <!-- end of card -->
-        <!-- end of card -->
-
-      </div> <!-- end of col -->
-    </div> <!-- end of row -->
+    </div> <!-- enf of row -->
   </div> <!-- end of container -->
-</div> <!-- end of cards-2 -->
-
-<!-- end of pricing -->
+</div>

@@ -1,3 +1,5 @@
+
+
 /******************************/
 
 /*     01. General Styles     */
@@ -666,8 +668,11 @@ input[type='checkbox'] {
 .header {
     background-color: #fff;
     
+    
 }
-
+.header-content{
+  
+}
 .header .header-content {
 	padding-top: 8rem;
 	padding-bottom: 4rem;
