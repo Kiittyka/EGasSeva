@@ -1,0 +1,22 @@
+<h3>Cart</h3>
+
+<div *ngIf="total>0; else cartEmpty">
+  <div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency: 'INR' }}</span>
+    <span><input type="number" value="{{item.quantity}}" #quant></span>
+   <span> <input type="hidden" value="{{item.bufcartId}}" #prod>
+    <!--<button class="btn btn-danger" (click)="removeItemFromCart(item)">Remove</button> -->
+    <button class="btn btn-info btn-sm" (click)="update(prod,quant)">Update</button> 
+  </div>
+  <br/>
+  <div >
+
+    <span><strong>Total : </strong>{{total | currency: 'INR'}}</span>
+  </div>
+</div>
+<ng-template #cartEmpty>
+  Cart is Empty
+</ng-template>
+<br/>
+<span> <button (click)="onBack()" class="btn btn-primary">Continue Shopping</button></span>

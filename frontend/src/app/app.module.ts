@@ -1,3 +1,4 @@
+
 import { LoginComponent } from './login/login.component';
 import { ChatModule } from './chat/chat-dialog/chat.module';
 import { DemoMaterialModule } from './material-module';
@@ -15,9 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { TopBarComponent } from './customer/top-bar/top-bar.component';
+import { CartComponent } from './customer/cart/cart.component';
 import { LogoutComponent } from './logout/logout.component';
-
+import { ProductListComponent} from './customer/product-list/product-list.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { AdminComponent } from './admin/admin.component';
@@ -48,7 +50,11 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     StepperErrorsExampleComponent,
     HomePageComponent,
     HomePageServicesComponent,
-    HomePageSignupComponent
+    HomePageSignupComponent,
+    ProductListComponent,
+    TopBarComponent,
+    CartComponent
+
    
   ],
   imports: [
