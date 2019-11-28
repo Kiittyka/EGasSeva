@@ -22,7 +22,7 @@ const routes: Routes = [
 
   { path: 'admin', component: AdminComponent, canActivate: [AuthGaurdService] },
   {
-    path: '', component: CustomerComponent,
+    path: 'customer', component: CustomerComponent,
     children: [
       { path: 'newconnection', component: NewConnectionComponent },
       { path: 'gasBooking', component: OnlineBookingComponent },
@@ -35,7 +35,7 @@ const routes: Routes = [
  
  
   { path: 'registrationStepper', component: StepperErrorsExampleComponent },
-  { path: 'qwe', component: HomePageComponent },
+  { path: '', component: HomePageComponent },
   { path: 'home-page-header', component: HeaderComponent },
   { path: 'Home', component: HomePageComponent },
   { path: 'Services', component: HomePageServicesComponent },

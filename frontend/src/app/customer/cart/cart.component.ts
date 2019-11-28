@@ -45,14 +45,7 @@ export class CartComponent implements OnInit {
   // }
 
   /* Updating the cart when qunatity is give */
-  update(id, quantity) {
-    this.api.updateCart(this.auth, id.value, quantity.value).subscribe(res => {
-      this.cartlist = res.oblist;
-      this.cartlist.forEach(value => {
-        this.totalSum = this.totalSum + (value.quantity * value.price);
-      });
-    });
-  }
+ 
 
   
   removeItemFromCart(user: Cart): void {
