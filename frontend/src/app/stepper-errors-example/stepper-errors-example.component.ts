@@ -34,7 +34,7 @@ export class StepperErrorsExampleComponent implements OnInit {
     this.firstFormGroup = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl('', [Validators.required]),
-      contact: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)])
+      contact: new FormControl('', [Validators.required, Validators.min(9000000001), Validators.max(9999999999)])
     });
     this.secondFormGroup = new FormGroup({
       zipcode: new FormControl('', [Validators.required]),

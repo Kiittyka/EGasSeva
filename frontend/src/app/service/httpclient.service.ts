@@ -52,7 +52,7 @@ export class HttpClientService {
 
   getzipcode(value) {
     console.log(value)
-    return this.httpClient.get<Zipcode>("http://localhost:3001/zipcode" + "/" + value);
+    return this.httpClient.get<Zipcode>("http://signinsignup-env-1.ak3v647yrs.us-east-2.elasticbeanstalk.com/zipcode" + "/" + value);
   }
 
 

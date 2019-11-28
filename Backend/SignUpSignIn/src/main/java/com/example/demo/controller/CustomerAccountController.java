@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators.Zip;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,11 +19,12 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
+@CrossOrigin("http://localhost:4200")
 public class CustomerAccountController {
 
 	@Autowired
 	private CustomerService customerService;
-	
+
 	@Autowired
 	private ZipcodeService zipcodeService;
 
@@ -36,7 +37,7 @@ public class CustomerAccountController {
 
 	@GetMapping("/zipcode/{zip}")
 	public Optional<Zipcode> getZipcode(@PathVariable String zip) {
-		System.out.println("zip"+zip);
+		System.out.println("zip" + zip);
 		return zipcodeService.findByZipcode(zip);
 
 	}

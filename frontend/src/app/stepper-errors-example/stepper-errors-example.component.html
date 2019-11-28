@@ -18,10 +18,10 @@
       </mat-form-field>
       <br>
 
-      <mat-form-field> <input matInput type="text" placeholder="Contact" class="form-control" formControlName="contact"
+      <mat-form-field> <input matInput type="number" placeholder="Contact" class="form-control" formControlName="contact"
           required>
-        <mat-error *ngIf="hasError1('contact', 'maxlength')">10 digits required</mat-error>
-        <mat-error *ngIf="hasError1('contact', 'minlength')">10 digits required</mat-error>
+        <mat-error *ngIf="hasError1('contact', 'max')">10 digits required</mat-error>
+        <mat-error *ngIf="hasError1('contact', 'min')">10 digits required</mat-error>
       </mat-form-field>
 
       <div>
