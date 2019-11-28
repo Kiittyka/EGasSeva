@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Registration } from '../home-page-signup/registration.model';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+import { Product } from '../customer/product-list/product.model';
+import { retry, catchError } from 'rxjs/operators';
+import { Cart } from '../customer/cart/cart.model';
 
 export class Customer {
   
@@ -63,13 +67,13 @@ export class HttpClientService {
     return this.httpClient.post<Customer>("http://localhost:3001/customers", customer);
   }
 
-
   public registerUser(user: Registration) {
-    return this.httpClient.post<Registration[]>(this.url, user, this.httpOptions)
-      
-   
-
+    return this.httpClient.post<Registration[]>(  this.url , user, this.httpOptions)
   }
+
+  // public registerUser(user: Registration) {
+  //   return this.httpClient.post<Registration[]>("Emailservice-env-1.mqgpb9pxan.us-east-2.elasticbeanstalk.com/api/register", user, this.httpOptions)
+  // }
 
   getHeaders() {
     let username = 'admin'
@@ -82,10 +86,57 @@ export class HttpClientService {
   /* Email Confirmation */
 
   public confirmAccount(){
-    
     return this.httpClient.get<[]>("http://localhost:3000/api/confirm-account"+"?token="+this.token).subscribe(data=>{
       this.message = data;
       console.log("string is :"+this.message )
     })
   }
+
+  /* Product List */ 
+  // public getAll(): Observable<Product[]> {
+  //   return this.httpClient.get<Product[]>("http://localhost:3002/api/list");
+  // }
+
+  public getAll(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>("http://localhost:3002/api/list");
+  }
+
+  /* Loading Items from Cart */
+  public getItems(): Observable<Cart[]> {
+    return this.httpClient.get<Cart[]>("http://localhost:3002/api/GoToCart");
+  }
+
+  /** Adding to Cart */
+  public addToCart(product: Product){
+    console.log(product);
+    return this.httpClient.post<Product>("http://localhost:3002/api/cart", product, this.httpOptions)
+    .subscribe(
+      success => console.log("Done"),
+      error => alert(error)
+    );
+  }
+
+  /** Deleting Items From Cart */
+  public deleteItem(item){
+    return this.httpClient.delete<Product>('http://localhost:3002/api' + '/' + item.id, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  /** Handeling Error */
+  handleError(error) {
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+ }
+
 }

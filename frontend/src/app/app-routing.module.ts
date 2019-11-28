@@ -1,3 +1,5 @@
+import { CartComponent } from './customer/cart/cart.component';
+import { ProductListComponent } from './customer/product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { StepperErrorsExampleComponent } from './stepper-errors-example/stepper-errors-example.component';
 import { QueryFromComponent } from './customer/query-from/query-from.component';
@@ -20,16 +22,20 @@ const routes: Routes = [
 
   { path: 'admin', component: AdminComponent, canActivate: [AuthGaurdService] },
   {
-    path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService],
+    path: '', component: CustomerComponent,
     children: [
       { path: 'newconnection', component: NewConnectionComponent },
       { path: 'gasBooking', component: OnlineBookingComponent },
-      { path: 'query', component: QueryFromComponent }
-     
+      { path: 'query', component: QueryFromComponent },
+      { path: 'accessories', component: ProductListComponent},
+      { path: 'cart', component: CartComponent}
     ]
   },
+  // {path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService]},
+ 
+ 
   { path: 'registrationStepper', component: StepperErrorsExampleComponent },
-  { path: '', component: HomePageComponent },
+  { path: 'qwe', component: HomePageComponent },
   { path: 'home-page-header', component: HeaderComponent },
   { path: 'Home', component: HomePageComponent },
   { path: 'Services', component: HomePageServicesComponent },
