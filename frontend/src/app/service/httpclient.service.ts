@@ -49,18 +49,10 @@ export class HttpClientService {
   }
 
  
-
-
-
-
-
   getzipcode(value) {
     console.log(value)
     return this.httpClient.get<Zipcode>("http://signinsignup-env-1.ak3v647yrs.us-east-2.elasticbeanstalk.com/zipcode" + "/" + value);
   }
-
-
-
 
   public createCustomer(customer) {
     console.log(customer);
@@ -116,27 +108,37 @@ export class HttpClientService {
     );
   }
 
-  /** Deleting Items From Cart */
-  public deleteItem(item){
-    return this.httpClient.delete<Product>('http://localhost:3002/api' + '/' + item.id, this.httpOptions)
-    .pipe(
-      retry(1),
-      catchError(this.handleError)
-    )
+  public updateCart(prodid: number, quant: number): Observable<any>{
+    console.log("cartService ="+ prodid, quant)
+    return this.httpClient.get<any>("http://localhost:3002/api/updateCart?id="+prodid+"&quantity="+quant)
   }
 
+ public  delCart(id: number){
+    console.log("del id in cartService"+id)
+    return this.httpClient.get<any>("http://localhost:3002/api/delCart?id=" + id)
+  }
+
+  /** Deleting Items From Cart */
+  // public deleteItem(item){
+  //   return this.httpClient.delete<Product>('http://localhost:3002/api' + '/' + item.id, this.httpOptions)
+  //   .pipe(
+  //     retry(1),
+  //     catchError(this.handleError)
+  //   )
+  // }
+
   /** Handeling Error */
-  handleError(error) {
-    let errorMessage = '';
-    if(error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    window.alert(errorMessage);
-    return throwError(errorMessage);
- }
+//   handleError(error) {
+//     let errorMessage = '';
+//     if(error.error instanceof ErrorEvent) {
+//       // Get client-side error
+//       errorMessage = error.error.message;
+//     } else {
+//       // Get server-side error
+//       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+//     }
+//     window.alert(errorMessage);
+//     return throwError(errorMessage);
+//  }
 
 }
