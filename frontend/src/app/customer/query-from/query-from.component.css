@@ -22,3 +22,15 @@ textarea{
     background-color: lightblue;
     margin-top: 20px;
   }
+
+  
+.bg {
+    /* The image used */
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/dot-grid.png");
+    /* Full height */
+    height: 100%;
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat;
+  }

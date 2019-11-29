@@ -714,6 +714,7 @@ input[type='checkbox'] {
   padding: 2.5rem 2.75rem 1.875rem 2.5rem;
 }
 
+
 .cards-2 .card .card-title {
   margin-bottom: 0.625rem;
   color: #393939;
@@ -1118,11 +1119,7 @@ input[type='checkbox'] {
 }
 
 .fa-gas-pump:before {
-  content: "\f52f"; }
-  
-.dark-modal .modal-content {
-  background-color: #292b2c;
-  color: white;
+  content: "\f52f";
 }
 
 .dark-modal .close {
@@ -1130,21 +1127,100 @@ input[type='checkbox'] {
 }
 
 .light-blue-backdrop {
-  background-color: #5cb3fd;
+  background-color: #d3d8dd;
 }
 
-.modal-body{
+#modal-text {
   text-align: justify;
+  font-size: 16px;
+  color: black;
+  text-shadow: black;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
 }
 
-#myModalLabel{
-  text-align:justify;
+#myModalLabel {
+  text-align: justify;
+  align-content: center;
 }
 
-#myImg {
-  border-radius: 5px;
+#myImg1 {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform .2s;
+  /* Animation */
+  width: 470px;
+  height: 250px;
+}
+
+#myImg2 {
+  margin-bottom: 10px;
   cursor: pointer;
   transition: 0.3s;
+  width: 475px;
+  height: 320px;
 }
 
-#myImg:hover {opacity: 0.7;}
+#myImg3 {
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 470px;
+  height: 250px;
+  border: black;
+  border-style: hidden;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+.modal-body:hover {
+  transition: 0.4s;
+}
+
+#myImg1:hover {
+  transform: scale(1.2);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+#myImg2:hover {
+  transform: scale(1.2);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+#myImg3:hover {
+  transform: scale(1.2);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.card:hover{
+  transform: scale(1.1);
+  box-shadow:1px 1px 1px 1px;
+}
+
+.media-body {
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  text-shadow: black;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.heading {
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  text-shadow: black;
+  padding-bottom: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 30px;
+}
+
+.modal-title{
+  font-weight:400;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  align-content: center;
+  font-size:20px;
+}
+
