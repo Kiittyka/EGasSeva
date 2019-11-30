@@ -9,9 +9,10 @@ import { Observable, throwError } from 'rxjs';
 import { Product } from '../customer/product-list/product.model';
 import { retry, catchError } from 'rxjs/operators';
 import { Cart } from '../customer/cart/cart.model';
+import { Login } from '../login/login.model';
 
 export class Customer {
-  
+
   constructor(
     public name: string,
     public email: string,
@@ -32,7 +33,7 @@ export class Customer {
 export class HttpClientService {
   message = [];
   private url: string;
-  private token : string;
+  private token: string;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -43,12 +44,12 @@ export class HttpClientService {
 
     this.route.queryParams.subscribe(params => {
       this.token = params['token'];
-     
-  });
+
+    });
     // console.log("token"+this.token)
   }
 
- 
+
   getzipcode(value) {
     console.log(value)
     return this.httpClient.get<Zipcode>("http://signinsignup-env-1.ak3v647yrs.us-east-2.elasticbeanstalk.com/zipcode" + "/" + value);
@@ -60,12 +61,12 @@ export class HttpClientService {
   }
 
   public registerUser(user: Registration) {
-    return this.httpClient.post<Registration[]>(  this.url , user, this.httpOptions)
+    return this.httpClient.post<Registration[]>(this.url, user, this.httpOptions)
   }
 
-  // public registerUser(user: Registration) {
-  //   return this.httpClient.post<Registration[]>("Emailservice-env-1.mqgpb9pxan.us-east-2.elasticbeanstalk.com/api/register", user, this.httpOptions)
-  // }
+  public loginUser(user: Login) {
+    return this.httpClient.post<Login>("http://localhost:5001/login", user, this.httpOptions)
+  }
 
   getHeaders() {
     let username = 'admin'
@@ -77,17 +78,12 @@ export class HttpClientService {
 
   /* Email Confirmation */
 
-  public confirmAccount(){
-    return this.httpClient.get<[]>("http://localhost:3000/api/confirm-account"+"?token="+this.token).subscribe(data=>{
+  public confirmAccount() {
+    return this.httpClient.get<[]>("http://localhost:3000/api/confirm-account" + "?token=" + this.token).subscribe(data => {
       this.message = data;
-      console.log("string is :"+this.message )
+      console.log("string is :" + this.message)
     })
   }
-
-  /* Product List */ 
-  // public getAll(): Observable<Product[]> {
-  //   return this.httpClient.get<Product[]>("http://localhost:3002/api/list");
-  // }
 
   public getAll(): Observable<Product[]> {
     return this.httpClient.get<Product[]>("http://localhost:3002/api/list");
@@ -99,22 +95,22 @@ export class HttpClientService {
   }
 
   /** Adding to Cart */
-  public addToCart(product: Product){
+  public addToCart(product: Product) {
     console.log(product);
     return this.httpClient.post<Product>("http://localhost:3002/api/cart", product, this.httpOptions)
-    .subscribe(
-      success => console.log("Done"),
-      error => alert(error)
-    );
+      .subscribe(
+        success => console.log("Done"),
+        error => alert(error)
+      );
   }
 
-  public updateCart(prodid: number, quant: number): Observable<any>{
-    console.log("cartService ="+ prodid, quant)
-    return this.httpClient.get<any>("http://localhost:3002/api/updateCart?id="+prodid+"&quantity="+quant)
+  public updateCart(prodid: number, quant: number): Observable<any> {
+    console.log("cartService =" + prodid, quant)
+    return this.httpClient.get<any>("http://localhost:3002/api/updateCart?id=" + prodid + "&quantity=" + quant)
   }
 
- public  delCart(id: number){
-    console.log("del id in cartService"+id)
+  public delCart(id: number) {
+    console.log("del id in cartService" + id)
     return this.httpClient.get<any>("http://localhost:3002/api/delCart?id=" + id)
   }
 
@@ -128,17 +124,17 @@ export class HttpClientService {
   // }
 
   /** Handeling Error */
-//   handleError(error) {
-//     let errorMessage = '';
-//     if(error.error instanceof ErrorEvent) {
-//       // Get client-side error
-//       errorMessage = error.error.message;
-//     } else {
-//       // Get server-side error
-//       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-//     }
-//     window.alert(errorMessage);
-//     return throwError(errorMessage);
-//  }
+  //   handleError(error) {
+  //     let errorMessage = '';
+  //     if(error.error instanceof ErrorEvent) {
+  //       // Get client-side error
+  //       errorMessage = error.error.message;
+  //     } else {
+  //       // Get server-side error
+  //       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  //     }
+  //     window.alert(errorMessage);
+  //     return throwError(errorMessage);
+  //  }
 
 }

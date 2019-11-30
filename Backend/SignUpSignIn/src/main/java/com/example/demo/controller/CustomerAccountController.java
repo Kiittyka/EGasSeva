@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Customer;
+import com.example.demo.model.Login;
 import com.example.demo.model.Zipcode;
+import com.example.demo.repository.CustomerRepository;
 import com.example.demo.service.CustomerService;
 import com.example.demo.service.ZipcodeService;
 
@@ -39,6 +41,14 @@ public class CustomerAccountController {
 	public Optional<Zipcode> getZipcode(@PathVariable String zip) {
 		System.out.println("zip" + zip);
 		return zipcodeService.findByZipcode(zip);
-
+	}
+	@PostMapping("/login")
+	public boolean verifyLogin(@RequestBody Login user) {
+		if(customerService.verifyUser(user) == true) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }

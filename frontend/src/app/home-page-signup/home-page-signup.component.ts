@@ -14,9 +14,6 @@ export class HomePageSignupComponent implements OnInit {
   constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
   }
 
-  
-  
-
   ngOnInit() {
   }
   register(): void {

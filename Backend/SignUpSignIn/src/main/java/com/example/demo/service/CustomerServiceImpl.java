@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.demo.model.Customer;
+import com.example.demo.model.Login;
 import com.example.demo.repository.CustomerRepository;
 
 import lombok.AllArgsConstructor;
@@ -27,8 +28,25 @@ public class CustomerServiceImpl implements CustomerService {
 		customerRepository.save(new Customer(customer.getEmail(), customer.getName(), customer.getContact(),
 				customer.getZipcode(), customer.getCity(), customer.getState(), customer.getCountry(),
 				customer.getAgency(), hashedPassword));
-
 		//customerRepository.save(customer);
 	}
+
+	@Override
+	public boolean verifyUser(Login user) {
+		// TODO Auto-generated method stub
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		Customer tempCustomer = customerRepository.findByEmail(user.getEmail());
+		if(tempCustomer != null) {
+			if(passwordEncoder.matches(user.getPassword(), tempCustomer.getPassword())) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}	
+}
 
 }

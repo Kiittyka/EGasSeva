@@ -189,6 +189,10 @@ a.white {
 	margin-bottom: 1.25rem;
 }
 
+.error {
+  color: red;
+  font-size: 14px;
+}
 .form-group.has-error.has-danger {
 	margin-bottom: 0.625rem;
 }
