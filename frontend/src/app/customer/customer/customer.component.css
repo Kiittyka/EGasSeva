@@ -92,3 +92,35 @@ aside div{
 aside div:hover{
     background-color:#F6917D;
 }
+button{
+   margin-top:611px;
+    
+   float:right;
+}
+h1{
+    font-weight: bold;
+    font-size:20px;
+    text-align: center;
+    padding-top:6px;
+    background-color: beige;
+}
+.modal-title {
+    background-color: rgb(19, 128, 179);
+    padding:10px;
+    color: #fff;
+    border-top-left-radius: .6rem;
+    border-top-right-radius: .6rem;
+    
+}
+.modal-content{
+    border-radius: .8rem;
+}
+.hi{
+    color:white;
+    font:bold;
+}
+.modal-body{
+    border-radius: .8rem;
+}
+
+
