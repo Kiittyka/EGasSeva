@@ -15,13 +15,13 @@ export class OnlineBookingComponent implements OnInit {
   
     gasbooking=this.fb.group({
       fullName:[{value:'', disabled:true},Validators.required],
-      Email: [{value:'', disabled:true},Validators.required],
-      contact: new FormControl(''),
+      email: [{value:'', disabled:true},Validators.required],
+      contact: [{value:'', disabled:true},Validators.required],
       gasAgency: [{value:'', disabled:true},Validators.required],
       
-      adhaarno: [{value:'', disabled:true},Validators.required],
+      adhaarno: ['',Validators.required],
     
-        street: [{value:'', disabled:true},Validators.required],             
+        country: [{value:'', disabled:true},Validators.required],             
         city: [{value:'', disabled:true},Validators.required],
         state: [{value:'', disabled:true},Validators.required],
         zip: [{value:'', disabled:true},Validators.required]
