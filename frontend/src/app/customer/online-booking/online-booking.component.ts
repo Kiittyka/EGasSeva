@@ -1,35 +1,71 @@
 import { Component, OnInit } from '@angular/core';
-7731875629
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClientService, Customer } from 'src/app/service/httpclient.service';
+import { OnlineBooking } from './online-booking.model';
 @Component({
   selector: 'app-online-booking',
   templateUrl: './online-booking.component.html',
   styleUrls: ['./online-booking.component.css']
 })
-export class OnlineBookingComponent  {
-  constructor(private fb: FormBuilder) { }
+export class OnlineBookingComponent implements OnInit {
+  constructor( private httpClientService: HttpClientService,private fb: FormBuilder) { }
+  cust: Customer = new Customer("", "", "", 0,"","","","","");
+
   
   
     gasbooking=this.fb.group({
-      fullName:['',Validators.required],
-      Email: ['',Validators.required],
-      Dob:new FormControl(''),
-      CustomerContactNo: new FormControl(''),
-      GasAgency: ['',Validators.required],
+      fullName:[{value:'', disabled:true},Validators.required],
+      Email: [{value:'', disabled:true},Validators.required],
+      contact: new FormControl(''),
+      gasAgency: [{value:'', disabled:true},Validators.required],
       
-      Adhaarno: ['',Validators.required],
-      CustomerAddress: this.fb.group({
-        street: [''],             
-        city: [''],
-        state: [''],
-        zip: ['']
-      })
-    })
-    ngOnInit(){
-
-    }
+      adhaarno: [{value:'', disabled:true},Validators.required],
     
+        street: [{value:'', disabled:true},Validators.required],             
+        city: [{value:'', disabled:true},Validators.required],
+        state: [{value:'', disabled:true},Validators.required],
+        zip: [{value:'', disabled:true},Validators.required]
+      
+    })
+    ngOnInit() {
+      var email="diana@gmail.com";
+      this.httpClientService.getCustomerData(email)
+        .subscribe(data => {
+          this.cust=data;
+        })
+  
+    }
+    sendSms() {
+  
+  
+  
+  
+      let name = this.gasbooking.controls['fullName'].value;
+  
+      let email = this.gasbooking.controls['email'].value;
+      let contact = this.gasbooking.controls['contact'].value;
+      let agency = this.gasbooking.controls['gasAgency'].value;
+  
+      let adhaar = this.gasbooking.controls['adhaarNo'].value;
+      let country = this.gasbooking.controls['country'].value;
+      let state = this.gasbooking.controls['state'].value;
+      let city = this.gasbooking.controls['city'].value;
+      let zip = this.gasbooking.controls['zip'].value;
+  
+      let onlineBooking = new OnlineBooking(email, name, contact, agency,adhaar, country,state,city, zip);
+      console.log(onlineBooking);
+      this.httpClientService.sendSms(onlineBooking)
+        .subscribe(data => {
+          alert("Booked successfully.");
+        })
+    }
+  
   }
+  
+  
+  
+  
+  
 
 
 

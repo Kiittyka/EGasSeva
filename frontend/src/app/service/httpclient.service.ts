@@ -10,6 +10,7 @@ import { Product } from '../customer/product-list/product.model';
 import { retry, catchError } from 'rxjs/operators';
 import { Cart } from '../customer/cart/cart.model';
 import { Login } from '../login/login.model';
+import { Phone } from '../customer/online-booking/phone.model';
 
 export class Customer {
 
@@ -137,4 +138,22 @@ export class HttpClientService {
   //     return throwError(errorMessage);
   //  }
 
+
+
+   
+getCustomerData(email){
+  return this.httpClient.get<Customer>("http://localhost:8083/getCustomerData"+"/"+email);
+}
+
+  sendSms(onlineBooking) {
+    let message = "Registration successful";
+    var num = onlineBooking.contact;
+
+    var phoneNumber = num;
+    let number = new Phone(phoneNumber, message);
+    console.log(number);
+    //return this.httpClient.post("http://localhost:8081/api/v1/sms", number);
+    console.log(onlineBooking);
+    return this.httpClient.post("http://localhost:8083/onlineBookings",onlineBooking);
+  }
 }
