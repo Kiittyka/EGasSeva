@@ -28,7 +28,7 @@ export class OnlineBookingComponent implements OnInit {
       
     })
     ngOnInit() {
-      var email="diana@gmail.com";
+      var email="dianadsz@gmail.com";
       this.httpClientService.getCustomerData(email)
         .subscribe(data => {
           this.cust=data;

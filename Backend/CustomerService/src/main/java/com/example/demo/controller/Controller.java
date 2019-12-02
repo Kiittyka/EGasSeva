@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Customer;
-import com.example.demo.model.OnlineBooking;
+import com.example.demo.entity.Customer;
+import com.example.demo.entity.OnlineBooking;
 import com.example.demo.service.OnlineBookingService;
 
 @RestController
@@ -29,4 +29,5 @@ public class Controller {
 		return onlineBookingService.getCustomerData(email);
 		
 	}
+	
 }

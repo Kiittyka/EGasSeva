@@ -1,6 +1,4 @@
-package com.example.demo.model;
-
-import java.util.UUID;
+package com.example.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
