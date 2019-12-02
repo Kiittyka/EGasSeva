@@ -140,10 +140,10 @@ export class HttpClientService {
 
 
 
-   
-getCustomerData(email){
-  return this.httpClient.get<Customer>("http://localhost:8083/getCustomerData"+"/"+email);
-}
+
+  getCustomerData(email) {
+    return this.httpClient.get<Customer>("http://localhost:1234/getCustomerData" + "/" + email);
+  }
 
   sendSms(onlineBooking) {
     let message = "Registration successful";
@@ -154,6 +154,11 @@ getCustomerData(email){
     console.log(number);
     //return this.httpClient.post("http://localhost:8081/api/v1/sms", number);
     console.log(onlineBooking);
-    return this.httpClient.post("http://localhost:8083/onlineBookings",onlineBooking);
+    return this.httpClient.post("http://localhost:1234/onlineBookings", onlineBooking);
   }
+
+  transferConnection(transferConnection){
+    return this.httpClient.post("http://localhost:1234/transferLocation",transferConnection);
+  }
+
 }

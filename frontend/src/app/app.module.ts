@@ -1,3 +1,4 @@
+import { TransferComponent } from './customer/transfer/transfer.component';
 
 import { LoginComponent } from './login/login.component';
 import { ChatModule } from './chat/chat-dialog/chat.module';
@@ -53,7 +54,8 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     HomePageSignupComponent,
     ProductListComponent,
     TopBarComponent,
-    CartComponent
+    CartComponent,
+    TransferComponent
 
    
   ],

@@ -2,7 +2,8 @@
 
 
 
-
+<br/>
+<br/>
 <body>
   <!--left  bar-->
   <aside id="leftNav">
@@ -19,7 +20,7 @@
       </div>
       <div>
         <li>
-          <fa name="line-chart"></fa><a routerLink="newconnection"> New Connection</a>
+          <fa name="line-chart"></fa><a routerLink="transferConnection"> Transfer Connection</a>
         </li>
       </div>
       <div>
@@ -34,7 +35,9 @@
 
     </ul>
   </aside>
-
+  <main>
+    <router-outlet></router-outlet>
+  
   <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
     mdbWavesEffect>CHATBOT</button>
   <div class="container">
@@ -60,7 +63,5 @@
       </div>
     </div>
   </div>
-  <main>
-    <router-outlet></router-outlet>
-  </main>
+</main>
 </body>

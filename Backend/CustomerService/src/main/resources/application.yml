@@ -5,4 +5,4 @@ spring:
     url: jdbc:mysql://database-1.cskxmd3bbixc.us-east-2.rds.amazonaws.com/project?useSSL=false&serverTimezone=UTC
     username: root
     password: pass$1234
-  jpa:    hibernate:      ddl-auto: create
+  

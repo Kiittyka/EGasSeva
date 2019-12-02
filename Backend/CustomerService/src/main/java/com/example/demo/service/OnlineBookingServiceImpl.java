@@ -30,8 +30,6 @@ public class OnlineBookingServiceImpl implements OnlineBookingService {
 	@Override
 	public Customer getCustomerData(String email) {
 		Customer cust=entityManager.find(Customer.class, email);
-		
-			
 		return cust ;
 	}
 }

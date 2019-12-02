@@ -39,7 +39,7 @@
          <!--Adhaar Number-->
          <div class="form-group">
             <label for="adhaar">Adhaar no: </label>
-            <input [class.is-invalid]="gasbooking.get('Adhaarno').invalid && gasbooking.get('Adhaarno').touched  " type="number" class="form-control" id="adhaar" name ="adhaar"formControlName="Adhaarno" >
+            <input [class.is-invalid]="gasbooking.get('Adhaarno').invalid && gasbooking.get('Adhaarno').touched  " type="number" class="form-control" id="adhaar" name ="adhaar"formControlName="adhaarNo" >
             <small [class.d-none]="gasbooking.get('Adhaarno').valid ||
             gasbooking.get('Adhaarno').untouched " class="text-danger">Adhaar number is required.</small>
         </div>
