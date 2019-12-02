@@ -13,7 +13,11 @@ import { Cart } from '../customer/cart/cart.model';
 import { Phone } from '../customer/online-booking/phone.model';
 =======
 import { Login } from '../login/login.model';
+<<<<<<< HEAD
 >>>>>>> db34b3fe1d74618ed9c88b0e98363c0618d71ad7
+=======
+import { Phone } from '../customer/online-booking/phone.model';
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
 
 export class Customer {
 
@@ -145,7 +149,13 @@ export class HttpClientService {
   //     return throwError(errorMessage);
   //  }
 
+<<<<<<< HEAD
   
+=======
+
+
+   
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
 getCustomerData(email){
   return this.httpClient.get<Customer>("http://localhost:8083/getCustomerData"+"/"+email);
 }
@@ -161,5 +171,8 @@ getCustomerData(email){
     console.log(onlineBooking);
     return this.httpClient.post("http://localhost:8083/onlineBookings",onlineBooking);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
 }

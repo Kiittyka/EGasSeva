@@ -3,6 +3,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <div class="container">
+<<<<<<< HEAD
     <br/>
     <h1>Online-Booking </h1>
     <form [formGroup]="gasbooking" (ngSubmit)="sendSms()">
@@ -12,13 +13,28 @@
         </div>
 
 
+=======
+<br>
+        <h1>Online-Booking </h1>
+    <form [formGroup]=" gasbooking" (ngSubmit)="sendSms() " >
+        <!-- Full Name -->
+        <div class="form-group">
+            <label for="name">Full Name    : </label>
+            <input class="form-control" [(ngModel)]="cust.name" formControlName="fullName" required>
+        </div>
+
+       
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
 
         <!-- Customer EmailId-->
         <div>
             <label for="email">Email : </label>
             <input class="form-control" [(ngModel)]="cust.email" formControlName="email" required>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
 
 
         <!-- Gas Agency -->
@@ -58,8 +74,13 @@
                 <label>
                     Country:
                     <input type="text" class="form-control" [(ngModel)]="cust.country" formControlName="country"
+<<<<<<< HEAD
                         name="country">
                 </label>
+=======
+                    name="country">
+                                </label>
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
                 <!-- </div>
         
                     <div class="form-group"> -->
@@ -73,16 +94,24 @@
                 <label>
                     State:
                     <input type="text" class="form-control" [(ngModel)]="cust.state" formControlName="state"
+<<<<<<< HEAD
                         name="state">
                 </label>
+=======
+                    name="state">                </label>
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
                 <!-- </div>
         
                     <div class="form-group"> -->
                 <label>
                     Zip Code:
                     <input type="number" class="form-control" [(ngModel)]="cust.zipcode" formControlName="zip"
+<<<<<<< HEAD
                         name="zip">
                 </label>
+=======
+                    name="zip">                </label>
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
 
             </div>
 
