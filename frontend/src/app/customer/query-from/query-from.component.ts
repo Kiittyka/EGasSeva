@@ -31,4 +31,8 @@ export class QueryFromComponent implements OnInit {
       x.style.display = "none";
     }
   }
+  toggle(){
+    document.getElementById("txtarea").style.display="block";
+  }
+  
 }

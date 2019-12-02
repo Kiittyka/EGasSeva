@@ -26,14 +26,14 @@ const routes: Routes = [
     children: [
       { path: 'newconnection', component: NewConnectionComponent },
       { path: 'gasBooking', component: OnlineBookingComponent },
-      { path: 'query', component: QueryFromComponent },
+      
       { path: 'accessories', component: ProductListComponent},
       { path: 'cart', component: CartComponent}
     ]
   },
   // {path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService]},
  
- 
+  { path: 'query', component: QueryFromComponent },
   { path: 'registrationStepper', component: StepperErrorsExampleComponent },
   { path: '', component: HomePageComponent },
   { path: 'home-page-header', component: HeaderComponent },

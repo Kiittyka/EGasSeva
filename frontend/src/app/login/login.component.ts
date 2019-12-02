@@ -1,6 +1,10 @@
+import { HttpClientService } from './../service/httpclient.service';
+import { HttpClient } from '@angular/common/http';
+import { Login } from './login.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,23 +13,26 @@ import { AuthenticationService } from '../service/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  username = ''
-  password = ''
-  invalidLogin = false
+  message;
+  user: Login = new Login("", "")
 
-  constructor(private router: Router,
-    private loginservice: AuthenticationService) { }
+  constructor(private fb: FormBuilder, private httpClientService: HttpClientService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)
-    ) {
-      this.router.navigate(['customer'])
-      this.invalidLogin = false
-    } else
-      this.invalidLogin = true
+  login(): void {
+    console.log(this.user);
+    this.httpClientService.loginUser(this.user)
+      .subscribe(data => {
+        this.message = data;
+        console.log(data)
+        if(data) {
+          this.router.navigate(['/', 'customer'])
+        }
+        else {
+          this.message = "Invalid email/password!"
+        }
+      });
   }
-
 }
