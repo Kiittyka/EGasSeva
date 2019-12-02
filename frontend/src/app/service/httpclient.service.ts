@@ -9,8 +9,15 @@ import { Observable, throwError } from 'rxjs';
 import { Product } from '../customer/product-list/product.model';
 import { retry, catchError } from 'rxjs/operators';
 import { Cart } from '../customer/cart/cart.model';
-import { Login } from '../login/login.model';
+<<<<<<< HEAD
 import { Phone } from '../customer/online-booking/phone.model';
+=======
+import { Login } from '../login/login.model';
+<<<<<<< HEAD
+>>>>>>> db34b3fe1d74618ed9c88b0e98363c0618d71ad7
+=======
+import { Phone } from '../customer/online-booking/phone.model';
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
 
 export class Customer {
 
@@ -50,7 +57,11 @@ export class HttpClientService {
     // console.log("token"+this.token)
   }
 
+<<<<<<< HEAD
+ 
+=======
 
+>>>>>>> db34b3fe1d74618ed9c88b0e98363c0618d71ad7
   getzipcode(value) {
     console.log(value)
     return this.httpClient.get<Zipcode>("http://signinsignup-env-1.ak3v647yrs.us-east-2.elasticbeanstalk.com/zipcode" + "/" + value);
@@ -138,12 +149,23 @@ export class HttpClientService {
   //     return throwError(errorMessage);
   //  }
 
+<<<<<<< HEAD
+  
+=======
 
 
+<<<<<<< HEAD
 
   getCustomerData(email) {
     return this.httpClient.get<Customer>("http://localhost:1234/getCustomerData" + "/" + email);
   }
+=======
+   
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
+getCustomerData(email){
+  return this.httpClient.get<Customer>("http://localhost:8083/getCustomerData"+"/"+email);
+}
+>>>>>>> fad3d2996a158e96e58e512a6979e5d2d9a16e2d
 
   sendSms(onlineBooking) {
     let message = "Registration successful";
@@ -156,9 +178,16 @@ export class HttpClientService {
     console.log(onlineBooking);
     return this.httpClient.post("http://localhost:1234/onlineBookings", onlineBooking);
   }
+<<<<<<< HEAD
 
   transferConnection(transferConnection){
     return this.httpClient.post("http://localhost:1234/transferLocation",transferConnection);
   }
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
+>>>>>>> fad3d2996a158e96e58e512a6979e5d2d9a16e2d
 }

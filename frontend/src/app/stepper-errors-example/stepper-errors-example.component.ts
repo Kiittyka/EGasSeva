@@ -44,7 +44,7 @@ export class StepperErrorsExampleComponent implements OnInit {
       agency: new FormControl({value:'', disabled:true}, [Validators.required])
     });
     this.thirdFormGroup = new FormGroup({
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required,Validators.pattern('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$')]),
       confirm_password: new FormControl('', [Validators.required])
 
     });
@@ -72,7 +72,9 @@ export class StepperErrorsExampleComponent implements OnInit {
   public hasError1 = (controlName: string, errorName: string) => {
     return this.firstFormGroup.controls[controlName].hasError(errorName);
   }
-
+  public hasError2 = (controlName: string, errorName: string) => {
+    return this.thirdFormGroup.controls[controlName].hasError(errorName);
+  }
   getzipcode(value) {
     this.httpClientService.getzipcode(value).subscribe(data => {
       this.zip = data;
@@ -101,4 +103,3 @@ export class StepperErrorsExampleComponent implements OnInit {
   }
 
 }
-

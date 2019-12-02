@@ -28,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerComponent } from './customer/customer/customer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+
 import '../polyfills';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule} from 'angular-bootstrap-md';
