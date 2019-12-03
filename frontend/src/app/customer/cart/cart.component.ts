@@ -4,6 +4,7 @@ import { Component, OnInit,  Input, EventEmitter, Output } from '@angular/core';
 
 
 import { Router } from '@angular/router';
+import { ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,8 @@ export class CartComponent implements OnInit {
   total: number = 0;
   
 
- 
+
+  
   constructor(private httpClientService: HttpClientService, private _router: Router) { 
     console.log("1 on chnages called")
   }

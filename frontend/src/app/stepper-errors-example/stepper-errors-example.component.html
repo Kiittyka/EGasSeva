@@ -8,7 +8,7 @@
         <input matInput type="name" placeholder="Full Name" class="form-control" formControlName="name" required>
         <mat-hint align="end">Not more then 60 characters long.</mat-hint>
         <mat-error *ngIf="hasError1('name', 'required')">Name is required</mat-error>
-        <mat-error *ngIf="hasError1('name', 'maxlength')">Max 5 characters required</mat-error>
+        <mat-error *ngIf="hasError1('name', 'maxlength')">Max 60 characters required</mat-error>
         <mat-error *ngIf="hasError1('name', 'minlength')">Min 3 characters required</mat-error>
       </mat-form-field>
 
@@ -77,6 +77,8 @@
         <mat-error *ngIf="hasError2('password', 'pattern')">Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.</mat-error>
 
       </mat-form-field>
+      <br>
+      <br>
       <br>
       <mat-form-field>
 

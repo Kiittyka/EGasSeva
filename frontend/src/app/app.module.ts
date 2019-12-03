@@ -1,5 +1,5 @@
+import { PaymentComponent } from './customer/payment/payment.component';
 import { TransferComponent } from './customer/transfer/transfer.component';
-
 import { LoginComponent } from './login/login.component';
 import { ChatModule } from './chat/chat-dialog/chat.module';
 import { DemoMaterialModule } from './material-module';
@@ -56,8 +56,8 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     ProductListComponent,
     TopBarComponent,
     CartComponent,
-    TransferComponent
-
+    TransferComponent,
+    PaymentComponent
    
   ],
   imports: [
