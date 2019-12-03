@@ -134,14 +134,15 @@ export class StepperErrorsExampleComponent implements OnInit {
     let state = this.secondFormGroup.controls['state'].value;
     let country = this.secondFormGroup.controls['country'].value;
     let agency = this.secondFormGroup.controls['agency'].value;
-    let password = this.thirdFormGroup.controls['password'].value;
-
+    let password = this.frmSignup.controls['password'].value;
+    console.log(password)
     let customer = new Customer(name, email, contact, zipcode, city, state, country, agency, password);
-
+    console.log(customer)
     this.httpClientService.createCustomer(customer)
       .subscribe(data => {
         alert("Customer created successfully.");
       })
+     
   }
 
 }
