@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { HttpClientService } from '../service/httpclient.service';
 import { Zipcode } from '../zipcode.model';
+import { CustomValidators } from './custom-validators';
 
 /**
  * @title Stepper that displays errors in the steps
@@ -23,12 +24,14 @@ export class StepperErrorsExampleComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   message: string;
+  public frmSignup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder, private httpClientService: HttpClientService
+
+  constructor(private fb: FormBuilder, private httpClientService: HttpClientService
   ) { }
 
   ngOnInit() {
-
+  
 
 
     this.firstFormGroup = new FormGroup({
@@ -43,11 +46,50 @@ export class StepperErrorsExampleComponent implements OnInit {
       country: new FormControl({value:'', disabled:true}, [Validators.required]),
       agency: new FormControl({value:'', disabled:true}, [Validators.required])
     });
-    this.thirdFormGroup = new FormGroup({
-      password: new FormControl('', [Validators.required,Validators.pattern('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$')]),
-      confirm_password: new FormControl('', [Validators.required])
+    // this.thirdFormGroup = new FormGroup({
+    //   password: new FormControl('', [Validators.required,CustomValidators.patternValidator(/\d/, { hasNumber: true }),CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+    //   CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }),Validators.minLength(8)]),
 
-    });
+    //   confirm_Password: new FormControl('', Validators.compose([Validators.required]))
+
+    // });
+
+    this.frmSignup = this.fb.group(
+      {
+        
+        password: [
+          null,
+          Validators.compose([
+            Validators.required,
+            // check whether the entered password has a number
+            CustomValidators.patternValidator(/\d/, {
+              hasNumber: true
+            }),
+            // check whether the entered password has upper case letter
+            CustomValidators.patternValidator(/[A-Z]/, {
+              hasCapitalCase: true
+            }),
+            // check whether the entered password has a lower case letter
+            CustomValidators.patternValidator(/[a-z]/, {
+              hasSmallCase: true
+            }),
+            // check whether the entered password has a special character
+            CustomValidators.patternValidator(
+              /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
+              {
+                hasSpecialCharacters: true
+              }
+            ),
+            Validators.minLength(8)
+          ])
+        ],
+        confirmPassword: [null, Validators.compose([Validators.required])]
+      },
+      {
+        // check whether our password and confirm password match
+        validator: CustomValidators.passwordMatchValidator
+      }
+    )
 
     //onchange autopopulate
     this.secondFormGroup.get('zipcode').valueChanges.subscribe(value => {
