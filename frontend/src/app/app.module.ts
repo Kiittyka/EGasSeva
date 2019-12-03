@@ -1,3 +1,4 @@
+import { TransferComponent } from './customer/transfer/transfer.component';
 
 import { LoginComponent } from './login/login.component';
 import { ChatModule } from './chat/chat-dialog/chat.module';
@@ -27,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerComponent } from './customer/customer/customer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+
 import '../polyfills';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule} from 'angular-bootstrap-md';
@@ -53,7 +55,8 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     HomePageSignupComponent,
     ProductListComponent,
     TopBarComponent,
-    CartComponent
+    CartComponent,
+    TransferComponent
 
    
   ],

@@ -2,14 +2,15 @@
 
 
 
-
+<br/>
+<br/>
 <body>
   <!--left  bar-->
   <aside id="leftNav">
     <ul>
       <div>
         <li>
-          <fa name="home"></fa><a routerLink="registrationStepper"> Dashboard</a>
+          <fa name="home"></fa><a>Dashboard</a>
         </li>
       </div>
       <div>
@@ -19,7 +20,7 @@
       </div>
       <div>
         <li>
-          <fa name="line-chart"></fa><a routerLink="newconnection"> New Connection</a>
+          <fa name="line-chart"></fa><a routerLink="transferConnection"> Transfer Connection</a>
         </li>
       </div>
       <div>
@@ -31,10 +32,64 @@
         <li>
           <fa name="car"></fa><a href="#"> Help</a>
       </div>
+<<<<<<< HEAD
 
     </ul>
   </aside>
+=======
+<<<<<<< HEAD
 
+    </ul>
+  </aside>
+  
+    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
+    mdbWavesEffect>CHATBOT</button>
+  <div class="container">
+    <div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
+      aria-labelledby="myBasicModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-side modal-bottom-right " role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="modal-header" type="button" class="close pull-right" aria-label="Close"
+              (click)="basicModal.hide()">
+              <span class="hi" aria-hidden="true"> - </span>
+            </button>
+            <h1 class="modal-title w-100" id="myModalLabel"> Welcome to Chat Bot !</h1>
+=======
+      <div>
+      <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
+    mdbWavesEffect>Launch demo modal</button>
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
+
+          </div>
+          <hr>
+          <div class="modal-body">
+
+            <chat-dialog></chat-dialog>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<<<<<<< HEAD
+
+
+
+
+
+
+
+=======
+</div>
+    </ul>
+  </aside>
+  
+>>>>>>> 6a85201bcfb88b883c0297676e957ff95463a342
+>>>>>>> fad3d2996a158e96e58e512a6979e5d2d9a16e2d
+  <main>
+    <router-outlet></router-outlet>
+  
   <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
     mdbWavesEffect>CHATBOT</button>
   <div class="container">
@@ -60,7 +115,5 @@
       </div>
     </div>
   </div>
-  <main>
-    <router-outlet></router-outlet>
-  </main>
+</main>
 </body>
