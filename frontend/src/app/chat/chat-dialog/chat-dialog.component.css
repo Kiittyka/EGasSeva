@@ -1,4 +1,6 @@
 
+
+
 .message {
     border-radius: 50px;
     margin: 0 15px 10px;
@@ -31,8 +33,12 @@ margin-top: 600px;
 }
 .container{
     width: 30%;
+    border-color: blue;
+    border-radius: 4px;
+    
     /*margin-top:350px
     margin-right:34px*/
+   
 }
 
 button{
@@ -49,12 +55,21 @@ button{
 
     letter-spacing: .1rem;
     line-height: 20px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+    margin-bottom: 10px;
 }
+.box{
+    width:200px;
+    margin-right:300px;
+    
+}
+
+
+
 
 
 

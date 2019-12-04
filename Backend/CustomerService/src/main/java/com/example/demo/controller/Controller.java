@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.OnlineBooking;
 import com.example.demo.entity.Query;
-import com.example.demo.service.OnlineBookingService;
+
 import com.example.demo.service.QueryService;
+import com.example.demo.entity.TransferConnection;
+import com.example.demo.service.OnlineBookingService;
+import com.example.demo.service.TransferConnectionService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -25,6 +28,8 @@ public class Controller {
 	
 	@Autowired
 	private QueryService queryService;
+	@Autowired
+	private TransferConnectionService transferConnectionService;
 	
 	@PostMapping("/onlineBookings")
 	public void saveOnlineBooking(@RequestBody OnlineBooking data) {
@@ -47,5 +52,8 @@ public class Controller {
 		System.out.println("quest"+ queryForm.getQuestion());
 		queryService.saveForm(queryForm);
 		
+	@PostMapping("/transferLocation")
+	public void saveTransferLocation(@RequestBody TransferConnection data) {
+		transferConnectionService.save(data);
 	}
 }

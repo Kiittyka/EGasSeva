@@ -1,3 +1,5 @@
+import { PaymentComponent } from './customer/payment/payment.component';
+import { TransferComponent } from './customer/transfer/transfer.component';
 import { CartComponent } from './customer/cart/cart.component';
 import { ProductListComponent } from './customer/product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
@@ -24,11 +26,11 @@ const routes: Routes = [
   {
     path: 'customer', component: CustomerComponent,
     children: [
-      { path: 'newconnection', component: NewConnectionComponent },
+      { path: 'transferConnection', component: TransferComponent },
       { path: 'gasBooking', component: OnlineBookingComponent },
-      
       { path: 'accessories', component: ProductListComponent},
-      { path: 'cart', component: CartComponent}
+      { path: 'cart', component: CartComponent},
+      { path: 'payment', component: PaymentComponent}
     ]
   },
   // {path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService]},

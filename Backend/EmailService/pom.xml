@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>EmailService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>EmailService</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -57,8 +58,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
-		
 	</dependencies>
 
 	<build>

@@ -32,16 +32,15 @@ public class UserAccountController {
 	private EmailSenderService emailSenderService;
 
 	@PostMapping("/register")
-	public List<String> registerUser(@RequestBody User user, Model model) {
+	public List<String> registerUser(@RequestBody User user) {
 		List<String> l = new ArrayList<String>();
 		System.out.println(user);
 		User existingUser = userRepository.findByEmailIgnoreCase(user.getEmail());
-		System.out.println(existingUser);
+		//System.out.println(existingUser);
 		if (existingUser != null) {
-			//model.addAttribute("message", "This email already exists!");
 			l.add("Email already exists");
 			return l;
-			
+
 		} else {
 			userRepository.save(user);
 
@@ -53,34 +52,32 @@ public class UserAccountController {
 			mailMessage.setTo(user.getEmail());
 			mailMessage.setSubject("Complete Registration!");
 			mailMessage.setFrom("team.egasseva@gmail.com");
-//			mailMessage.setText("To confirm your account, please click here : "
-//					+ "http://localhost:1817/confirm-account?token=" + confirmationToken.getConfirmationToken());
-			mailMessage.setText("To confirm your account, please click here : "+ " http://localhost:4200/cart-compoment");
+			mailMessage.setText("To confirm your account, please click here : "
+					+ " http://localhost:4200/registrationStepper?token=" + confirmationToken.getConfirmationToken());
 			emailSenderService.sendEmail(mailMessage);
-
-			model.addAttribute("email", user.getEmail());
+			System.out.println("mail sent"+mailMessage);
+			
 			l.add("Success");
 			return l;
 		}
 	}
 
 	@RequestMapping(value = "/confirm-account", method = { RequestMethod.GET, RequestMethod.POST })
-	public String confirmUserAccount(Model model, @RequestParam("token") String confirmationToken) {
+	public List<String> confirmUserAccount( @RequestParam("token") String confirmationToken) {
+		System.out.println(confirmationToken);
+		List<String> l = new ArrayList<String>();
 		ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
-
+		//System.out.println("token is"+token);
 		if (token != null) {
 			User user = userRepository.findByEmailIgnoreCase(token.getUser().getEmail());
 			user.setEnabled(true);
 			userRepository.save(user);
-			if (user.getCustomerType().equals("regular")) {
-				return "regular";
-			} else {
-				return "dealer";
-			}
-
+			System.out.println("user enabled ");
+			l.add("user registered");
+			return l;
 		} else {
-			model.addAttribute("message", "The link is invalid or broken!");
-			return "error";
+			l.add("error");
+			return l;
 		}
 	}
 

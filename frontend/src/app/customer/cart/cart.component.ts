@@ -3,7 +3,8 @@ import { Cart } from './cart.model'
 import { Component, OnInit,  Input, EventEmitter, Output } from '@angular/core';
 
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-cart',
@@ -17,8 +18,9 @@ export class CartComponent implements OnInit {
   total: number = 0;
   
 
- 
-  constructor(private httpClientService: HttpClientService, private _router: Router) { 
+
+  
+  constructor(private httpClientService: HttpClientService, private _router: Router, private route: ActivatedRoute) { 
     console.log("1 on chnages called")
   }
 
@@ -59,6 +61,15 @@ export class CartComponent implements OnInit {
 
   onBack(): void {
     this._router.navigate(['/accessories']);
+  }
+
+  goBackToAccessories(){
+    this._router.navigate(['../accessories'],{relativeTo : this.route})
+  }
+
+  goToPaymentPage(){
+    sessionStorage.setItem("amount",this.totalSum.toString())
+    console.log("cart "+sessionStorage.getItem('amount'))
   }
 
 

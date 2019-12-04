@@ -30,3 +30,8 @@ app-top-bar {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+ }

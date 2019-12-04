@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClientService, Customer } from 'src/app/service/httpclient.service';
 import { OnlineBooking } from './online-booking.model';
+import { Customer, HttpClientService } from 'src/app/service/httpclient.service';
 @Component({
   selector: 'app-online-booking',
   templateUrl: './online-booking.component.html',
@@ -19,7 +20,7 @@ export class OnlineBookingComponent implements OnInit {
       contact: [{value:'', disabled:true},Validators.required],
       gasAgency: [{value:'', disabled:true},Validators.required],
       
-      adhaarno: ['',Validators.required],
+      adhaarNo: ['',Validators.required],
     
         country: [{value:'', disabled:true},Validators.required],             
         city: [{value:'', disabled:true},Validators.required],
@@ -31,15 +32,12 @@ export class OnlineBookingComponent implements OnInit {
       var email="diana@gmail.com";
       this.httpClientService.getCustomerData(email)
         .subscribe(data => {
+          console.log(data);
           this.cust=data;
         })
   
     }
     sendSms() {
-  
-  
-  
-  
       let name = this.gasbooking.controls['fullName'].value;
   
       let email = this.gasbooking.controls['email'].value;
@@ -69,5 +67,6 @@ export class OnlineBookingComponent implements OnInit {
 
 
 
-    
-  
+
+
+

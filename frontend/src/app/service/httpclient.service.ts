@@ -10,6 +10,7 @@ import { Product } from '../customer/product-list/product.model';
 import { retry, catchError } from 'rxjs/operators';
 import { Cart } from '../customer/cart/cart.model';
 import { Login } from '../login/login.model';
+
 import { Phone } from '../customer/online-booking/phone.model';
 import { Query } from '../customer/query-from/query.model';
 
@@ -59,7 +60,7 @@ export class HttpClientService {
 
   public createCustomer(customer) {
     console.log(customer);
-    return this.httpClient.post<Customer>("http://localhost:3001/customers", customer);
+    return this.httpClient.post<Customer>("http://localhost:5001/customers", customer);
   }
 
   public registerUser(user: Registration) {
@@ -141,10 +142,16 @@ export class HttpClientService {
 
 
 
+
+ 
+
    
+
 getCustomerData(email){
   return this.httpClient.get<Customer>("http://localhost:8083/getCustomerData"+"/"+email);
 }
+
+
 
   sendSms(onlineBooking) {
     let message = "Registration successful";
@@ -155,10 +162,18 @@ getCustomerData(email){
     console.log(number);
     //return this.httpClient.post("http://localhost:8081/api/v1/sms", number);
     console.log(onlineBooking);
-    return this.httpClient.post("http://localhost:8083/onlineBookings",onlineBooking);
+    return this.httpClient.post("http://localhost:1234/onlineBookings", onlineBooking);
   }
   saveQueryForm(user: Query) : Observable<any>{
     console.log("user in http Service"+ user.fullName)
     return this.httpClient.post<any>("http://localhost:3003/save", user, this.httpOptions);
   }
+
+
+  transferConnection(transferConnection){
+    return this.httpClient.post("http://localhost:3003/transferLocation",transferConnection);
+  }
+
+
+
 }
