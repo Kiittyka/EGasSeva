@@ -44,13 +44,14 @@ public class Controller {
 	}
 	@PostMapping("/save")
 	public void saveQueryForm(@RequestBody Query queryForm) {
-		//System.out.println("hi");
+		System.out.println("hi");
 		System.out.println("name"+queryForm.getFullName());
 		System.out.println("email"+ queryForm.getEmail());
 		System.out.println( "contact"+queryForm.getContact());
 		System.out.println( "others"+queryForm.getOthers());
 		System.out.println("quest"+ queryForm.getQuestion());
 		queryService.saveForm(queryForm);
+	}
 		
 	@PostMapping("/transferLocation")
 	public void saveTransferLocation(@RequestBody TransferConnection data) {

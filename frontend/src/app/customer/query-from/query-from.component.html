@@ -7,56 +7,79 @@
     <div class="container">
 
         <h2>Technical Support and Query Form </h2>
-        <form >
+        <form [formGroup]=" queryForm" (ngSubmit)="sendQuery() ">
             <!-- Full Name -->
             <div class="form-group">
                 <label for="name">Full Name : </label>
-                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.fullName" required />
+                <input type="text" formControlName="fullName" class="form-control" id="name" name="name"
+                    [(ngModel)]="user.fullName" required />
+            </div>
+            <div *ngIf="queryForm.controls['fullName'].invalid && (queryForm.controls['fullName'].dirty || queryForm.controls['fullName'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="queryForm.controls['fullName'].errors.required">
+                    Name is required.
+                </div>
             </div>
 
             <!--Email-->
             <div class="form-group">
                 <label for="contact">Email : </label>
-                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email"
-                    />
+                <input type="email" formControlName="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" />
             </div>
-           
-                <!--Customer Contact No-->
-                <div class="form-group">
-                    <label for="contact">Contact No : </label>
-                    <input type="tel" class="form-control" id="contact" name="contact" [(ngModel)]="user.contact"
-                        required minlength="6" maxlength="10"/>
+            <div *ngIf="queryForm.controls['email'].invalid && (queryForm.controls['email'].dirty || queryForm.controls['email'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="queryForm.controls['email'].errors.required">
+                    email is required.
                 </div>
+            </div>
 
-
-                <!-- Frequently asked questions-->
-
-                <div class="form-group">
-                    <label for="question">Frequently asked questions ?</label>
-                    <div id="answer">
-                        <select [(ngModel)]="user.question" name="question" #question="ngModel">
-                            <option value="Select a question" selected disabled>Select a question</option>
-                            <option value="How to create a new account ?">How to create a new account ?</option>
-                            <option value="How to track my gas delivery status ?">How to track my gas delivery status ?
-                            </option>
-                            <option value="How to cancel my gas booking ?">How to cancel my gas booking ?</option>
-
-                        </select>
-
-                    </div>
-
+            <!--Customer Contact No-->
+            <div class="form-group">
+                <label for="contact">Contact No : </label>
+                <input type="tel"  formControlName="phone" class="form-control" id="contact" name="contact" [(ngModel)]="user.contact" required
+                    minlength="6" maxlength="10" />
+            </div>
+            <div *ngIf="queryForm.controls['phone'].invalid && (queryForm.controls['phone'].dirty || queryForm.controls['phone'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="queryForm.controls['phone'].errors.required">
+                    phone is required.
                 </div>
-                <div class="form-group">
-                    <label for="question">Others : </label>
-                    <div id="text-box">
-                        <textarea form="input" id="txtarea1" placeholder="Write your question here..."
-                            [(ngModel)]="user.others" name="reason_other" cols="40" rows="5"></textarea>
-                    </div>
-                    <button (click)="save()" type="submit" class="btn btn-primary">Send </button>
+            </div>
+
+            <!-- Frequently asked questions-->
+
+            <div class="form-group">
+                <label for="question">Frequently asked questions ?</label>
+                <div id="answer">
+                    <select formControlName="question"  name="question" >
+                        <option value="Select a question" selected disabled>Select a question</option>
+                        <option value="How to create a new account ?">How to create a new account ?</option>
+                        <option value="How to track my gas delivery status ?">How to track my gas delivery status ?</option>
+                        <option value="How to cancel my gas booking ?">How to cancel my gas booking ?</option>
+                    </select>
                 </div>
+            </div>
+            <div *ngIf="queryForm.controls['question'].invalid && (queryForm.controls['question'].dirty || queryForm.controls['question'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="queryForm.controls['question'].errors.required">
+                    Select the Question.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="question">Others : </label>
+                <div id="text-box">
+                    <textarea formControlName="others" form="input" id="txtarea1" placeholder="Write your question here..."
+                        [(ngModel)]="user.others" name="reason_other" cols="40" rows="5"></textarea>
+                </div>
+            </div>
+            <div *ngIf="queryForm.controls['others'].invalid && (queryForm.controls['others'].dirty || queryForm.controls['others'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="queryForm.controls['others'].errors.required">
+                    Enter the Queery
+                </div>
+            </div>
+            <button [disabled]="queryForm.pristine || queryForm.invalid" type="submit" class="btn btn-primary">Send </button>
         </form>
-
-
-        
     </div>
 </div>
