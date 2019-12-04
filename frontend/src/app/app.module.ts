@@ -1,3 +1,4 @@
+import { CommonHeaderComponent } from './common-header/common-header.component';
 import { PaymentComponent } from './customer/payment/payment.component';
 import { TransferComponent } from './customer/transfer/transfer.component';
 import { LoginComponent } from './login/login.component';
@@ -57,7 +58,8 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     TopBarComponent,
     CartComponent,
     TransferComponent,
-    PaymentComponent
+    PaymentComponent,
+    CommonHeaderComponent
    
   ],
   imports: [

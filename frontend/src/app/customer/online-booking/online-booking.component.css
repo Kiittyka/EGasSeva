@@ -1,5 +1,10 @@
 .container {
-    float: right;
-    width: 80%;
-    padding-right: 20%;
+    float: left;
+    width: 60%;
+    padding-right: 2%;
+    margin-top: -6%;
+    background-color: white;
+    align-content: center;
+    margin-left: 13%;
+    border-radius:1.6rem;
 }

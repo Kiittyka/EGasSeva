@@ -25,7 +25,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
+    color:gray;
+    
 }
 ol, ul {
 	list-style: none;
@@ -63,6 +65,7 @@ header div span{
     float:left;
     width: 17%;
     height:100%; 
+    
 }
 #rightNav{
     float: right; 
@@ -82,27 +85,38 @@ aside div li a{
     font-weight:bold;
     color:black;
     font-size: 20px;
+    border-block-color: black;
     
 }
 aside div{
   padding: 12px;
   border-radius: 7px;
   margin-left: 8px;
+  background-color: white;
 }
 aside div:hover{
-    background-color:#F6917D;
+    background-color:lightgrey;
 }
 button{
-   margin-top:636px;
+   margin-top:300px;
+   position:relative;
     
    float:right;
 }
+#leftNav[_ngcontent-ler-c2] {
+    float: left;
+    width: 17%;
+    height: 100%;
+
+    background-color: lightgray;
+}
 h1{
     font-weight: bold;
-    font-size:20px;
+    font-size:30px;
     text-align: center;
     padding-top:6px;
-    background-color: beige;
+   margin-top: 11%;
+   color:whitesmoke;
 }
 .modal-title {
     background-color: rgb(19, 128, 179);
@@ -110,6 +124,7 @@ h1{
     color: #fff;
     border-top-left-radius: .6rem;
     border-top-right-radius: .6rem;
+    margin-top:-2px;
     
 }
 .modal-content{
@@ -119,6 +134,44 @@ h1{
     color:white;
     font:bold;
 }
+
+/*top bar*/
+.top-nav{
+    height: 300px;
+    background-image: linear-gradient(to right,rgb(111, 132, 255),rgb(139, 138, 138));
+    float: right;
+    width: 80%;
+}
+
+
+.top ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .top li {
+    float: right;
+  }
+  
+  .top li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .top li a:hover:not(.active) {
+    background-color: gray;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+  }
+
 
 
 
