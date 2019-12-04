@@ -11,6 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { Cart } from '../customer/cart/cart.model';
 import { Login } from '../login/login.model';
 import { Phone } from '../customer/online-booking/phone.model';
+import { Query } from '../customer/query-from/query.model';
 
 export class Customer {
 
@@ -155,5 +156,9 @@ getCustomerData(email){
     //return this.httpClient.post("http://localhost:8081/api/v1/sms", number);
     console.log(onlineBooking);
     return this.httpClient.post("http://localhost:8083/onlineBookings",onlineBooking);
+  }
+  saveQueryForm(user: Query) : Observable<any>{
+    console.log("user in http Service"+ user.fullName)
+    return this.httpClient.post<any>("http://localhost:3003/save", user, this.httpOptions);
   }
 }

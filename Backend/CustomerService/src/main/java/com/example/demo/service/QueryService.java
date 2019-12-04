@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
-public interface QueryService {
+import com.example.demo.entity.Query;
 
+public interface QueryService {
+	public void saveForm(Query queryForm);
 }
