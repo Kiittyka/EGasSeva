@@ -56,7 +56,9 @@ public class PaymentServiceImpl implements PaymentService {
         payment.setPaymentDate(new Date());
         payment.setPaymentStatus(PaymentStatus.Pending);
         payment.setPhone(paymentDetail.getPhone());
-        //payment.setProductInfo(paymentDetail.getProductInfo());
+        payment.setProductInfo(paymentDetail.getProductInfo());
+        System.out.println(paymentDetail.getProductInfo());
+        
         payment.setTxnId(paymentDetail.getTxnId());
         paymentRepository.save(payment);
     }

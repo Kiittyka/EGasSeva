@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClientService } from './../../service/httpclient.service';
 import { Product } from './product.model';
 import { Component, OnInit, Input } from '@angular/core';
@@ -12,7 +13,7 @@ export class ProductListComponent implements OnInit {
 
   products: Array<any>;
   total: number = 0;
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private httpClientService: HttpClientService, private router: Router, private route: ActivatedRoute ){ }
 
   ngOnInit() {
     this.httpClientService.getAll().subscribe(data => {
@@ -21,6 +22,7 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product) {
+    this.router.navigate(['../cart'], {relativeTo : this.route})
     console.log('Your product has been added to the cart!' + product.price);
     this.httpClientService.addToCart(product);
   }

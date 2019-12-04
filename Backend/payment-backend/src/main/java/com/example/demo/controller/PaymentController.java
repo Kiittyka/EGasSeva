@@ -25,6 +25,8 @@ public class PaymentController {
 
     @PostMapping(path = "/payment-details")
     public @ResponseBody PaymentDetail proceedPayment(@RequestBody PaymentDetail paymentDetail){
+    	System.out.println(paymentDetail.getProductInfo());
+    	System.out.println(paymentDetail);
         return paymentService.proceedPayment(paymentDetail);
     }
 

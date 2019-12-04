@@ -5,7 +5,7 @@ public class PaymentDetail {
     private String email;
     private String name;
     private String phone;
-//    private String productInfo;
+    private String productInfo;
     private String amount;
     private String txnId;
     private String hash;
@@ -30,12 +30,12 @@ public class PaymentDetail {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-//	public String getProductInfo() {
-//		return productInfo;
-//	}
-//	public void setProductInfo(String productInfo) {
-//		this.productInfo = productInfo;
-//	}
+	public String getProductInfo() {
+		return productInfo;
+	}
+	public void setProductInfo(String productInfo) {
+		this.productInfo = productInfo;
+	}
 	public String getAmount() {
 		return amount;
 	}

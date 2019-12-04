@@ -32,8 +32,8 @@ public class Payment {
     private String name;
     @Column
     private String phone;
-//    @Column
-//    private String productInfo;
+    @Column
+    private String productInfo;
     @Column
     private Double amount;
     @Column
@@ -74,12 +74,12 @@ public class Payment {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-//	public String getProductInfo() {
-//		return productInfo;
-//	}
-//	public void setProductInfo(String productInfo) {
-//		this.productInfo = productInfo;
-//	}
+	public String getProductInfo() {
+		return productInfo;
+	}
+	public void setProductInfo(String productInfo) {
+		this.productInfo = productInfo;
+	}
 	public Double getAmount() {
 		return amount;
 	}
