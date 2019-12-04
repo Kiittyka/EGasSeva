@@ -15,7 +15,7 @@ public class TransferConnectionServiceImpl implements TransferConnectionService{
 	
 	@Override
 	public void save(TransferConnection data) {
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		String timeStamp = new SimpleDateFormat("dd/MM/yyyy hh:MM:ss").format(Calendar.getInstance().getTime());
 		data.setDate(timeStamp);
 		transferConnection.save(data);
 	}

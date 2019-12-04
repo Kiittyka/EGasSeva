@@ -37,5 +37,7 @@ public class TransferConnection {
 	@Column(name="zip")
 
 	String newZip;
+	@Column(name="accept")
+	boolean accept;
 	
 }
