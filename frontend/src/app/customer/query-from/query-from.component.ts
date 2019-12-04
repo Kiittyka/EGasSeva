@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import {HttpClientService} from '../../service/httpclient.service';
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { Query } from './query.model';
 
 @Component({
   selector: 'app-query-from',
@@ -8,31 +9,44 @@ import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms'
   styleUrls: ['./query-from.component.css']
 })
 export class QueryFromComponent implements OnInit {
-
-  constructor(private fb: FormBuilder) { }
+  queryForm: FormGroup;
+  user: Query = new Query ("","","","", "");
+  constructor(private fb: FormBuilder,private httpClientService: HttpClientService) {
+    // this.createForm();
+   }
   
+  option_value: any;
   
-  queryform=this.fb.group({
-    fullName:['',Validators.required],
-    Email: ['',Validators.required],
-    CustomerContactNo: ['',Validators.required],
-    query:new FormControl(''),
-
-    
-  })
   ngOnInit(){
-    
-  }
-  myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-  toggle(){
-    document.getElementById("txtarea").style.display="block";
-  }
+    // this.queryForm = new FormGroup({
+    //   'name': new FormControl(this.user.fullName, [
+    //     Validators.required,
+    //     Validators.minLength(4)
+        
+    //   ]),
+      
+   // });
+  
   
 }
+  save(): void {
+    console.log(this.user);
+    this.httpClientService.saveQueryForm(this.user)
+      .subscribe(data => {
+        alert("Form saved successfully");
+          console.log(data)
+        console.log(this.option_value);
+      });
+  }
+  
+  // title = 'Angular Form Validation Tutorial';
+  //  angForm: FormGroup;
+  
+  //  createForm() {
+  //   this.angForm = this.fb.group({
+  //      name: ['', Validators.required ]
+  //   });
+  // }
+  
+}
+

@@ -7,66 +7,56 @@
     <div class="container">
 
         <h2>Technical Support and Query Form </h2>
-        <form [formGroup]="queryform ">
+        <form >
             <!-- Full Name -->
             <div class="form-group">
                 <label for="name">Full Name : </label>
-                <input [class.is-invalid]="queryform.get('fullName').invalid && queryform.get('fullName').touched  "
-                    type="text" class="form-control" id="name" name="name" formControlName="fullName">
-                <small [class.d-none]="queryform.get('fullName').valid ||
-             queryform.get('fullName').untouched " class="text-danger">Full Name is required.</small>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.fullName" required />
             </div>
 
-            <!-- Customer EmailId  -->
+            <!--Email-->
             <div class="form-group">
-                <label for="email">Email : </label>
-                <input [class.is-invalid]="queryform.get('Email').invalid && queryform.get('Email').touched  "
-                    type="email" class="form-control" id="email" id="email" formControlName="Email">
-                <small [class.d-none]="queryform.get('Email').valid ||
-            queryform.get('Email').untouched " class="text-danger"> Email is required.</small>
+                <label for="contact">Email : </label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email"
+                    />
             </div>
-
-            <!--div class="invalid-feedback">Please fill out this field.</div>
-            //<div class="valid-feedback">Valid.</div-->
-
-
-            <!--Customer Contact No-->
-            <div class="form-group">
-                <label for="contact">Contact No : </label>
-                <input type="tel" class="form-control" id="contact" name="contact" formControlName="CustomerContactNo">
-            </div>
-
-            <!--Customer Contact No-->
-            <!-- <div class="form-group">
-            <label for="query">How can we help you? </label>
-        </div>
-        <textarea rows="5" cols="155" formControlName="query" name="query">
-                    </textarea> <br><br> -->
-
-            <!-- Frequently asked questions-->
-
-            <div class="form-group">
-                <label for="question">Frequently asked questions ? </label>
-                <div id="answer">
-                    <select>
-                        <option value="question" selected disabled>Select a question</option>
-                        <option value="create">How to create a new account ?</option>
-                        <option value="status">How to track my gas delivery status ?</option>
-                        <option value="cancel">How to cancel my gas booking ?</option>
-
-                    </select>
-
+           
+                <!--Customer Contact No-->
+                <div class="form-group">
+                    <label for="contact">Contact No : </label>
+                    <input type="tel" class="form-control" id="contact" name="contact" [(ngModel)]="user.contact"
+                        required minlength="6" maxlength="10"/>
                 </div>
 
-            </div>
-            <label for="question">Others : </label>
-            <div id="text-box">
-                <textarea form="input" id="txtarea1" placeholder="Write your question here..." name="reason_other"
-                    cols="40" rows="5"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send </button>
 
+                <!-- Frequently asked questions-->
+
+                <div class="form-group">
+                    <label for="question">Frequently asked questions ?</label>
+                    <div id="answer">
+                        <select [(ngModel)]="user.question" name="question" #question="ngModel">
+                            <option value="Select a question" selected disabled>Select a question</option>
+                            <option value="How to create a new account ?">How to create a new account ?</option>
+                            <option value="How to track my gas delivery status ?">How to track my gas delivery status ?
+                            </option>
+                            <option value="How to cancel my gas booking ?">How to cancel my gas booking ?</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="question">Others : </label>
+                    <div id="text-box">
+                        <textarea form="input" id="txtarea1" placeholder="Write your question here..."
+                            [(ngModel)]="user.others" name="reason_other" cols="40" rows="5"></textarea>
+                    </div>
+                    <button (click)="save()" type="submit" class="btn btn-primary">Send </button>
+                </div>
         </form>
 
+
+        
     </div>
 </div>

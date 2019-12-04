@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,10 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name="onlinebooking")
 @Data
+@Getter
+@Setter
 public class OnlineBooking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +39,12 @@ public class OnlineBooking {
 	private String city;
 	@Column(name="zip")
 	private int zip;
+	
+	public String getSid() {
+		return sid;
+	}
+	public void setSid(String sid) {
+		this.sid = sid;
+	}
 	
 }
