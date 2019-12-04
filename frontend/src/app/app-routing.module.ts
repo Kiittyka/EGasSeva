@@ -19,6 +19,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HomePageServicesComponent } from './home-page-services/home-page-services.component';
 import { HomePageSignupComponent } from './home-page-signup/home-page-signup.component';
 import { HeaderComponent } from './header/header.component';
+import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
+import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
+import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.component';
 
 const routes: Routes = [
 
@@ -43,7 +46,12 @@ const routes: Routes = [
   { path: 'Home', component: HomePageComponent },
   { path: 'Services', component: HomePageServicesComponent },
   { path: 'SignUp', component: HomePageSignupComponent },
-  { path: 'logout', component: LogoutComponent }
+  { path: 'logout', component: LogoutComponent },
+  {path:'dealer',component: DealerPageComponent ,
+  children :  [{path:'bookinginfo', component:BookingInfoComponent},
+  {path:'transferinfo', component:TransferInfoComponent}]
+}
+
 ];
 
 @NgModule({
