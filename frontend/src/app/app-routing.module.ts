@@ -22,7 +22,7 @@ import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
 
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGaurdService] },
+  { path: 'adminDashboard', component: AdminComponent },
   {
     path: 'customer', component: CustomerComponent,
     children: [
