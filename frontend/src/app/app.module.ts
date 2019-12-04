@@ -36,6 +36,10 @@ import { MDBBootstrapModule} from 'angular-bootstrap-md';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HomePageServicesComponent } from './home-page-services/home-page-services.component';
 import { HomePageSignupComponent } from './home-page-signup/home-page-signup.component';
+import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
+import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
+import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.component';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +63,10 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
     CartComponent,
     TransferComponent,
     PaymentComponent,
-    CommonHeaderComponent
+    CommonHeaderComponent,
+    DealerPageComponent,
+    BookingInfoComponent,
+    TransferInfoComponent
    
   ],
   imports: [
