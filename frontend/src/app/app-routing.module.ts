@@ -24,7 +24,7 @@ import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.comp
 
 const routes: Routes = [
 
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGaurdService] },
+  { path: 'adminDashboard', component: AdminComponent },
   {
     path: 'customer', component: CustomerComponent,
     children: [
@@ -32,12 +32,13 @@ const routes: Routes = [
       { path: 'gasBooking', component: OnlineBookingComponent },
       { path: 'accessories', component: ProductListComponent},
       { path: 'cart', component: CartComponent},
-      { path: 'payment', component: PaymentComponent}
+      { path: 'payment', component: PaymentComponent},
+      { path: 'query', component: QueryFromComponent },
     ]
   },
   // {path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService]},
  
-  { path: 'query', component: QueryFromComponent },
+  
   { path: 'registrationStepper', component: StepperErrorsExampleComponent },
   { path: '', component: HomePageComponent },
   { path: 'home-page-header', component: HeaderComponent },

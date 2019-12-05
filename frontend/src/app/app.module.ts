@@ -27,7 +27,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerComponent } from './customer/customer/customer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import { ChartsModule } from 'ng2-charts';
 
 import '../polyfills';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -79,6 +79,7 @@ import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.comp
     DemoMaterialModule,
     BrowserAnimationsModule,
     ChatModule,
+    ChartsModule,
     MDBBootstrapModule.forRoot()
     ],
   providers: [],
