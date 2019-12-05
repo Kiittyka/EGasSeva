@@ -33,6 +33,7 @@ public class Controller {
 	
 	@PostMapping("/onlineBookings")
 	public void saveOnlineBooking(@RequestBody OnlineBooking data) {
+		System.out.println(data);
 		System.out.println("data"+data.getSid());
 		onlineBookingService.save(data);
 		

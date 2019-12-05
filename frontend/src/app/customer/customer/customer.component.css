@@ -75,7 +75,9 @@ header div span{
     padding: 35px;
 }
 aside{
+    margin-top:44px;
     min-height: 100vh;
+    position:fixed;
 }
 li{
     list-style-type: none;

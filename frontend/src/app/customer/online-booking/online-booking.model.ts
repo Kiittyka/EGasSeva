@@ -8,8 +8,8 @@ export class OnlineBooking {
         public country:string,
         public state:string,
         public city:string,
-        public zip:string
-
+        public zip:string,
+        public accept:boolean
     ){
     }
 }

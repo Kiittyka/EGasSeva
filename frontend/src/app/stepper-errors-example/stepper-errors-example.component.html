@@ -20,8 +20,7 @@
 
       <mat-form-field> <input matInput type="number" placeholder="Contact" class="form-control"
           formControlName="contact" required>
-        <mat-error *ngIf="hasError1('contact', 'max')">10 digits required</mat-error>
-        <mat-error *ngIf="hasError1('contact', 'min')">10 digits required</mat-error>
+        <mat-error *ngIf="hasError1('contact', 'pattern')">Not a valid number</mat-error>
       </mat-form-field>
 
       <div>

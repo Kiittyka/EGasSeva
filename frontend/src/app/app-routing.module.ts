@@ -6,7 +6,6 @@ import { LoginComponent } from './login/login.component';
 import { StepperErrorsExampleComponent } from './stepper-errors-example/stepper-errors-example.component';
 import { QueryFromComponent } from './customer/query-from/query-from.component';
 import { OnlineBookingComponent } from './customer/online-booking/online-booking.component';
-import { NewConnectionComponent } from './customer/new-connection/new-connection.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

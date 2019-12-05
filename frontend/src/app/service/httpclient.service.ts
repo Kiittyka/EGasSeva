@@ -145,10 +145,10 @@ export class HttpClientService {
 
  
 
-   
+   //Populating data from customer table
 
 getCustomerData(email){
-  return this.httpClient.get<Customer>("http://localhost:8083/getCustomerData"+"/"+email);
+  return this.httpClient.get<Customer>("http://localhost:3003/getCustomerData"+"/"+email);
 }
 
 
@@ -162,7 +162,7 @@ getCustomerData(email){
     console.log(number);
     //return this.httpClient.post("http://localhost:8081/api/v1/sms", number);
     console.log(onlineBooking);
-    return this.httpClient.post("http://localhost:1234/onlineBookings", onlineBooking);
+    return this.httpClient.post("http://localhost:3003/onlineBookings", onlineBooking);
   }
   saveQueryForm(user: Query) : Observable<any>{
     console.log("user in http Service"+ user.fullName)
