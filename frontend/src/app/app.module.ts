@@ -39,6 +39,7 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
 import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
 import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
 import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.component';
+import { CustomerQueryComponent } from './dealer/customer-query/customer-query.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.comp
     CommonHeaderComponent,
     DealerPageComponent,
     BookingInfoComponent,
-    TransferInfoComponent
+    TransferInfoComponent,
+    CustomerQueryComponent
    
   ],
   imports: [

@@ -8,6 +8,7 @@ ul {
   
   li {
     float: right;
+   
   }
   
   li a {
@@ -16,6 +17,7 @@ ul {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    
   }
   
   li a:hover:not(.active) {
@@ -32,3 +34,10 @@ ul {
       font-weight:bold;
       margin-left:20px;
   }
+
+
+ul{
+  position:fixed;
+  width:100%;
+  margin-top:-25px;
+}
