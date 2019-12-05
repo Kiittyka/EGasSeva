@@ -8,7 +8,6 @@ import { StepperErrorsExampleComponent } from './stepper-errors-example/stepper-
 import { UpdateFormComponent } from './customer/update-form/update-form.component';
 import { QueryFromComponent } from './customer/query-from/query-from.component';
 import { OnlineBookingComponent } from './customer/online-booking/online-booking.component';
-import { NewConnectionComponent } from './customer/new-connection/new-connection.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -50,7 +49,6 @@ import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.comp
     LogoutComponent, 
     AdminComponent,
     CustomerComponent,
-    NewConnectionComponent,
     OnlineBookingComponent,
     QueryFromComponent,
     UpdateFormComponent,

@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.UUID;
 
 import javax.persistence.EntityManager;
@@ -26,9 +28,17 @@ public class OnlineBookingServiceImpl implements OnlineBookingService {
 	private OnlineBookingRepository onlineBookingRepository;
 
 	public void save(OnlineBooking data) {
+<<<<<<< HEAD
+		
+		String id=UUID.randomUUID().toString().substring(0, 8);
+		String timeStamp = new SimpleDateFormat("dd/MM/yyyy hh:MM:ss").format(Calendar.getInstance().getTime());
+
+=======
 
 		String id = UUID.randomUUID().toString().substring(0, 8);
+>>>>>>> 6f1f83372c8b85a64409194d5adabd921da7a2b7
 		data.setSid(id);
+		data.setDate(timeStamp);
 		onlineBookingRepository.save(data);
 	}
 
