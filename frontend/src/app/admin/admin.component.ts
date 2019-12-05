@@ -15,8 +15,8 @@ export class AdminComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
   ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public lineChartLabels: Label[] = ['Reliance Gas Agency', 'Indo Gas Agency', 'Gogas Agency', 'MVR Gas Agency', 'Jyothi Gas Agency'];
+  public barChartLabels: Label[] = ['Reliance Gas Agency', 'Indo Gas Agency', 'Gogas Agency', 'MVR Gas Agency', 'Jyothi Gas Agency'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];

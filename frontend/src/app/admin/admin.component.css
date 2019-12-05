@@ -199,7 +199,7 @@ aside div:hover{
 /* new changes */
   .left, .right {
     float: left;
-    width: 20%; /* The width is 20%, by default */
+    width: 80%; /* The width is 20%, by default */
   }
   
   .main {
