@@ -48,8 +48,10 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   {path:'dealer',component: DealerPageComponent ,
   children :  [{path:'bookinginfo', component:BookingInfoComponent},
-  {path:'queries', component:CustomerQueryComponent}
-   ]
+  
+  {path:'query', component:CustomerQueryComponent},
+  {path:'queries', component:CustomerQueryComponent}]
+   
 }
 
 ];
