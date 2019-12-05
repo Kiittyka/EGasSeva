@@ -8,7 +8,6 @@ import { StepperErrorsExampleComponent } from './stepper-errors-example/stepper-
 import { UpdateFormComponent } from './customer/update-form/update-form.component';
 import { QueryFromComponent } from './customer/query-from/query-from.component';
 import { OnlineBookingComponent } from './customer/online-booking/online-booking.component';
-import { NewConnectionComponent } from './customer/new-connection/new-connection.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -28,7 +27,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerComponent } from './customer/customer/customer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import { ChartsModule } from 'ng2-charts';
 
 import '../polyfills';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,7 +37,6 @@ import { HomePageServicesComponent } from './home-page-services/home-page-servic
 import { HomePageSignupComponent } from './home-page-signup/home-page-signup.component';
 import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
 import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
-import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.component';
 import { CustomerQueryComponent } from './dealer/customer-query/customer-query.component';
 
 
@@ -51,7 +49,6 @@ import { CustomerQueryComponent } from './dealer/customer-query/customer-query.c
     LogoutComponent, 
     AdminComponent,
     CustomerComponent,
-    NewConnectionComponent,
     OnlineBookingComponent,
     QueryFromComponent,
     UpdateFormComponent,
@@ -67,7 +64,6 @@ import { CustomerQueryComponent } from './dealer/customer-query/customer-query.c
     CommonHeaderComponent,
     DealerPageComponent,
     BookingInfoComponent,
-    TransferInfoComponent,
     CustomerQueryComponent
    
   ],
@@ -83,6 +79,7 @@ import { CustomerQueryComponent } from './dealer/customer-query/customer-query.c
     DemoMaterialModule,
     BrowserAnimationsModule,
     ChatModule,
+    ChartsModule,
     MDBBootstrapModule.forRoot()
     ],
   providers: [],

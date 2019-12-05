@@ -12,16 +12,15 @@ export class OnlineBookingComponent implements OnInit {
   constructor( private httpClientService: HttpClientService,private fb: FormBuilder) { }
   cust: Customer = new Customer("", "", "", 0,"","","","","");
 
-  
-  
+  isValidFormSubmitted = null;
+  adhaarPattern = "^\\d{4}\\s\\d{4}\\s\\d{4}$";
     gasbooking=this.fb.group({
       fullName:[{value:'', disabled:true},Validators.required],
       email: [{value:'', disabled:true},Validators.required],
       contact: [{value:'', disabled:true},Validators.required],
       gasAgency: [{value:'', disabled:true},Validators.required],
       
-      adhaarNo: ['',Validators.required],
-    
+      adhaarNo: ['',[Validators.required,Validators.pattern(this.adhaarPattern)]],
         country: [{value:'', disabled:true},Validators.required],             
         city: [{value:'', disabled:true},Validators.required],
         state: [{value:'', disabled:true},Validators.required],
@@ -29,7 +28,7 @@ export class OnlineBookingComponent implements OnInit {
       
     })
     ngOnInit() {
-      var email="diana@gmail.com";
+      var email="dianadsz1997@gmail.com";
       this.httpClientService.getCustomerData(email)
         .subscribe(data => {
           console.log(data);
@@ -37,7 +36,18 @@ export class OnlineBookingComponent implements OnInit {
         })
   
     }
+    get adhaarNo() {
+      return this.gasbooking.get('adhaarNo');
+ } 
     sendSms() {
+
+      this.isValidFormSubmitted = false;
+      if (this.gasbooking.invalid) {
+         return;
+      }
+      this.isValidFormSubmitted = true;
+
+
       let name = this.gasbooking.controls['fullName'].value;
   
       let email = this.gasbooking.controls['email'].value;
@@ -49,14 +59,16 @@ export class OnlineBookingComponent implements OnInit {
       let state = this.gasbooking.controls['state'].value;
       let city = this.gasbooking.controls['city'].value;
       let zip = this.gasbooking.controls['zip'].value;
-  
-      let onlineBooking = new OnlineBooking(email, name, contact, agency,adhaar, country,state,city, zip);
+      let accept=false;
+      let onlineBooking = new OnlineBooking(email, name, contact, agency,adhaar, country,state,city, zip,accept);
       console.log(onlineBooking);
       this.httpClientService.sendSms(onlineBooking)
         .subscribe(data => {
           alert("Booked successfully.");
         })
     }
+
+   
   
   }
   

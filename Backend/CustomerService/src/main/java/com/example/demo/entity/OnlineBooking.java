@@ -39,6 +39,12 @@ public class OnlineBooking {
 	private String city;
 	@Column(name="zip")
 	private int zip;
+	@Column(name="agency")
+	private String agency;
+	@Column(name="accept")
+	private boolean accept;
+	@Column(name="date")
+	private String date;
 	
 	public String getSid() {
 		return sid;

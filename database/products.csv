@@ -1,4 +1,0 @@
-_id,product_id,name,description,price,quantity,url
-ObjectId("5dd7710679f4b33b2cdb61b6"),1,Burner,Gas Burner,150,1,/assets/images/Gas Burner.jpg
-ObjectId("5dd772c879f4b33b2cdb61b7"),2,Pipe,Gas Pipe,100,1,/assets/images/pipe.jpg
-ObjectId("5dd7738379f4b33b2cdb61b8"),3,Ignitor,Gas Lighter,250,1,/assets/images/Gas Lighter.jpg

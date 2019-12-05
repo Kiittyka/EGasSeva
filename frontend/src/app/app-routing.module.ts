@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { StepperErrorsExampleComponent } from './stepper-errors-example/stepper-errors-example.component';
 import { QueryFromComponent } from './customer/query-from/query-from.component';
 import { OnlineBookingComponent } from './customer/online-booking/online-booking.component';
-import { NewConnectionComponent } from './customer/new-connection/new-connection.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -22,11 +21,10 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
 import { HeaderComponent } from './header/header.component';
 import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
 import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
-import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.component';
 
 const routes: Routes = [
 
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGaurdService] },
+  { path: 'adminDashboard', component: AdminComponent },
   {
     path: 'customer', component: CustomerComponent,
     children: [
@@ -34,12 +32,13 @@ const routes: Routes = [
       { path: 'gasBooking', component: OnlineBookingComponent },
       { path: 'accessories', component: ProductListComponent},
       { path: 'cart', component: CartComponent},
-      { path: 'payment', component: PaymentComponent}
+      { path: 'payment', component: PaymentComponent},
+      { path: 'query', component: QueryFromComponent },
     ]
   },
   // {path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService]},
  
-  { path: 'query', component: QueryFromComponent },
+  
   { path: 'registrationStepper', component: StepperErrorsExampleComponent },
   { path: '', component: HomePageComponent },
   { path: 'home-page-header', component: HeaderComponent },
@@ -49,8 +48,10 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   {path:'dealer',component: DealerPageComponent ,
   children :  [{path:'bookinginfo', component:BookingInfoComponent},
-  {path:'transferinfo', component:TransferInfoComponent},
-  {path:'query', component:CustomerQueryComponent}]
+  
+  {path:'query', component:CustomerQueryComponent},
+  {path:'queries', component:CustomerQueryComponent}]
+   
 }
 
 ];

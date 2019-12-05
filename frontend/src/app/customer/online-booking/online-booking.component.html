@@ -33,16 +33,8 @@
             <input type=number class="form-control" [(ngModel)]="cust.contact" formControlName="contact" required>
         </div>
 
-        <!--Adhaar Number-->
-        <div class="form-group">
-            <label for="adhaar">Adhaar no: </label>
-            <input [class.is-invalid]="gasbooking.get('Adhaarno').invalid && gasbooking.get('Adhaarno').touched  "
-                type="number" class="form-control" id="adhaar" name="adhaar" formControlName="Adhaarno">
-            <small [class.d-none]="gasbooking.get('Adhaarno').valid ||
-            gasbooking.get('Adhaarno').untouched " class="text-danger">Adhaar number is required.</small>
-        </div>
-
-
+       
+       
         <!-- Customer Address -->
         <div>
             <h4> Customer Address </h4>
@@ -77,32 +69,25 @@
                 </label>
 
             </div>
+             <!--Adhaar Number-->
+        <div class="form-group">
+            <label for="adhaarNo">Adhaar no: </label>
+            <input type="text" class="form-control" formControlName="adhaarNo">
+            <div *ngIf="adhaarNo.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
+                <div *ngIf="adhaarNo.errors.required">
+                    Adhaar number required.
+                </div>  
+                <div *ngIf="adhaarNo.errors.pattern">
+                    Enter valid adhaar number(Eg. xxxx xxxx xxxx)
+                </div> 
+            </div>
+        </div>
 
         </div>
 
         <button type="submit" class="btn btn-primary">Book</button>
 
-        <script>
-            // Disable form submissions if there are invalid fields
-            (function () {
-                'use strict';
-                window.addEventListener('load', function () {
-                    // Get the forms we want to add validation styles to
-                    var forms = document.getElementsByClassName('needs-validation');
-                    // Loop over them and prevent submission
-                    var validation = Array.prototype.filter.call(forms, function (form) {
-                        form.addEventListener('submit', function (event) {
-                            if (form.checkValidity() === false) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        }, false);
-                    });
-                }, false);
-            })();
-        </script>
-
+       
     </form>
 
 </div>

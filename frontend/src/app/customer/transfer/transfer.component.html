@@ -21,12 +21,7 @@
             <label for="contact">Contact No : </label>
             <input type=number class="form-control" [(ngModel)]="cust.contact" formControlName="contact" required>
         </div>
-        <div class="form-group">
-            <label for="adhaar">Adhaar no: </label>
-            <input [class.is-invalid]="gasbooking.get('Adhaarno').invalid && gasbooking.get('Adhaarno').touched  " type="number" class="form-control" id="adhaar" name ="adhaar"formControlName="adhaarNo" >
-            <small [class.d-none]="gasbooking.get('Adhaarno').valid ||
-            gasbooking.get('Adhaarno').untouched " class="text-danger">Adhaar number is required.</small>
-        </div>
+        
         <!-- Gas Agency -->
         <div class="form-group">
             <label for="Agency">Current Gas Agency : </label>
@@ -84,21 +79,24 @@
 
                 <label>
                     Country:
-                    <input type="text" class="form-control" [(ngModel)]="zip.country" formControlName="newCountry" name="street">
+                    <input type="text" class="form-control" [(ngModel)]="zip.country" formControlName="newCountry"
+                        name="street">
                 </label>
                 <!-- </div>
         
                     <div class="form-group"> -->
                 <label>
                     State:
-                    <input type="text" class="form-control" [(ngModel)]="zip.state" formControlName="newState" name="state">
+                    <input type="text" class="form-control" [(ngModel)]="zip.state" formControlName="newState"
+                        name="state">
                 </label>
                 <!-- </div>
         
                     <div class="form-group"> -->
                 <label>
                     City:
-                    <input type="text" class="form-control" [(ngModel)]="zip.city" formControlName="newCity" name="city">
+                    <input type="text" class="form-control" [(ngModel)]="zip.city" formControlName="newCity"
+                        name="city">
                 </label>
                 <!-- </div>
         
@@ -110,8 +108,21 @@
         </div>
         <div class="form-group">
             <label for="newAgency">New Gas Agency : </label>
-            <input type="text" class="form-control" [(ngModel)]="zip.dealer" formControlName="newAgency" >
+            <input type="text" class="form-control" [(ngModel)]="zip.dealer" formControlName="newAgency">
 
+        </div>
+        <!--Adhaar Number-->
+        <div class="form-group">
+            <label for="adhaarNo">Adhaar no: </label>
+            <input type="text" class="form-control" formControlName="adhaarNo">
+            <div *ngIf="adhaarNo.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass]="'error'">
+                <div *ngIf="adhaarNo.errors.required">
+                    Adhaar number required.
+                </div>
+                <div *ngIf="adhaarNo.errors.pattern">
+                    Enter valid adhaar number(Eg. xxxx xxxx xxxx)
+                </div>
+            </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Transfer</button>
