@@ -2,26 +2,27 @@
     /* float: right;
     width: 80%; */
     padding-right: 20%;
-    margin-top:90px; 
-
+    margin-top: 90px;
     float: left;
     width: 60%;
     padding-right: 2%;
     margin-top: -6%;
     background-color: white;
     align-content: center;
-    margin-left: 13%;
-    border-radius:1.6rem;
-}
-button{
-    margin:15px;
+    margin-left: 30%;
+    border-radius: 1.6rem;
 }
 
-select{
-    padding:10px;
+button {
+    margin: 15px;
 }
-textarea{
-    padding:10px;
+
+select {
+    padding: 10px;
+}
+
+textarea {
+    padding: 10px;
 }
 
 #myDIV {
@@ -30,9 +31,8 @@ textarea{
     text-align: center;
     background-color: lightblue;
     margin-top: 20px;
-  }
+}
 
-  
 .bg {
     /* The image used */
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/dot-grid.png");
@@ -42,4 +42,4 @@ textarea{
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: repeat;
-  }
+}
