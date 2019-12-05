@@ -12,19 +12,19 @@ import { HttpClient } from '@angular/common/http';
 export class QueryFromComponent implements OnInit {
   // queryForm: FormGroup;
   user: Query = new Query("", "", "", "");
-  constructor(private fb: FormBuilder, private httpClientService: HttpClientService, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
     // this.createForm();
   }
 
   option_value: any;
 
   ngOnInit() {
-    this.http.get("http:/")
+    
   }
 
   queryForm = this.fb.group({
-    fullName: [{ value: '', disabled: true }, Validators.required],
-    email: [{ value: '', disabled: true }, Validators.required],
+    fullName: [{ value:localStorage.getItem('username'), disabled: true }, Validators.required],
+    email: [{ value: localStorage.getItem('email'), disabled: true }, Validators.required],
     question: ['', Validators.required],
     others: ['', Validators.required],
   })

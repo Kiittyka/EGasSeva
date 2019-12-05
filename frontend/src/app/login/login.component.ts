@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
         this.message = data;
          console.log(data)
         if(data) {
-          console.log(this.user["email"])
-          sessionStorage.setItem('email', this.user["email"]);
+          
+          localStorage.setItem('email', this.user["email"]);
          this.router.navigate(['/', 'customer'])
          }
         else {
