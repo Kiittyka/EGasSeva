@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransferInfoComponent } from './transfer-info.component';
+import { CustomerQueryComponent } from './customer-query.component';
 
-describe('TransferInfoComponent', () => {
-  let component: TransferInfoComponent;
-  let fixture: ComponentFixture<TransferInfoComponent>;
+describe('CustomerQueryComponent', () => {
+  let component: CustomerQueryComponent;
+  let fixture: ComponentFixture<CustomerQueryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TransferInfoComponent ]
+      declarations: [ CustomerQueryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TransferInfoComponent);
+    fixture = TestBed.createComponent(CustomerQueryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

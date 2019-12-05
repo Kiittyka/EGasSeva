@@ -1,3 +1,4 @@
+import { CustomerQueryComponent } from './dealer/customer-query/customer-query.component';
 import { PaymentComponent } from './customer/payment/payment.component';
 import { TransferComponent } from './customer/transfer/transfer.component';
 import { CartComponent } from './customer/cart/cart.component';
@@ -20,7 +21,6 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
 import { HeaderComponent } from './header/header.component';
 import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
 import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
-import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.component';
 
 const routes: Routes = [
 
@@ -48,7 +48,8 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   {path:'dealer',component: DealerPageComponent ,
   children :  [{path:'bookinginfo', component:BookingInfoComponent},
-  {path:'transferinfo', component:TransferInfoComponent}]
+  {path:'queries', component:CustomerQueryComponent}
+   ]
 }
 
 ];
