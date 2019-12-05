@@ -12,7 +12,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LogoutComponent } from './logout/logout.component';
-import { AuthGaurdService } from './service/auth-gaurd.service';
 
 import { CustomerComponent } from './customer/customer/customer.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -34,6 +33,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent},
       { path: 'payment', component: PaymentComponent},
       { path: 'query', component: QueryFromComponent },
+      { path: 'logout', component: LogoutComponent }
     ]
   },
   // {path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService]},
@@ -45,12 +45,13 @@ const routes: Routes = [
   { path: 'Home', component: HomePageComponent },
   { path: 'Services', component: HomePageServicesComponent },
   { path: 'SignUp', component: HomePageSignupComponent },
-  { path: 'logout', component: LogoutComponent },
+  
   {path:'dealer',component: DealerPageComponent ,
   children :  [{path:'bookinginfo', component:BookingInfoComponent},
   
   {path:'query', component:CustomerQueryComponent},
-  {path:'queries', component:CustomerQueryComponent}]
+  {path:'queries', component:CustomerQueryComponent},
+  { path: 'logout', component: LogoutComponent }]
    
 }
 

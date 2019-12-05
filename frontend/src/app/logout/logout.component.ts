@@ -10,14 +10,15 @@ import { Router } from '@angular/router';
 export class LogoutComponent implements OnInit {
 
   constructor(
-    private authentocationService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private router: Router) {
 
   }
 
   ngOnInit() {
-    this.authentocationService.logOut();
-    this.router.navigate(['login']);
+    sessionStorage.removeItem('email')
+
+    this.router.navigate(['Home']);
   }
 
 }
