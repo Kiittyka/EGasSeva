@@ -24,11 +24,6 @@
         </div>
         <div>
           <li>
-            <fa name="line-chart"></fa><a routerLink="transferinfo"> Transfer Connection Information</a>
-          </li>
-        </div>
-        <div>
-          <li>
             <fa name="check"></fa><a routerLink="query"> Queries </a>
           </li>
         </div>
@@ -56,7 +51,7 @@
       </div>
     </router-outlet>
 
-    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
+    <button  id="cc" type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
       mdbWavesEffect>CHATBOT</button>
     <div class="container">
       <div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"

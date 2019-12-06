@@ -23,8 +23,6 @@ public class Query {
 	private String fullName;
 	@Column(name="email")
 	private String email;
-	@Column(name="contact")
-	private String contact;
 	@Column(name="question")
 	private String question;
 	@Column(name="others")
@@ -47,12 +45,7 @@ public class Query {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getContact() {
-		return contact;
-	}
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
+
 	public String getQuestion() {
 		return question;
 	}

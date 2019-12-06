@@ -1,14 +1,11 @@
-export class Transferconnection {
+export class Customerdetails {
     constructor(
-        public email:string,
         public name:string,
+        public contact:string,
         public agency:string,
-        public adhaar:string,
         public country:string,
         public state:string,
         public city:string,
-        public zip:string
-
-    ){
-    }
+        public zipcode:string){}
+    
 }
