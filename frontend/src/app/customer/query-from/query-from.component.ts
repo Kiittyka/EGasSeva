@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class QueryFromComponent implements OnInit {
   // queryForm: FormGroup;
-  user: Query = new Query("", "", "", "");
+  user: Query = new Query("", "", "", "","");
   constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
     // this.createForm();
   }
