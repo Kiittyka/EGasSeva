@@ -13,34 +13,27 @@ export class TransferComponent implements OnInit {
   gasbooking: FormGroup;
   zip: Zipcode = new Zipcode("", "", "", "", "");
   constructor(private httpClientService: HttpClientService, private fb: FormBuilder) { }
-  cust: Customer = new Customer("", "", "", 0, "", "", "", "", "");
 
   isValidFormSubmitted = null;
   adhaarPattern = "^\\d{4}\\s\\d{4}\\s\\d{4}$";
 
 
   ngOnInit() {
-    var email = "diana@gmail.com";
-    this.httpClientService.getCustomerData(email)
-      .subscribe(data => {
-        this.cust = data;
-      })
+
 
 
     this.gasbooking = this.fb.group({
-      fullName: [{ value: '', disabled: true }, Validators.required],
-      email: [{ value: '', disabled: true }, Validators.required],
-      gasAgency: [{ value: '', disabled: true }, Validators.required],
-
-      newGasAgency: [{ value: '', disabled: true }, Validators.required],
-      contact: [{ value: '', disabled: true }, Validators.required],
+      fullName: [{ value: localStorage.getItem('username'), disabled: true }, Validators.required],
+      email: [{ value: localStorage.getItem('email'), disabled: true }, Validators.required],
+      contact: [{ value: localStorage.getItem('contact'), disabled: true }, Validators.required],
+      gasAgency: [{ value: localStorage.getItem('agency'), disabled: true }, Validators.required],
 
       adhaarNo: ['', [Validators.required, Validators.pattern(this.adhaarPattern)]],
-      country: [{ value: '', disabled: true }, Validators.required],
-      city: [{ value: '', disabled: true }, Validators.required],
-      state: [{ value: '', disabled: true }, Validators.required],
-      zip: [{ value: '', disabled: true }, Validators.required],
-
+      country: [{ value: localStorage.getItem('country'), disabled: true }, Validators.required],
+      city: [{ value: localStorage.getItem('city'), disabled: true }, Validators.required],
+      state: [{ value: localStorage.getItem('state'), disabled: true }, Validators.required],
+      zip: [{ value: localStorage.getItem('zipcode'), disabled: true }, Validators.required],
+      newGasAgency: [{ value: '', disabled: true }, Validators.required],
       newCountry: [{ value: '', disabled: true }, Validators.required],
       newCity: [{ value: '', disabled: true }, Validators.required],
       newState: [{ value: '', disabled: true }, Validators.required],
@@ -75,15 +68,16 @@ export class TransferComponent implements OnInit {
     let name = this.gasbooking.controls['fullName'].value;
 
     let email = this.gasbooking.controls['email'].value;
-    let newGasAgency = this.gasbooking.controls['newAgency'].value;
+    let agency = this.gasbooking.controls['newAgency'].value;
 
-    let adhaarNo = this.gasbooking.controls['adhaarNo'].value;
+    let adhaar = this.gasbooking.controls['adhaarNo'].value;
     let country = this.gasbooking.controls['newCountry'].value;
     let state = this.gasbooking.controls['newState'].value;
     let city = this.gasbooking.controls['newCity'].value;
     let zip = this.gasbooking.controls['newZip'].value;
 
-    let transferConnection = new Transferconnection(email, name, newGasAgency, adhaarNo, country, state, city, zip);
+    let transferConnection = new Transferconnection(email, name, agency, adhaar, country, state, city, zip);
+    console.log(transferConnection);
     this.httpClientService.transferConnection(transferConnection)
       .subscribe(data => {
         alert("Registered Successfully");

@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.OnlineBooking;
-import com.example.demo.entity.Query;
 import com.example.demo.repository.OnlineBookingRepository;
-import com.example.demo.repository.QueryRepository;
 
 @Service
 public class OnlineBookingServiceImpl implements OnlineBookingService {
@@ -38,7 +36,7 @@ public class OnlineBookingServiceImpl implements OnlineBookingService {
 
 	@Override
 	public Customer getCustomerData(String email) {
-		Customer cust=entityManager.find(Customer.class, email);
+		Customer cust= entityManager.find(Customer.class,email);
 		return cust ;
 	}
 }

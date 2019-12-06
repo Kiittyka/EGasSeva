@@ -9,23 +9,23 @@
         <!-- Full Name -->
         <div class="form-group">
             <label for="name">Full Name : </label>
-            <input class="form-control" [(ngModel)]="cust.name" formControlName="fullName" required>
+            <input class="form-control"  formControlName="fullName" required>
         </div>
         <!-- Customer EmailId-->
         <div class="form-group">
             <label for="email">Email : </label>
-            <input class="form-control" [(ngModel)]="cust.email" formControlName="email" required>
+            <input class="form-control"  formControlName="email" required>
         </div>
         <!--Customer Contact No-->
         <div class="form-group">
             <label for="contact">Contact No : </label>
-            <input type=number class="form-control" [(ngModel)]="cust.contact" formControlName="contact" required>
+            <input type=number class="form-control" formControlName="contact" required>
         </div>
         
         <!-- Gas Agency -->
         <div class="form-group">
             <label for="Agency">Current Gas Agency : </label>
-            <input class="form-control" [(ngModel)]="cust.agency" formControlName="gasAgency" required>
+            <input class="form-control"  formControlName="gasAgency" required>
         </div>
 
 
@@ -35,12 +35,12 @@
             <div class="form-group">
                 <label>
                     Zip Code:
-                    <input type="number" class="form-control" [(ngModel)]="cust.zipcode" formControlName="zip">
+                    <input type="number" class="form-control"  formControlName="zip">
                 </label>
 
                 <label>
                     Country:
-                    <input type="text" class="form-control" [(ngModel)]="cust.country" formControlName="country"
+                    <input type="text" class="form-control"  formControlName="country"
                         name="country">
                 </label>
                 <!-- </div>
@@ -48,14 +48,14 @@
                 <div class="form-group"> -->
                 <label>
                     City:
-                    <input type="text" class="form-control" [(ngModel)]="cust.city" formControlName="city" name="city">
+                    <input type="text" class="form-control"  formControlName="city" name="city">
                 </label>
                 <!-- </div>
     
                 <div class="form-group"> -->
                 <label>
                     State:
-                    <input type="text" class="form-control" [(ngModel)]="cust.state" formControlName="state"
+                    <input type="text" class="form-control" formControlName="state"
                         name="state"> </label>
                 <!-- </div>
     
@@ -74,13 +74,13 @@
             <div class="form-group">
                 <label>
                     Zip Code:
-                    <input type="number" class="form-control" formControlName="newZip" name="zip" required>
+                    <input type="number" class="form-control" formControlName="newZip" id="newZip" required>
                 </label>
 
                 <label>
                     Country:
                     <input type="text" class="form-control" [(ngModel)]="zip.country" formControlName="newCountry"
-                        name="street">
+                        name="newCountry">
                 </label>
                 <!-- </div>
         
@@ -88,7 +88,7 @@
                 <label>
                     State:
                     <input type="text" class="form-control" [(ngModel)]="zip.state" formControlName="newState"
-                        name="state">
+                        id="newState">
                 </label>
                 <!-- </div>
         
@@ -96,7 +96,7 @@
                 <label>
                     City:
                     <input type="text" class="form-control" [(ngModel)]="zip.city" formControlName="newCity"
-                        name="city">
+                        id="newCity">
                 </label>
                 <!-- </div>
         
@@ -108,7 +108,7 @@
         </div>
         <div class="form-group">
             <label for="newAgency">New Gas Agency : </label>
-            <input type="text" class="form-control" [(ngModel)]="zip.dealer" formControlName="newAgency">
+            <input type="text" class="form-control" [(ngModel)]="zip.dealer" formControlName="newAgency" id="newAgency">
 
         </div>
         <!--Adhaar Number-->

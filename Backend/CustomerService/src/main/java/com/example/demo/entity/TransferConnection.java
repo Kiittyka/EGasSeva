@@ -13,31 +13,33 @@ import lombok.Data;
 public class TransferConnection {
 	@Id
 	@Column(name="email")
-
-	String email;
+	private String email;
+	
 	@Column(name="name")
-
-	String name;
+	private String name;
+	
 	@Column(name="agency")
-	String agency;
+	private String agency;
+	
 	@Column(name="adhaar")
-
-	String aadhar;
+	private String adhaar;
+	
 	@Column(name="date")
-	String date;
+	private String date;
+	
 	@Column(name="country")
-
-	String newCountry;
+	private String country;
+	
 	@Column(name="State")
-
-	String newState;
+	private String state;
+	
 	@Column(name="city")
-
-	String newCity;
+	private String city;
+	
 	@Column(name="zip")
-
-	String newZip;
+	private String zip;
+	
 	@Column(name="accept")
-	boolean accept;
+	private boolean accept;
 	
 }

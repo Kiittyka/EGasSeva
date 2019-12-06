@@ -14,25 +14,30 @@ import { FormBuilder } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   message;
-  user: Login = new Login("", "")
+  user: Login = new Login("", "");
+  invalidLogin = false;
 
-  constructor(private fb: FormBuilder, private httpClientService: HttpClientService, private router: Router) { }
+  constructor(private fb: FormBuilder,private httpClientService: HttpClientService, private router: Router) { }
 
   ngOnInit() {
   }
 
   login(): void {
-    console.log(this.user);
-    this.httpClientService.loginUser(this.user)
+   console.log(this.user);
+     this.httpClientService.loginUser(this.user)
       .subscribe(data => {
         this.message = data;
-        console.log(data)
+         console.log(data)
         if(data) {
-          this.router.navigate(['/', 'customer'])
-        }
+          
+          localStorage.setItem('email', this.user["email"]);
+         this.router.navigate(['/', 'customer'])
+         }
         else {
           this.message = "Invalid email/password!"
-        }
+      }
       });
-  }
+   }
+  
+  
 }

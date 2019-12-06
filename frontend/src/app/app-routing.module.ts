@@ -1,3 +1,4 @@
+import { CustomerQueryComponent } from './dealer/customer-query/customer-query.component';
 import { PaymentComponent } from './customer/payment/payment.component';
 import { TransferComponent } from './customer/transfer/transfer.component';
 import { CartComponent } from './customer/cart/cart.component';
@@ -11,7 +12,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LogoutComponent } from './logout/logout.component';
-import { AuthGaurdService } from './service/auth-gaurd.service';
 
 import { CustomerComponent } from './customer/customer/customer.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -20,7 +20,6 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
 import { HeaderComponent } from './header/header.component';
 import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
 import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
-import { TransferInfoComponent } from './dealer/transfer-info/transfer-info.component';
 
 const routes: Routes = [
 
@@ -34,6 +33,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent},
       { path: 'payment', component: PaymentComponent},
       { path: 'query', component: QueryFromComponent },
+      { path: 'logout', component: LogoutComponent }
     ]
   },
   // {path: 'customer', component: CustomerComponent, canActivate: [AuthGaurdService]},
@@ -45,10 +45,14 @@ const routes: Routes = [
   { path: 'Home', component: HomePageComponent },
   { path: 'Services', component: HomePageServicesComponent },
   { path: 'SignUp', component: HomePageSignupComponent },
-  { path: 'logout', component: LogoutComponent },
+  
   {path:'dealer',component: DealerPageComponent ,
   children :  [{path:'bookinginfo', component:BookingInfoComponent},
-  {path:'transferinfo', component:TransferInfoComponent}]
+  
+  {path:'query', component:CustomerQueryComponent},
+  {path:'queries', component:CustomerQueryComponent},
+  { path: 'logout', component: LogoutComponent }]
+   
 }
 
 ];

@@ -1,7 +1,7 @@
 export class Transferconnection {
     constructor(
-        public name:string,
         public email:string,
+        public name:string,
         public agency:string,
         public adhaar:string,
         public country:string,

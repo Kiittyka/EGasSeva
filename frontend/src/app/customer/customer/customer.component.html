@@ -8,81 +8,77 @@
 </div>
 
 
-  
-    <aside id="leftNav">
-      <ul>
-        <div>
-          <li>
-            <fa name="home"></fa><a routerLink="registrationStepper"> Dashboard</a>
-          </li>
-        </div>
-        <div>
-          <li>
-            <fa name="users"></fa><a routerLink="gasBooking"> Gas Booking</a>
-          </li>
-        </div>
-        <div>
-          <li>
-            <fa name="line-chart"></fa><a routerLink="transferConnection"> Transfer Connection</a>
-          </li>
-        </div>
-        <div>
-            <li>
-              <fa name="line-chart"></fa><a routerLink="accessories"> Accessories</a>
-            </li>
-          </div>
-        <div>
-          <li>
-            <fa name="check"></fa><a routerLink="query"> Queries </a>
-          </li>
-        </div>
-        <div>
-          <li>
-            <fa name="car"></fa><a href="#"> Help</a>
-        </div>
 
-      </ul>
-    </aside>
- 
+<aside id="leftNav">
+  <ul>
+    
+    <div>
+      <li>
+        <fa name="users"></fa><a routerLink="gasBooking"> Booking</a>
+      </li>
+    </div>
+    <div>
+      <li>
+        <fa name="line-chart"></fa><a routerLink="transferConnection"> Transfer</a>
+      </li>
+    </div>
+    <div>
+      <li>
+        <fa name="line-chart"></fa><a routerLink="accessories"> Accessories</a>
+      </li>
+    </div>
+    <div>
+      <li>
+        <fa name="check"></fa><a routerLink="query"> Queries </a>
+      </li>
+    </div>
+    
 
-
-  <main>
-
-    <router-outlet>
-
-
-      <div class="top-nav">
-
-        <h1>Welcome User !</h1>
+  </ul>
+</aside>
 
 
 
-      </div>
-    </router-outlet>
+<main>
 
-    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
-      mdbWavesEffect>CHATBOT</button>
-    <div class="container">
-      <div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
-        aria-labelledby="myBasicModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-side modal-bottom-right " role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button class="modal-header" type="button" class="close pull-right" aria-label="Close"
-                (click)="basicModal.hide()">
-                <span class="hi" aria-hidden="true"> - </span>
-              </button>
-              <h1 class="modal-title w-100" id="myModalLabel"> Welcome to Chat Bot !</h1>
+  <router-outlet>
 
-            </div>
-            <hr>
-            <div class="modal-body">
-              <chat-dialog></chat-dialog>
-            </div>
+
+    <div class="top-nav">
+
+      <h1>Welcome {{user}}</h1>
+
+
+
+    </div>
+  </router-outlet>
+
+  <button id="cc" type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
+    mdbWavesEffect>CHATBOT</button>
+  <div class="container">
+    <div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
+      aria-labelledby="myBasicModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-side modal-bottom-right " role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="modal-header" type="button" class="close pull-right" aria-label="Close"
+              (click)="basicModal.hide()">
+
+              <span class="hi" aria-hidden="true"> - </span>
+            </button>
+            <h1 class="modal-title w-100" id="myModalLabel"> Welcome to Chat Bot !</h1>
 
           </div>
+          <hr>
+          <div class="modal-body">
+            <chat-dialog></chat-dialog>
+          </div>
+
+
         </div>
       </div>
     </div>
-  </main>
-  
+  </div>
+
+
+</main>
