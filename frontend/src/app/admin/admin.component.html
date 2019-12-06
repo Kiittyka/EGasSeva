@@ -38,25 +38,45 @@
         </a> -->
         <!-- <a class="card" href="https://angular.io/tutorial" id="card1" style="background-color:#1F5BA1">
             <span>Learn Angular</span>
-          </a>
-          <a class="card" href="https://angular.io/tutorial" id="card2" style="background-color:#671EA1">
-            <span>Learn Angular</span>
-             </a> -->
-        <div class="left">
+          </a>-->
+          <div class="card" id="card2" >
+            <div class="chart-wrapper">
+            <canvas baseChart width="600" height="600" 
+              [datasets]="lineChartData" 
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions" 
+              [colors]="lineChartColors" 
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType" 
+              [plugins]="lineChartPlugins">
+            </canvas>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="card" id="card2">
           <div class="chart-wrapper">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-              [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+            <canvas baseChart width="600" height="600"
+            [datasets]="barChartData" 
+            [labels]="barChartLabels" 
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins" 
+            [legend]="barChartLegend" 
+            [chartType]="barChartType">
             </canvas>
           </div>
         </div>
 
         <div class="right">
-          <div class="chart-wrapper">
-            <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels"
-              [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
-              [chartType]="lineChartType" [plugins]="lineChartPlugins">
-            </canvas>
-          </div>
+          
         </div>
       </div>
     </div>

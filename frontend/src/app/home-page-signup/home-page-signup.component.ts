@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page-signup.component.css']
 })
 export class HomePageSignupComponent implements OnInit {
-  message : Array<Registration> ;
+  message: Array<Registration>;
   user: Registration = new Registration("", "", "", true);
   constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
   }
@@ -18,11 +18,15 @@ export class HomePageSignupComponent implements OnInit {
   }
   register(): void {
     console.log(this.user);
+    localStorage.setItem("name", this.user.username)
+    localStorage.setItem("email", this.user.email)
+    console.log(localStorage.getItem("name"))
+    console.log(localStorage.getItem("email"))
     this.httpClientService.registerUser(this.user)
       .subscribe(data => {
         alert("Customer created successfully.");
         this.message = data;
-          console.log(data)
+        console.log(data)
       });
   }
 }

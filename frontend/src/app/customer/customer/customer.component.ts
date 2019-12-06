@@ -19,7 +19,7 @@ export class CustomerComponent implements OnInit {
       
       localStorage.setItem('username',data.name);
       localStorage.setItem('contact',data.contact);
- 
+      console.log(localStorage.getItem('contact'));
       localStorage.setItem('agency',data.agency);
       localStorage.setItem('country',data.country);
       localStorage.setItem('state',data.state);

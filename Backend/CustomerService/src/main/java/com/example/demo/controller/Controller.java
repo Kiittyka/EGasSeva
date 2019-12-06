@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,37 +16,39 @@ import com.example.demo.service.OnlineBookingService;
 import com.example.demo.service.QueryService;
 import com.example.demo.service.TransferConnectionService;
 
-@RestController
-@CrossOrigin(origins = "http://localhost:4200")
 
+@CrossOrigin("http://localhost:4200")
+@RestController
 public class Controller {
 	@Autowired
 	private OnlineBookingService onlineBookingService;
-	
+
 	@Autowired
 	private QueryService queryService;
 	@Autowired
 	private TransferConnectionService transferConnectionService;
-	
+
 	@PostMapping("/onlineBookings")
 	public void saveOnlineBooking(@RequestBody OnlineBooking data) {
-	
+
 		onlineBookingService.save(data);
-		
+
 	}
+
 	@GetMapping("/getCustomerData/{email}")
 	public Customer getCustomerData(@PathVariable String email) {
 		return onlineBookingService.getCustomerData(email);
-		
+
 	}
+
 	@PostMapping("/save")
 	public void saveQueryForm(@RequestBody Query queryForm) {
 		queryService.saveForm(queryForm);
 	}
-		
+
 	@PostMapping("/transferLocation")
 	public void saveTransferLocation(@RequestBody TransferConnection data) {
-		System.out.println("controller"+data);
+		System.out.println("controller" + data);
 		transferConnectionService.save(data);
 	}
 }

@@ -5,7 +5,7 @@
       <ng-template matStepLabel>Fill out Details</ng-template>
 
       <mat-form-field>
-        <input matInput type="name" placeholder="Full Name" class="form-control" formControlName="name" required>
+        <input matInput type="name" placeholder="Full Name" class="form-control" formControlName="name" [(ngModel)]="name" required>
         <mat-hint align="end">Not more then 60 characters long.</mat-hint>
         <mat-error *ngIf="hasError1('name', 'required')">Name is required</mat-error>
         <mat-error *ngIf="hasError1('name', 'maxlength')">Max 60 characters required</mat-error>
@@ -13,7 +13,7 @@
       </mat-form-field>
 
       <br>
-      <mat-form-field> <input matInput type="email" placeholder="Email" class="form-control" formControlName="email"
+      <mat-form-field> <input matInput type="email" placeholder="Email" [(ngModel)]="email" class="form-control" formControlName="email"
           required>
       </mat-form-field>
       <br>
@@ -35,8 +35,8 @@
 
       <mat-form-field>
           <input matInput type="number" placeholder="Zipcode" class="form-control" formControlName="zipcode" required>
-        <!--  <mat-error *ngIf="hasError3('zipcode', 'min')">Enter valid zipcode</mat-error>
-          <mat-error *ngIf="hasError3('zipcode', 'max')" >Enter valid zipcode</mat-error>-->
+          <!-- <mat-error *ngIf="hasError3('zipcode', 'min')">Enter valid zipcode</mat-error>
+          <mat-error *ngIf="hasError3('zipcode', 'max')" >Enter valid zipcode</mat-error> -->
       </mat-form-field>
       <br>
       <mat-form-field>

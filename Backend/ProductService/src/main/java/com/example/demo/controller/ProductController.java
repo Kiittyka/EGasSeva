@@ -26,7 +26,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 public class ProductController {
 
 	@Autowired
