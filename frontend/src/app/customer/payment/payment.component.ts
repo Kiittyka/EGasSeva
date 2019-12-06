@@ -2,7 +2,7 @@ import { Product } from './../product-list/product.model';
 
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-payment',
@@ -13,30 +13,39 @@ import { FormBuilder } from '@angular/forms';
 
 export class PaymentComponent implements OnInit {
   ngOnInit() {
+    this.email=localStorage.getItem('email');
+    console.log(this.email)
+    this.payuform.email = this.email
+
+    this.name = localStorage.getItem("username")
+    this.phone = localStorage.getItem("contact")
+    
     this.productinfo = "product"
     this.amount = parseInt(sessionStorage.getItem('amount'))
     this.payuform.amount = (this.amount);
     this.payuform.productinfo = this.productinfo
-    console.log(typeof(this.payuform.amount))
-    console.log(typeof(this.amount))
-    console.log(this.payuform.productinfo)
-    console.log(this.productinfo)
-
+    console.log(this.amount)
+    console.log(this.payuform.amount)
   }
   public payuform: any = {};
   disablePaymentButton: boolean = true;
   amount:Number;
-  constructor(private http: HttpClient) { }
+  email:string;
+  name :string;
+  phone: string;
+  constructor(private http: HttpClient, private fb: FormBuilder) { }
   productinfo : string
 
+ 
   confirmPayment() {
-    const paymentPayload = {
-      email: this.payuform.email,
-      name: this.payuform.firstname,
-      phone: this.payuform.phone,
-      productinfo: this.payuform.productinfo,
-      amount: this.payuform.amount
-    }
+     const paymentPayload = {
+       email: this.payuform.email,
+       name: this.payuform.firstname,
+       phone: this.payuform.phone,
+       productinfo: this.payuform.productinfo,
+       amount: this.payuform.amount
+     }
+   
     console.log(this.payuform.productinfo)
     console.log(paymentPayload)
     return this.http.post<any>('http://localhost:8970/payment/payment-details', paymentPayload).subscribe(
