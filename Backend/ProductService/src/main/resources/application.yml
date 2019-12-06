@@ -4,9 +4,7 @@ spring:
       enabled: true
   data:
     mongodb:
-      database: products
-      host: 127.0.0.1
-      port: 27017
+      uri: mongodb+srv://mongodbuser:mongodbuser@cluster0-gp4w1.mongodb.net/products?retryWrites=true&w=majority      
 server:
   port: 3002
   

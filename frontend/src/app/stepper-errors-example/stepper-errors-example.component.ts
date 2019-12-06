@@ -24,6 +24,8 @@ export class StepperErrorsExampleComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   message: string;
+  name: string;
+  email: string;
   public frmSignup: FormGroup;
 
 
@@ -31,16 +33,18 @@ export class StepperErrorsExampleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  
 
-
+    this.name = localStorage.getItem("name");
+    this.email = localStorage.getItem("email");
+    console.log(localStorage.getItem("name"))
+    console.log(localStorage.getItem("email"))
     this.firstFormGroup = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(60)]),
       email: new FormControl('', [Validators.required]),
       contact: new FormControl('', [Validators.required,Validators.pattern('^[789]\\d{9}$')])
     });
     this.secondFormGroup = new FormGroup({
-      zipcode: new FormControl('', [Validators.required,Validators.min(100000),Validators.max(999999)]),
+      zipcode: new FormControl('', [Validators.required]),
       city: new FormControl({value:'', disabled:true}, [Validators.required]),
       state: new FormControl({value:'', disabled:true}, [Validators.required]),
       country: new FormControl({value:'', disabled:true}, [Validators.required]),

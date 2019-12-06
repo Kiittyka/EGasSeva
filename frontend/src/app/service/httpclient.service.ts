@@ -43,7 +43,7 @@ export class HttpClientService {
     })
   }
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) {
-    this.url = 'http://localhost:3000/api/register';
+    this.url = 'http://localhost:3010/api/register';
 
     this.route.queryParams.subscribe(params => {
       this.token = params['token'];
@@ -82,7 +82,7 @@ export class HttpClientService {
   /* Email Confirmation */
 
   public confirmAccount() {
-    return this.httpClient.get<[]>("http://localhost:3000/api/confirm-account" + "?token=" + this.token).subscribe(data => {
+    return this.httpClient.get<[]>("http://localhost:3010/api/confirm-account" + "?token=" + this.token).subscribe(data => {
       this.message = data;
       console.log("string is :" + this.message)
     })
