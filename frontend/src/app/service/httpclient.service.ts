@@ -1,3 +1,4 @@
+import { Customerdetails } from './../customerdetails.model';
 import { Message } from './../chat/chat-dialog/chat.service';
 import { Zipcode } from './../zipcode.model';
 
@@ -51,7 +52,9 @@ export class HttpClientService {
     });
     // console.log("token"+this.token)
   }
-
+  getCustomerDetails(email){
+    return this.httpClient.get<Customerdetails>("http://localhost:3003/getCustomerData"+"/"+email);
+  }
 
   getzipcode(value) {
     console.log(value)
@@ -145,11 +148,8 @@ export class HttpClientService {
 
  
 
-   //Populating data from customer table
+  
 
-getCustomerData(email){
-  return this.httpClient.get<Customer>("http://localhost:3003/getCustomerData"+"/"+email);
-}
 
 
 
@@ -171,6 +171,7 @@ getCustomerData(email){
 
 
   transferConnection(transferConnection){
+    console.log("http service",transferConnection);
     return this.httpClient.post("http://localhost:3003/transferLocation",transferConnection);
   }
 
