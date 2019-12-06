@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
   email;
+  username;
   constructor(private httpClientService:HttpClientService) { }
 
   ngOnInit() {
@@ -26,6 +27,7 @@ export class CustomerComponent implements OnInit {
       localStorage.setItem('zipcode',data.zipcode);
       
     })
+    this.username=localStorage.getItem('username');
   }
   
 }

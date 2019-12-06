@@ -14,6 +14,7 @@ import { Login } from '../login/login.model';
 
 import { Phone } from '../customer/online-booking/phone.model';
 import { Query } from '../customer/query-from/query.model';
+import { CustomerQueries } from '../dealer/customer-query/customer-queries.model';
 
 export class Customer {
 
@@ -144,23 +145,14 @@ export class HttpClientService {
   //  }
 
 
-
-
- 
-
-  
-
-
-
-
   sendSms(onlineBooking) {
     let message = "Registration successful";
-    var num = onlineBooking.contact;
+    
 
-    var phoneNumber = num;
+    var phoneNumber = 919741441055;
     let number = new Phone(phoneNumber, message);
     console.log(number);
-    //return this.httpClient.post("http://localhost:8081/api/v1/sms", number);
+    //this.httpClient.post("http://localhost:8081/api/v1/sms", number);
     console.log(onlineBooking);
     return this.httpClient.post("http://localhost:8050/customer-service/onlineBookings", onlineBooking);
   }
@@ -175,6 +167,8 @@ export class HttpClientService {
     return this.httpClient.post("http://localhost:8050/customer-service/transferLocation",transferConnection);
   }
 
-
+  getAllQueries(agency){
+  return this.httpClient.get<CustomerQueries[]>("http://localhost:1234/getCustomerQueries" + "/" + agency)
+}
 
 }

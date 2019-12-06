@@ -1,3 +1,3 @@
 export class Phone {
-    constructor(public phone: string, public message: string) { }
+    constructor(public contact: number, public message: string) { }
 }
