@@ -35,8 +35,8 @@ export class QueryFromComponent implements OnInit {
 
     let question = this.queryForm.controls['question'].value;
     let others = this.queryForm.controls['others'].value;
-
-    let user = new Query(fullName, email, question, others);
+    let agency=localStorage.getItem('agency');
+    let user = new Query(fullName, email, question, others,agency);
 
     console.log(user)
 

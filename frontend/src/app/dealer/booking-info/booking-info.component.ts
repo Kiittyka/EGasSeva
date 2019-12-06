@@ -10,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
 export class BookingInfoComponent implements OnInit {
   customerDetail: Array<any>;
   constructor(private http: HttpClient) { }
-  // = new CustomerDetail(0, "", "", "", 0, "", "", "", "", "", 0, false, "");
   
   ngOnInit() {
     var agency = "Gogas Agency";

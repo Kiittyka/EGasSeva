@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.OnlineBooking;
+import com.example.demo.model.Queries;
 
 @Repository
 @Transactional
@@ -35,6 +36,18 @@ public class ServiceImpl {
 				.setParameter("sid", sid);
 		query.executeUpdate();
 	}
+
+
+	@SuppressWarnings("unchecked")
+	public List<Queries> getCustomerQueries(String agency) {
+		List<Queries> data=entityManager.createQuery("from Queries where agency=:agency and reply=:reply")
+				.setParameter("agency", agency)
+				.setParameter("reply", null)
+				.getResultList();
+		return data;
+	}
+
+
 	
 	
 	

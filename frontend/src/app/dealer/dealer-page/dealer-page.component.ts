@@ -10,6 +10,7 @@ export class DealerPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

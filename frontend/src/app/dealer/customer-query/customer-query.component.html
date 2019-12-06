@@ -17,22 +17,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="pt-3-half" contenteditable="true">Aurelia Vega</td>
-                        <td class="pt-3-half" contenteditable="true">30</td>
+                    <tr *ngFor="let x of customerQueries">
+                        <td class="pt-3-half" >{{x.fullName}}</td>
+                        <td class="pt-3-half">{{x.query}}</td>
                         <td>
 
                             <input type="text-area" rows="2" cols="2">
 
                         <td>
                             <span class="table-remove"><button type="button"
-                                    class="btn btn-danger btn-rounded btn-sm my-0">Send</button></span>
+                                    class="btn btn-danger btn-rounded btn-sm my-0">Reply</button></span>
                         </td>
                     </tr>
-                    <!-- This is our clonable table line -->
-
-                    <!-- This is our clonable table line -->
-
+                    
 
                 </tbody>
             </table>
@@ -45,28 +42,19 @@
     
                             <th class="text-center">Name</th>
                             <th class="text-center">Query</th>
-                            <th class="text-center">Reply</th>
-                            <th class="text-center">Action</th>
+                            <th class="text-center">Replies</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="pt-3-half">Aurelia Vega</td>
                             <td class="pt-3-half">30</td>
-                            <td>
+                            <td></td>
     
-                                <input type="text-area" rows="2" cols="2">
-    
-                            <td>
-                                <span class="table-remove"><button type="button"
-                                        class="btn btn-danger btn-rounded btn-sm my-0">Send</button></span>
-                            </td>
+                          
                         </tr>
-                        <!-- This is our clonable table line -->
-    
-                        <!-- This is our clonable table line -->
-    
-    
+                       
                     </tbody>
                 </table>
 
