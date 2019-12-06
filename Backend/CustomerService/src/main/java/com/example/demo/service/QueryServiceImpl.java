@@ -15,6 +15,7 @@ public class QueryServiceImpl implements QueryService{
 	@Override
 	public void saveForm(Query queryForm) {
 		// TODO Auto-generated method stub
+		queryForm.setReply(null);
 		queryRepository.save(queryForm);
 	}
 }
