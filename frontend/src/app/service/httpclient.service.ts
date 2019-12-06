@@ -53,17 +53,17 @@ export class HttpClientService {
     // console.log("token"+this.token)
   }
   getCustomerDetails(email){
-    return this.httpClient.get<Customerdetails>("http://localhost:3003/getCustomerData"+"/"+email);
+    return this.httpClient.get<Customerdetails>("http://localhost:8050/customer-service/getCustomerData"+"/"+email);
   }
 
   getzipcode(value) {
     console.log(value)
-    return this.httpClient.get<Zipcode>("http://signinsignup-env-1.ak3v647yrs.us-east-2.elasticbeanstalk.com/zipcode" + "/" + value);
+    return this.httpClient.get<Zipcode>("http://localhost:5000/zipcode" + "/" + value);
   }
 
   public createCustomer(customer) {
     console.log(customer);
-    return this.httpClient.post<Customer>("http://localhost:5001/customers", customer);
+    return this.httpClient.post<Customer>("http://localhost:5000/customers", customer);
   }
 
   public registerUser(user: Registration) {
@@ -71,7 +71,7 @@ export class HttpClientService {
   }
 
   public loginUser(user: Login) {
-    return this.httpClient.post<Login>("http://localhost:5001/login", user, this.httpOptions)
+    return this.httpClient.post<Login>("http://localhost:5000/login", user, this.httpOptions)
   }
 
   getHeaders() {
@@ -92,18 +92,18 @@ export class HttpClientService {
   }
 
   public getAll(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>("http://localhost:3002/api/list");
+    return this.httpClient.get<Product[]>("http://localhost:8050/product-service/api/list");
   }
 
   /* Loading Items from Cart */
   public getItems(): Observable<Cart[]> {
-    return this.httpClient.get<Cart[]>("http://localhost:3002/api/GoToCart");
+    return this.httpClient.get<Cart[]>("http://localhost:8050/product-service/api/GoToCart");
   }
 
   /** Adding to Cart */
   public addToCart(product: Product) {
     console.log(product);
-    return this.httpClient.post<Product>("http://localhost:3002/api/cart", product, this.httpOptions)
+    return this.httpClient.post<Product>("http://localhost:8050/product-service/api/cart", product, this.httpOptions)
       .subscribe(
         success => console.log("Done"),
         error => alert(error)
@@ -112,12 +112,12 @@ export class HttpClientService {
 
   public updateCart(prodid: number, quant: number): Observable<any> {
     console.log("cartService =" + prodid, quant)
-    return this.httpClient.get<any>("http://localhost:3002/api/updateCart?id=" + prodid + "&quantity=" + quant)
+    return this.httpClient.get<any>("http://localhost:8050/product-service/api/updateCart?id=" + prodid + "&quantity=" + quant)
   }
 
   public delCart(id: number) {
     console.log("del id in cartService" + id)
-    return this.httpClient.get<any>("http://localhost:3002/api/delCart?id=" + id)
+    return this.httpClient.get<any>("http://localhost:8050/product-service/api/delCart?id=" + id)
   }
 
   /** Deleting Items From Cart */
@@ -162,17 +162,17 @@ export class HttpClientService {
     console.log(number);
     //return this.httpClient.post("http://localhost:8081/api/v1/sms", number);
     console.log(onlineBooking);
-    return this.httpClient.post("http://localhost:3003/onlineBookings", onlineBooking);
+    return this.httpClient.post("http://localhost:8050/customer-service/onlineBookings", onlineBooking);
   }
   saveQueryForm(user: Query) : Observable<any>{
     console.log("user in http Service"+ user.fullName)
-    return this.httpClient.post<any>("http://localhost:3003/save", user, this.httpOptions);
+    return this.httpClient.post<any>("http://localhost:8050/customer-service/save", user, this.httpOptions);
   }
 
 
   transferConnection(transferConnection){
     console.log("http service",transferConnection);
-    return this.httpClient.post("http://localhost:3003/transferLocation",transferConnection);
+    return this.httpClient.post("http://localhost:8050/customer-service/transferLocation",transferConnection);
   }
 
 

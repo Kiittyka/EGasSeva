@@ -4,5 +4,8 @@ spring:  application:    name: zuul-gateway-server
   cloud:
     config:
      uri: http://localhost:8765
+zuul:
+  host:
+    connect-timeout-millis: 100000
   
       

@@ -13,9 +13,9 @@ export class BookingInfoComponent implements OnInit {
   // = new CustomerDetail(0, "", "", "", 0, "", "", "", "", "", 0, false, "");
   
   ngOnInit() {
-    var agency = "Gogas Agency";
+    var agency = "Reliance Gas Agency";
     console.log("dealer gas booked")
-    this.http.get<CustomerDetail[]>("http://localhost:1234/getOnlineBooking" + "/" + agency).subscribe(
+    this.http.get<CustomerDetail[]>("http://localhost:8050/dealer-service/getOnlineBooking" + "/" + agency).subscribe(
       data => {
         this.customerDetail=data;
       }
@@ -25,7 +25,7 @@ export class BookingInfoComponent implements OnInit {
   updateCustomer(x){
     var sid=x.sid;
     console.log(sid);
-    this.http.get("http://localhost:1234/getOnlineBooking/accepted"+"/"+sid).subscribe(
+    this.http.get("http://localhost:8050/dealer-service/getOnlineBooking/accepted"+"/"+sid).subscribe(
       data=>{this.ngOnInit();}
     )
   } 

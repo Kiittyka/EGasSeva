@@ -37,6 +37,7 @@ public class OnlineBookingServiceImpl implements OnlineBookingService {
 	@Override
 	public Customer getCustomerData(String email) {
 		Customer cust= entityManager.find(Customer.class,email);
+		System.out.println(cust.toString());
 		return cust ;
 	}
 }
