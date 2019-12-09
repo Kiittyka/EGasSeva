@@ -168,7 +168,16 @@ export class HttpClientService {
   }
 
   getAllQueries(agency){
-  return this.httpClient.get<CustomerQueries[]>("http://localhost:1234/getCustomerQueries" + "/" + agency)
+  return this.httpClient.get<CustomerQueries[]>("http://localhost:8050/dealer-service/getCustomerQueries" + "/" + agency)
+}
+getRepliedQueries(agency){
+  return this.httpClient.get<CustomerQueries[]>("http://localhost:8050/dealer-service/getRepliedQueries" + "/" + agency)
+
+}
+
+updateReply(x){
+  return this.httpClient.post<CustomerQueries[]>("http://localhost:8050/dealer-service/updateQueries" ,x);
+  
 }
 
 }

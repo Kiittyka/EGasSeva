@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.OnlineBooking;
@@ -34,5 +36,13 @@ public class Controller {
 	public List<Queries> getCustomerQueries(@PathVariable String agency){
 		return serviceImpl.getCustomerQueries(agency);
 	}
+	@GetMapping("/getRepliedrQueries/{agency}")
+	public List<Queries> getRepliedQueries(@PathVariable String agency){
+		return serviceImpl.getRepliedQueries(agency);
+	}
 	
+	@PostMapping("/updateQueries")
+	public void updateQueries(@RequestBody Queries query) {
+		serviceImpl.updateQuery(query);
+	}
 }

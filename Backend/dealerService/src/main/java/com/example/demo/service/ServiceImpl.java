@@ -40,11 +40,30 @@ public class ServiceImpl {
 
 	@SuppressWarnings("unchecked")
 	public List<Queries> getCustomerQueries(String agency) {
+		List<Queries> data=entityManager.createQuery("from Queries where agency=:agency and reply IS NOT NULL")
+				.setParameter("agency", agency)
+				
+				.getResultList();
+		return data;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public List<Queries> getRepliedQueries(String agency) {
 		List<Queries> data=entityManager.createQuery("from Queries where agency=:agency and reply=:reply")
 				.setParameter("agency", agency)
 				.setParameter("reply", null)
 				.getResultList();
 		return data;
+	}
+
+
+	public void updateQuery(Queries query) {
+		entityManager.createQuery("update Queries set reply=:reply where email=:email")
+		.setParameter("reply", query.getReply())
+		.setParameter("email", query.getEmail())
+		.getResultList();
+		
 	}
 
 
