@@ -1,30 +1,35 @@
-<div class="container">
+<!-- <div class="container">
   <div >
-    <h2>PayU Payment Form</h2> 
-     <form ngNoForm action="https://test.payu.in/_payment" name="payuform" method="POST" target="payment_popup"
+    <h2>PayU Payment Form</h2> -->
+     <!-- <form ngNoForm action="https://test.payu.in/_payment" name="payuform" method="POST" target="payment_popup"
       onsubmit="window.open('about:blank','payment_popup','width=900,height=500');">
       <div class="form-group">
         <label for="firstname">Name:</label>
-        <input type="text" class="form-control" id="firstname" name="firstname"
-          [(ngModel)]="payuform.firstname" [disabled]="true">
+        <input type="text" formControlName="name" class="form-control" id="firstname" name="firstname"
+          [(ngModel)]="payuform.firstname">
       </div>
-     
-
+      <div *ngIf="payuForm.controls['name'].invalid && (payuForm.controls['name'].dirty || payuForm.controls['name'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="payuForm.controls['name'].errors.required">
+          Name is required.
+      </div>
+  </div>
 
   <div class="form-group">
-    <input type="hidden" class="form-control" id="productinfo" name="productinfo" [(ngModel)]="payuform.productinfo" >
+    
+    <input type="hidden" class="form-control" id="productinfo" name="productinfo" [(ngModel)]="payuform.productinfo">
   </div>
 
 
   <div class="form-group">
     <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="payuform.email" [disabled]="true">
+    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="payuform.email">
   </div>
 
 
   <div class="form-group">
     <label for="email">Phone:</label>
-    <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="payuform.phone" [disabled]="true">
+    <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="payuform.phone">
   </div>
 
 
@@ -42,11 +47,12 @@
   <textarea name="service_provider" id="service_provider" rows="2" cols="2" hidden></textarea>
   <button *ngIf="disablePaymentButton" type="button" class="btn btn-success" (click)="confirmPayment()">Confirm</button>
   <button *ngIf="!disablePaymentButton" type="submit" class="btn btn-danger">Submit</button>
-  </form>  
- </div>
-</div>
 
-<!-- <div class="container">
+  </form>  -->
+<!-- </div>
+</div> -->
+
+<div class="container">
     <h2>PayU Payment Form</h2>
   <form ngNoForm action="https://test.payu.in/_payment" name="paymentForm" method="POST" target="payment_popup"
     onsubmit="window.open('about:blank','payment_popup','width=900,height=500');">
@@ -64,17 +70,17 @@
     </div>
 
     <div class="form-group">
-      <label for="productInfo">Product Name:</label> 
+      <!-- <label for="productInfo">Product Name:</label>  -->
       <input type="hidden" formControlName="productinfo" class="form-control" id="productinfo" name="productinfo"
         [(ngModel)]="paymentForm.productinfo">
     </div>
-    <div
+    <!-- <div
       *ngIf="paymentForm.controls['productinfo'].invalid && (paymentForm.controls['productinfo'].dirty || paymentForm.controls['productinfo'].touched)"
       class="alert alert-danger">
       <div *ngIf="paymentForm.controls['productinfo'].errors.required">
         Name is required.
       </div>
-    </div>
+    </div> -->
 
 
     <div class="form-group">
@@ -91,7 +97,7 @@
   
     <div class="form-group">
       <label for="amount">Amount: <strong>{{amount | currency:'INR'}}</strong></label>
-      <input type="hidden" formControlName="amount" class="form-control" id="amount" name="amount" [(ngModel)]="payuform.amount">
+      <input type="hidden" class="form-control" id="amount" name="amount" [(ngModel)]="payuform.amount">
     </div>
   
   
@@ -105,4 +111,4 @@
     <button *ngIf="!disablePaymentButton" type="submit" class="btn btn-danger">Submit</button>
 
   </form>
-</div> -->
+</div> 
