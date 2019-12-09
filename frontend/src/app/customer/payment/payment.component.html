@@ -79,44 +79,29 @@
 
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" formControlName="email" class="form-control" id="email" name="email" [(ngModel)]="payuform.email">
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="payuform.email" [disabled]="true">
     </div>
-    <div
-      *ngIf="paymentForm.controls['email'].invalid && (paymentForm.controls['email'].dirty || paymentForm.controls['email'].touched)"
-      class="alert alert-danger">
-      <small><div *ngIf="paymentForm.controls['email'].errors.required">
-        Email is required.
-      </div></small>
-    </div>
-
+  
+  
     <div class="form-group">
-      <label for="phone">Phone:</label>
-      <input type="number" formControlName="phone" class="form-control" id="phone" name="phone" [(ngModel)]="payuform.phone">
+      <label for="email">Phone:</label>
+      <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="payuform.phone" [disabled]="true">
     </div>
-    <div
-      *ngIf="paymentForm.controls['phone'].invalid && (paymentForm.controls['phone'].dirty || paymentForm.controls['phone'].touched)"
-      class="alert alert-danger">
-      <small><div *ngIf="paymentForm.controls['phone'].errors.required">
-        Phone is required.
-      </div></small>
-    </div>
-
-
+  
+  
     <div class="form-group">
       <label for="amount">Amount: <strong>{{amount | currency:'INR'}}</strong></label>
       <input type="hidden" formControlName="amount" class="form-control" id="amount" name="amount" [(ngModel)]="payuform.amount">
     </div>
-    
-
-
+  
+  
     <textarea name="surl" id="surl" ng-model="surl" rows="2" cols="2" hidden [(ngModel)]="payuform.surl"></textarea>
     <textarea name="furl" id="furl" ng-model="furl" rows="2" cols="2" hidden [(ngModel)]="payuform.furl"></textarea>
     <textarea name="key" id="key" ng-model="key" rows="2" cols="2" hidden [(ngModel)]="payuform.key"></textarea>
     <textarea name="hash" id="hash" ng-model="hash" rows="2" cols="2" hidden [(ngModel)]="payuform.hash"></textarea>
     <textarea name="txnid" id="txnid" ng-model="txnid" rows="2" cols="2" hidden [(ngModel)]="payuform.txnid"></textarea>
     <textarea name="service_provider" id="service_provider" rows="2" cols="2" hidden></textarea>
-    <button *ngIf="disablePaymentButton" type="button" class="btn btn-success"
-      (click)="confirmPayment()">Confirm</button>
+    <button *ngIf="disablePaymentButton" type="button" class="btn btn-success" (click)="confirmPayment()">Confirm</button>
     <button *ngIf="!disablePaymentButton" type="submit" class="btn btn-danger">Submit</button>
 
   </form>

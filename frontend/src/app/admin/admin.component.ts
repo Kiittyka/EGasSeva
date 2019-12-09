@@ -12,6 +12,7 @@ import { Color, Label } from 'ng2-charts';
 })
 export class AdminComponent implements OnInit {
   chartData: any;
+  imageUrl : string = "/src/assets/images/logout.svg";
   x: any;
   y: any;
   public barChartOptions: ChartOptions = {
@@ -21,7 +22,7 @@ export class AdminComponent implements OnInit {
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
   ];
   public lineChartLabels: Label[] = ['Reliance Gas Agency', 'Indo Gas Agency', 'Gogas Agency', 'MVR Gas Agency', 'Jyothi Gas Agency'];
-  // public barChartLabels: any[] = ['Reliance Gas Agency', 'Indo Gas Agency', 'Gogas Agency', 'MVR Gas Agency', 'Jyothi Gas Agency'];
+   public barChartLabels: any[] = ['Reliance Gas Agency', 'Indo Gas Agency', 'Gogas Agency', 'MVR Gas Agency', 'Jyothi Gas Agency'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
@@ -29,18 +30,19 @@ export class AdminComponent implements OnInit {
     responsive: true,
   };
   public barChart ;
-  // public barChartData: any[] = [
-  //   { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' }
-  // ];
+  public barChartData: any[] = [
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' }
+  ];
 
-    public barChatData: any[] = this.y
+    // public barChatData: any[] = this.y
     
-    public barChartLabels: any[] = this.x 
+    // public barChartLabels: any[] = this.x 
+
 
   public lineChartColors: Color[] = [
     {
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,0,0,0.3)',
+      borderColor: 'grey',
+      backgroundColor: 'lightblue',
     },
   ];
   public lineChartLegend = true;
@@ -49,19 +51,19 @@ export class AdminComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get("http://localhost:3006/canvasjschart/chart").subscribe(
-      data=>{
-        this.chartData = data;
-        console.log(data);
-        for(let chartdata of this.chartData){
-          for(let i of chartdata){
-            console.log("x"+i.x)
-            console.log("y"+i.y)
-            this.x = i.x
-            this.y = i.y
-          }
-        }
-      })
+    // this.http.get("http://localhost:3006/canvasjschart/chart").subscribe(
+    //   data=>{
+    //     this.chartData = data;
+    //     console.log(data);
+    //     for(let chartdata of this.chartData){
+    //       for(let i of chartdata){
+    //         console.log("x"+i.x)
+    //         console.log("y"+i.y)
+    //         this.x = i.x
+    //         this.y = i.y
+    //       }
+    //     }
+    //   })
   }
 
 }

@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
   email;
+  username;
   constructor(private httpClientService:HttpClientService) { }
 
   ngOnInit() {
@@ -18,7 +19,7 @@ export class CustomerComponent implements OnInit {
       
       localStorage.setItem('username',data.name);
       localStorage.setItem('contact',data.contact);
- 
+      console.log(localStorage.getItem('contact'));
       localStorage.setItem('agency',data.agency);
       localStorage.setItem('country',data.country);
       localStorage.setItem('state',data.state);
@@ -26,6 +27,7 @@ export class CustomerComponent implements OnInit {
       localStorage.setItem('zipcode',data.zipcode);
       
     })
+    this.username=localStorage.getItem('username');
   }
   
 }

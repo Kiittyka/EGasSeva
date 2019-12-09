@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.OnlineBooking;
+import com.example.demo.model.Queries;
 import com.example.demo.service.ServiceImpl;
 
 
@@ -28,6 +29,10 @@ public class Controller {
 		
 		serviceImpl.accepted(sid);
 		
+	}
+	@GetMapping("/getCustomerQueries/{agency}")
+	public List<Queries> getCustomerQueries(@PathVariable String agency){
+		return serviceImpl.getCustomerQueries(agency);
 	}
 	
 }
