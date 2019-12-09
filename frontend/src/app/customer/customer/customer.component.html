@@ -28,74 +28,93 @@
 
 
 
+
+
+
+
+
+
+<div class="sidebar-container">
+  <div class="sidebar-logo">
+    <h2>E Gas Seva</h2>
+  </div>
+  <ul class="sidebar-navigation">
+    <li class="header">
+      <img src="assets/images/c1.png" width="160" height="180">
+    </li>
+    <li>
+      <a routerLink="gasBooking">
+        <i class="fa fa-home" aria-hidden="true"></i> Booking
+      </a>
+    </li>
+    <li>
+      <a routerLink="transferConnection">
+        <i class="fa fa-tachometer" aria-hidden="true"></i> Transfer
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="accessories">
+        <i class="fa fa-users" aria-hidden="true"></i> Accessories
+      </a>
+    </li>
+    <li>
+      <a routerLink="query">
+        <i class="fa fa-cog" aria-hidden="true"></i> Queries
+      </a>
+    </li>
+
+  </ul>
+  <div class="logout">
+  <li>
+      <a routerLink="">
+        <i class="fa fa-cog" aria-hidden="true"></i> LogOut
+      </a>
+    </li>
+  </div>
+</div>
+
+
 <main>
 
-  <router-outlet>
+    <router-outlet>
 
 
-    <div class="top-nav">
+      <div class="top-nav">
 
-      <h1>Welcome {{username}}!</h1>
+        <h1>Welcome {{user}}</h1>
 
 
 
-    </div>
-  </router-outlet> -->
-  <div class="sidebar-container">
-    <div class="sidebar-logo">
-      <h2>E Gas Seva</h2>
-    </div>
-    <ul class="sidebar-navigation">
-      <li class="header">
-        <img src="assets/images/c1.png" width="160" height="180">
-      </li>
-      <li>
-        <a routerLink="gasBooking">
-          <i class="fa fa-home" aria-hidden="true"></i> Booking
-        </a>
-      </li>
-      <li>
-        <a routerLink="transferConnection">
-          <i class="fa fa-tachometer" aria-hidden="true"></i> Transfer
-        </a>
-      </li>
+      </div>
+    </router-outlet>
 
-      <li>
-        <a routerLink="accessories">
-          <i class="fa fa-users" aria-hidden="true"></i> Accessories
-        </a>
-      </li>
-      <li>
-        <a routerLink="query">
-          <i class="fa fa-cog" aria-hidden="true"></i> Queries
-        </a>
-      </li>
+    <button id="cc" type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
+      mdbWavesEffect>CHATBOT</button>
+    <div class="container">
+      <div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
+        aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-side modal-bottom-right " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="modal-header" type="button" class="close pull-right" aria-label="Close"
+                (click)="basicModal.hide()">
 
-    </ul>
-    
-  </div>
-  
-  <button id="cc" type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
-    mdbWavesEffect>CHATBOT</button>
-  <div class="container">
-    <div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
-      aria-labelledby="myBasicModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-side modal-bottom-right " role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="modal-header" type="button" class="close pull-right" aria-label="Close"
-              (click)="basicModal.hide()">
+                <span class="hi" aria-hidden="true"> - </span>
+              </button>
+              <h1 class="modal-title w-100" id="myModalLabel"> Welcome to Chat Bot !</h1>
 
-              <span class="hi" aria-hidden="true"> - </span>
-            </button>
-            <h1 class="modal-title w-100" id="myModalLabel"> Welcome to Chat Bot !</h1>
+            </div>
+            <hr>
+            <div class="modal-body">
+              <chat-dialog></chat-dialog>
+            </div>
 
-          </div>
-          <hr>
-          <div class="modal-body">
-            <chat-dialog></chat-dialog>
+
           </div>
         </div>
       </div>
     </div>
-  </div>
+
+
+  </main>

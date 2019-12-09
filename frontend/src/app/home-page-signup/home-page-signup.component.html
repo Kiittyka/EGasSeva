@@ -41,6 +41,10 @@
                   </div>
                   <div class="form-group">
                     <button type="submit" (click)=register() class="form-control-submit-button">REGISTER</button>
+                    <div class="loader-container">
+                    <div *ngIf="isLoading" class="loader">
+                  </div>
+                  </div>
                   </div>
                   <div class="form-message">
                     <div id="rmsgSubmit" class="h3 text-center hidden"></div>

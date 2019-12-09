@@ -3,8 +3,29 @@
 /*     01. General Styles     */
 
 /******************************/
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 /* to display error message if email already exists */
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+  display: inline-block;
+  position: relative;
+  bottom: 300px;
+  left: 250px;
+}
+.loader-container {
+  text-align: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .error{
   color : red;
   font-size: 14px;
