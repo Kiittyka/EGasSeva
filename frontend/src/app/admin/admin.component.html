@@ -1,84 +1,76 @@
-<app-header></app-header>
-
-
-
-<!--left  bar-->
-<!-- <aside id="leftNav">
-    <ul>
-
-      <div><li class="fa fa-users"><a href="#"> Manage Dealer</a></li></div>
-      <div><li class="fa fa-line-chart"><a href="#"> Reports</a></li></div>
-      <div><li class="fa fa-check"><a href="#"> check </a></li></div>
-      <div><li class="fa fa-car"><a href="#"> help</a></div>
-    </ul>
-  </aside> -->
-
-
 
 
 
 <!-- right side-->
-<main>
-  <div class="maincontent">
+<main class="admin_main">
+    <main>
 
-    <div id="leadership">
-      <div class="card-container">
-        <!-- <a class="card" href="https://angular.io/tutorial" id="card-small" style="background-color: #B975FA">
-          <span>Active Device</span>
-
-        </a>
-        <a class="card" href="https://angular.io/tutorial" id="card-small" style="background-color:	#697AE6">
-          <span>Learn Angular</span>
-        </a>
-        <a class="card" href="https://angular.io/tutorial" id="card-small" style="background-color:#FF9B8C">
-          <span>Learn Angular</span>
-        </a>
-        <a class="card" href="https://angular.io/tutorial" id="card-small" style="background-color:#F688DA">
-          <span>Learn Angular</span>
-        </a> -->
-        <!-- <a class="card" href="https://angular.io/tutorial" id="card1" style="background-color:#1F5BA1">
-            <span>Learn Angular</span>
-          </a>-->
-          <div class="card" id="card2" >
-            <div class="chart-wrapper">
-            <canvas baseChart width="600" height="600" 
-              [datasets]="lineChartData" 
-              [labels]="lineChartLabels"
-              [options]="lineChartOptions" 
-              [colors]="lineChartColors" 
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType" 
-              [plugins]="lineChartPlugins">
-            </canvas>
+        <!-- <router-outlet>
+      
+      
+          <div class="top-nav">
+      
+            <h1>Welcome {{user}}</h1>
+      
+      
+      
           </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="card" id="card2">
-          <div class="chart-wrapper">
-            <canvas baseChart width="600" height="600"
-            [datasets]="barChartData" 
-            [labels]="barChartLabels" 
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins" 
-            [legend]="barChartLegend" 
-            [chartType]="barChartType">
-            </canvas>
+        </router-outlet> -->
+        <!-- <div class="sidebar-container">
+          <div class="sidebar-logo">
+            <h2>E Gas Seva</h2>
           </div>
-        </div>
-
-        <div class="right">
+          <ul class="sidebar-navigation">
+            <li class="header">
+              <img src="assets/images/c1.png" width="160" height="180">
+            </li>
+            <li>
+              <a routerLink="gasBooking">
+                <i class="fa fa-home" aria-hidden="true"></i> Reports
+              </a>
+            </li>
+            
+      
+          </ul>
           
-        </div>
+        </div> -->
+       
+        
+  <!-- <div class="card" id="card">
+    <div class="chart-wrapper">
+      <canvas baseChart width="700" height="700" [datasets]="lineChartData" [labels]="lineChartLabels"
+        [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </div>
+
+
+  <div class="card1" id="card1">
+    <div class="chart-wrapper">
+      <canvas baseChart width="700" height="700" [datasets]="barChartData" [labels]="barChartLabels"
+        [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="chart-wrapper">
+        <canvas baseChart width="700" height="700" [datasets]="lineChartData" [labels]="lineChartLabels"
+          [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="chart-wrapper">
+        <canvas baseChart width="700" height="700" [datasets]="barChartData" [labels]="barChartLabels"
+          [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
       </div>
     </div>
   </div>
+
+
 </main>

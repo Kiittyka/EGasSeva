@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://project.cskxmd3bbixc.us-east-2.rds.amazonaws.com/project?useSSL=false&serverTimezone=UTC
+    username: root
+    password: pass$1234
+  jpa:
+    hibernate:      ddl-auto: create
+server:  port: 8000
+

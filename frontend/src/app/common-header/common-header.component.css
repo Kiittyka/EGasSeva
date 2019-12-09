@@ -8,7 +8,7 @@ ul {
   
   li {
     float: right;
-   
+    font-size:20px;
   }
   
   li a {
@@ -19,11 +19,11 @@ ul {
     text-decoration: none;
     
   }
-  
+  /*
   li a:hover:not(.active) {
     background-color:lightgrey;
     width:100%;
-  }
+  }*/
   
   .active {
     background-color: white;
@@ -33,6 +33,7 @@ ul {
       font-size: 30px;
       font-weight:bold;
       margin-left:20px;
+     
   }
 
 
@@ -40,4 +41,12 @@ ul{
   position:fixed;
   width:100%;
   margin-top:-25px;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+  height: 68px;
+  width:200px;
+  margin-top: -12px;
+  margin-left: -29px;
 }
