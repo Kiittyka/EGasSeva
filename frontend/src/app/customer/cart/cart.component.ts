@@ -68,6 +68,7 @@ export class CartComponent implements OnInit {
   }
 
   goToPaymentPage(){
+    this._router.navigate(['../payment'],{relativeTo : this.route})
     sessionStorage.setItem("amount",this.totalSum.toString())
     console.log("cart "+sessionStorage.getItem('amount'))
   }
