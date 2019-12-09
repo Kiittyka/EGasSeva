@@ -10,6 +10,7 @@ import { QueryFromComponent } from './customer/query-from/query-from.component';
 import { OnlineBookingComponent } from './customer/online-booking/online-booking.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,7 +39,6 @@ import { HomePageSignupComponent } from './home-page-signup/home-page-signup.com
 import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
 import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
 import { CustomerQueryComponent } from './dealer/customer-query/customer-query.component';
-
 
 @NgModule({
   declarations: [
@@ -80,6 +80,7 @@ import { CustomerQueryComponent } from './dealer/customer-query/customer-query.c
     BrowserAnimationsModule,
     ChatModule,
     ChartsModule,
+    MatProgressSpinnerModule,
     MDBBootstrapModule.forRoot()
     ],
   providers: [],

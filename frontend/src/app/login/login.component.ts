@@ -24,19 +24,29 @@ export class LoginComponent implements OnInit {
 
   login(): void {
    console.log(this.user);
+   console.log(this.user.email)
+   if((this.user.email) == "dealer@gmail.com"){
+    localStorage.setItem('email', this.user["email"]);
+    this.router.navigate(['/', 'dealer'])
+   }
+   else if((this.user.email) == "admin@gmail.com"){
+    localStorage.setItem('email', this.user["email"]);
+    this.router.navigate(['/', 'adminDashboard'])
+   }
+    else{
      this.httpClientService.loginUser(this.user)
       .subscribe(data => {
         this.message = data;
          console.log(data)
         if(data) {
-          
-          localStorage.setItem('email', this.user["email"]);
+         localStorage.setItem('email', this.user["email"]);
          this.router.navigate(['/', 'customer'])
          }
         else {
           this.message = "Invalid email/password!"
       }
       });
+    }
    }
   
   
