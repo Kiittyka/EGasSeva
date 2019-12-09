@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page-signup.component.css']
 })
 export class HomePageSignupComponent implements OnInit {
+  isLoading: boolean ;
   message: Array<Registration>;
   user: Registration = new Registration("", "", "", true);
   constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
@@ -18,12 +19,14 @@ export class HomePageSignupComponent implements OnInit {
   }
   register(): void {
     console.log(this.user);
+    this.isLoading = true;
     localStorage.setItem("name", this.user.username)
     localStorage.setItem("email", this.user.email)
     console.log(localStorage.getItem("name"))
     console.log(localStorage.getItem("email"))
     this.httpClientService.registerUser(this.user)
-      .subscribe(data => {
+      .subscribe(data => {   
+        this.isLoading = false;  
         alert("Check your inbox to complete registration");
         this.message = data;
         console.log(data)
