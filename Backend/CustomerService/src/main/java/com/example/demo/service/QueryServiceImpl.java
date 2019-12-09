@@ -16,6 +16,9 @@ public class QueryServiceImpl implements QueryService{
 	public void saveForm(Query queryForm) {
 		// TODO Auto-generated method stub
 		queryForm.setReply(null);
+		if(queryForm.getOthers()!=null) {
+			queryForm.setQuestion(queryForm.getOthers());
+		}
 		queryRepository.save(queryForm);
 	}
 }

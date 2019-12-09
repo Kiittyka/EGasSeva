@@ -24,7 +24,7 @@ export class HomePageSignupComponent implements OnInit {
     console.log(localStorage.getItem("email"))
     this.httpClientService.registerUser(this.user)
       .subscribe(data => {
-        alert("Customer created successfully.");
+        alert("Check your inbox to complete registration");
         this.message = data;
         console.log(data)
       });
