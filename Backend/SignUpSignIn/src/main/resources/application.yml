@@ -1,7 +1,9 @@
-Server:
-  port: 5001
-  
-spring:  datasource:    url: jdbc:mysql://database-1.cskxmd3bbixc.us-east-2.rds.amazonaws.com/project?useSSL=false&serverTimezone=UTC
+server:
+  port: 5000
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8765  datasource:    url: jdbc:mysql://localhost:3306/project
     username: root
-    password: pass$1234  data:    mongodb:      uri: mongodb+srv://mongodbuser:mongodbuser@cluster0-gp4w1.mongodb.net/zipcode?retryWrites=true&w=majority
+    password: pass@word1  data:    mongodb:      uri: mongodb+srv://mongodbuser:mongodbuser@cluster0-gp4w1.mongodb.net/zipcode?retryWrites=true&w=majority
     

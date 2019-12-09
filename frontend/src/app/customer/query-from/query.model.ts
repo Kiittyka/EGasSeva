@@ -3,6 +3,7 @@ export class Query {
         public fullName: string,
         public email: string,
         public question: string,
-        public others: string
+        public others: string,
+        public agency:string
         ) { }
 }

@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class QueryFromComponent implements OnInit {
   // queryForm: FormGroup;
-  user: Query = new Query("", "", "", "");
+  user: Query = new Query("", "", "", "","");
   constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
     // this.createForm();
   }
@@ -35,8 +35,8 @@ export class QueryFromComponent implements OnInit {
 
     let question = this.queryForm.controls['question'].value;
     let others = this.queryForm.controls['others'].value;
-
-    let user = new Query(fullName, email, question, others);
+    let agency=localStorage.getItem('agency');
+    let user = new Query(fullName, email, question, others,agency);
 
     console.log(user)
 

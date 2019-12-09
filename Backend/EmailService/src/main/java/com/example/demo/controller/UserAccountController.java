@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import com.example.demo.service.EmailSenderService;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("http://localhost:4200")
 public class UserAccountController {
 	@Autowired
 	private UserRepository userRepository;

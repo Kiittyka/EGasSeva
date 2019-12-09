@@ -7,12 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
-import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Data
+@Setter
 @Table(name="query")
 public class Query {
 	@Id
@@ -27,36 +25,10 @@ public class Query {
 	private String question;
 	@Column(name="others")
 	private String others;
-	public int getQueryId() {
-		return queryId;
-	}
-	public void setQueryId(int queryId) {
-		this.queryId = queryId;
-	}
-	public String getFullName() {
-		return fullName;
-	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getQuestion() {
-		return question;
-	}
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-	public String getOthers() {
-		return others;
-	}
-	public void setOthers(String others) {
-		this.others = others;
-	}
+	@Column(name="agency")
+	private String agency;
+	@Column(name="reply")
+	private String reply;
+	
 	
 }
