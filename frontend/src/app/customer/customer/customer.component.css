@@ -76,7 +76,7 @@ header div span{
     padding: 35px;
 }
 aside{
-    margin-top:44px;
+    margin-top:75px;
     min-height: 100vh;
     position:fixed;
 }
@@ -151,6 +151,7 @@ h1{
     background-image: linear-gradient(to right,rgb(111, 132, 255),rgb(139, 138, 138));
     float: right;
     width: 80%;
+    margin-top:75px;
 }
 
 
