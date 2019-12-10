@@ -51,7 +51,7 @@ export class PaymentComponent implements OnInit {
 
     console.log(this.payuform.productinfo)
     console.log(paymentPayload)
-    return this.http.post<any>('http://localhost:8970/payment/payment-details', paymentPayload).subscribe(
+    return this.http.post<any>('http://localhost:8050/payment-service/payment/payment-details', paymentPayload).subscribe(
       data => {
         console.log(data);
         this.payuform.txnid = data.txnId;

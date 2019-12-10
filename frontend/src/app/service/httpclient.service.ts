@@ -11,10 +11,8 @@ import { Product } from '../customer/product-list/product.model';
 import { retry, catchError } from 'rxjs/operators';
 import { Cart } from '../customer/cart/cart.model';
 import { Login } from '../login/login.model';
-
 import { Phone } from '../customer/online-booking/phone.model';
 import { Query } from '../customer/query-from/query.model';
-import { CustomerQueries } from '../dealer/customer-query/customer-queries.model';
 
 export class Customer {
 
@@ -146,12 +144,7 @@ export class HttpClientService {
 
 
   sendSms(onlineBooking) {
-    let message = "Registration successful";
-    
-
-    var phoneNumber = 919741441055;
-    let number = new Phone(phoneNumber, message);
-    console.log(number);
+   
     //this.httpClient.post("http://localhost:8081/api/v1/sms", number);
     console.log(onlineBooking);
     return this.httpClient.post("http://localhost:8050/customer-service/onlineBookings", onlineBooking);
@@ -168,15 +161,16 @@ export class HttpClientService {
   }
 
   getAllQueries(agency){
-  return this.httpClient.get<CustomerQueries[]>("http://localhost:8050/dealer-service/getCustomerQueries" + "/" + agency)
+  return this.httpClient.get<Query[]>("http://localhost:8050/dealer-service/getCustomerQueries" + "/" + agency)
 }
 getRepliedQueries(agency){
-  return this.httpClient.get<CustomerQueries[]>("http://localhost:8050/dealer-service/getRepliedQueries" + "/" + agency)
+  return this.httpClient.get<Query[]>("http://localhost:8050/dealer-service/getRepliedQueries" + "/" + agency)
 
 }
 
-updateReply(x){
-  return this.httpClient.post<CustomerQueries[]>("http://localhost:8050/dealer-service/updateQueries" ,x);
+updateReply(x: Query){
+  console.log(x)
+  return this.httpClient.post("http://localhost:8050/dealer-service/updateQueries" , x);
   
 }
 

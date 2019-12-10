@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.OnlineBooking;
-import com.example.demo.model.Queries;
+import com.example.demo.model.BookingQuery;
 import com.example.demo.service.ServiceImpl;
 
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-
 public class Controller {
 	@Autowired
 	private ServiceImpl serviceImpl;
 	@GetMapping("/getOnlineBooking/{agency}")
 	public List<OnlineBooking> getOnlineBooking(@PathVariable String agency) {
+	
 		return serviceImpl.getOnlineBooking(agency);
 		
 	}
@@ -33,16 +33,16 @@ public class Controller {
 		
 	}
 	@GetMapping("/getCustomerQueries/{agency}")
-	public List<Queries> getCustomerQueries(@PathVariable String agency){
+	public List<BookingQuery> getCustomerQueries(@PathVariable String agency){
 		return serviceImpl.getCustomerQueries(agency);
 	}
 	@GetMapping("/getRepliedrQueries/{agency}")
-	public List<Queries> getRepliedQueries(@PathVariable String agency){
+	public List<BookingQuery> getRepliedQueries(@PathVariable String agency){
 		return serviceImpl.getRepliedQueries(agency);
 	}
 	
 	@PostMapping("/updateQueries")
-	public void updateQueries(@RequestBody Queries query) {
+	public void updateQueries(@RequestBody BookingQuery query) {
 		serviceImpl.updateQuery(query);
 	}
 }

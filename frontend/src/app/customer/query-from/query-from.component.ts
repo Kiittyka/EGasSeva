@@ -3,6 +3,7 @@ import { HttpClientService } from '../../service/httpclient.service';
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Query } from './query.model';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-query-from',
@@ -42,7 +43,14 @@ export class QueryFromComponent implements OnInit {
 
     this.httpClientService.saveQueryForm(user)
       .subscribe(data => {
-        alert("Form saved successfully");
+        Swal.fire({
+          //title: 'Customer created successfully.?',
+          text: 'Form saved successfully.',
+          icon: 'success',
+          showCancelButton: true,
+
+          })
+        //alert("Form saved successfully");
         console.log(data)
         console.log(this.option_value);
       });

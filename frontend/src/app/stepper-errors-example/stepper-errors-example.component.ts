@@ -6,7 +6,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { HttpClientService } from '../service/httpclient.service';
 import { Zipcode } from '../zipcode.model';
 import { CustomValidators } from './custom-validators';
-
+import Swal from 'sweetalert2';
 /**
  * @title Stepper that displays errors in the steps
  */
@@ -144,7 +144,14 @@ export class StepperErrorsExampleComponent implements OnInit {
     console.log(customer)
     this.httpClientService.createCustomer(customer)
       .subscribe(data => {
-        alert("Customer created successfully.");
+        Swal.fire({
+          //title: 'Customer created successfully.?',
+          text: 'Customer created successfully.',
+          icon: 'success',
+          showCancelButton: true,
+
+          })
+        //alert("Customer created successfully.");
       })
      
   }

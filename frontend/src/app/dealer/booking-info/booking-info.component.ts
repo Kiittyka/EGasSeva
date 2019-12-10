@@ -12,11 +12,13 @@ export class BookingInfoComponent implements OnInit {
   constructor(private http: HttpClient) { }
   
   ngOnInit() {
-    var agency = "Reliance Gas Agency";
+    var agency = "Indo Gas Agency";
     console.log("dealer gas booked")
     this.http.get<CustomerDetail[]>("http://localhost:8050/dealer-service/getOnlineBooking" + "/" + agency).subscribe(
       data => {
+        console.log(data);
         this.customerDetail=data;
+       
       }
     )
   }

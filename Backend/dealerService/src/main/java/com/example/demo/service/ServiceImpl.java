@@ -9,65 +9,55 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.OnlineBooking;
-import com.example.demo.model.Queries;
+import com.example.demo.model.BookingQuery;
 
 @Repository
 @Transactional
 public class ServiceImpl {
-	
+
 	EntityManager entityManager;
-	
+
 	public ServiceImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 
-
-@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 
 	public List<OnlineBooking> getOnlineBooking(String agency) {
-		List<OnlineBooking> data=entityManager.createQuery("from OnlineBooking where agency=:agency AND accept=:accept")
-				.setParameter("agency", agency)
-				.setParameter("accept", false)
-				.getResultList();
+		List<OnlineBooking> data = entityManager
+				.createQuery("from OnlineBooking where agency=:agency AND accept=:accept")
+				.setParameter("agency", agency).setParameter("accept", false).getResultList();
+		System.out.println(data);
 		return data;
 	}
+
 	public void accepted(String sid) {
-		Query query=entityManager.createQuery("update OnlineBooking set accept=:accept where sid=:sid").setParameter("accept", true)
-				.setParameter("sid", sid);
+		Query query = entityManager.createQuery("update OnlineBooking set accept=:accept where sid=:sid")
+				.setParameter("accept", true).setParameter("sid", sid);
 		query.executeUpdate();
 	}
 
-
 	@SuppressWarnings("unchecked")
-	public List<Queries> getCustomerQueries(String agency) {
-		List<Queries> data=entityManager.createQuery("from Queries where agency=:agency and reply IS NOT NULL")
+	public List<BookingQuery> getCustomerQueries(String agency) {
+		List<BookingQuery> data = entityManager.createQuery("from BookingQuery where agency=:agency and reply IS NULL")
 				.setParameter("agency", agency)
-				
+
 				.getResultList();
 		return data;
 	}
 
-
 	@SuppressWarnings("unchecked")
-	public List<Queries> getRepliedQueries(String agency) {
-		List<Queries> data=entityManager.createQuery("from Queries where agency=:agency and reply=:reply")
-				.setParameter("agency", agency)
-				.setParameter("reply", null)
-				.getResultList();
+	public List<BookingQuery> getRepliedQueries(String agency) {
+		List<BookingQuery> data = entityManager.createQuery("from BookingQuery where agency=:agency and reply IS NOT NULL")
+				.setParameter("agency", agency).getResultList();
 		return data;
 	}
 
+	public void updateQuery(BookingQuery query) {
+		Query sqlQuery = entityManager.createQuery("update BookingQuery set reply=:reply where email=:email")
+				.setParameter("reply", query.getReply()).setParameter("email", query.getEmail());
+		int result = sqlQuery.executeUpdate();
 
-	public void updateQuery(Queries query) {
-		entityManager.createQuery("update Queries set reply=:reply where email=:email")
-		.setParameter("reply", query.getReply())
-		.setParameter("email", query.getEmail())
-		.getResultList();
-		
 	}
 
-
-	
-	
-	
 }

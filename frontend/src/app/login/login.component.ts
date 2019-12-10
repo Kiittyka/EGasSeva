@@ -17,37 +17,36 @@ export class LoginComponent implements OnInit {
   user: Login = new Login("", "");
   invalidLogin = false;
 
-  constructor(private fb: FormBuilder,private httpClientService: HttpClientService, private router: Router) { }
+  constructor(private fb: FormBuilder, private httpClientService: HttpClientService, private router: Router) { }
 
   ngOnInit() {
   }
 
   login(): void {
-   console.log(this.user);
-   console.log(this.user.email)
-   if((this.user.email) == "dealer@gmail.com"){
-    localStorage.setItem('email', this.user["email"]);
-    this.router.navigate(['/', 'dealer'])
-   }
-   else if((this.user.email) == "admin@gmail.com"){
-    localStorage.setItem('email', this.user["email"]);
-    this.router.navigate(['/', 'adminDashboard'])
-   }
-    else{
-     this.httpClientService.loginUser(this.user)
+    console.log(this.user);
+    console.log(this.user.email)
+    this.httpClientService.loginUser(this.user)
       .subscribe(data => {
         this.message = data;
-         console.log(data)
-        if(data) {
-         localStorage.setItem('email', this.user["email"]);
-         this.router.navigate(['/', 'customer'])
-         }
+        console.log(data)
+        if (data) {
+          if ((this.user.email) == "dealer@gmail.com") {
+            localStorage.setItem('email', this.user["email"]);
+            this.router.navigate(['/', 'dealer'])
+          }
+          else if ((this.user.email) == "admin@gmail.com") {
+            localStorage.setItem('email', this.user["email"]);
+            this.router.navigate(['/', 'adminDashboard'])
+          }
+          else {
+            localStorage.setItem('email', this.user["email"]);
+            this.router.navigate(['/', 'customer']);
+          }
+        }
         else {
           this.message = "Invalid email/password!"
-      }
+        }
       });
-    }
-   }
-  
-  
+  }
 }
+  

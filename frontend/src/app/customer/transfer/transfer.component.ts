@@ -3,7 +3,7 @@ import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms'
 import { Customer, HttpClientService } from 'src/app/service/httpclient.service';
 import { Transferconnection } from './transferconnection.model';
 import { Zipcode } from 'src/app/zipcode.model';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-transfer',
   templateUrl: './transfer.component.html',
@@ -80,7 +80,14 @@ export class TransferComponent implements OnInit {
     console.log(transferConnection);
     this.httpClientService.transferConnection(transferConnection)
       .subscribe(data => {
-        alert("Registered Successfully");
+        Swal.fire({
+          //title: 'Customer created successfully.?',
+          text: 'Successfully sent to the dealer for confirmation.',
+          icon: 'success',
+          showCancelButton: true,
+
+          })
+        //alert("Registered Successfully");
       })
 
   }

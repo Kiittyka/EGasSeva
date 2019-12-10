@@ -52,7 +52,7 @@
             <div *ngIf="queryForm.controls['others'].invalid && (queryForm.controls['others'].dirty || queryForm.controls['others'].touched)"
                 class="alert alert-danger">
                 <div *ngIf="queryForm.controls['others'].errors.required">
-                    Enter the Queery
+                    Enter the Query
                 </div>
             </div>
             <button [disabled]="queryForm.pristine || queryForm.invalid" type="submit" class="btn btn-primary">Send </button>

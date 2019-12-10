@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { OnlineBooking } from './online-booking.model';
 import { Customer, HttpClientService } from 'src/app/service/httpclient.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-online-booking',
   templateUrl: './online-booking.component.html',
@@ -58,7 +59,14 @@ export class OnlineBookingComponent implements OnInit {
     console.log(onlineBooking);
     this.httpClientService.sendSms(onlineBooking)
       .subscribe(data => {
-        alert("Booked successfully.");
+        Swal.fire({
+          //title: 'Customer created successfully.?',
+          text: 'Booked successfully.',
+          icon: 'success',
+          showCancelButton: true,
+
+          })
+        //alert("Booked successfully.");
       })
   }
 

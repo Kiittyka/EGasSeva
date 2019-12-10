@@ -13,12 +13,13 @@ export class CustomerQueryComponent implements OnInit {
   constructor(private httpClientService: HttpClientService, ) { }
 
   ngOnInit() {
-    var agency = "Gogas Agency";
-    console.log("dealer gas booked")
+    var agency = "Reliance Gas Agency";
+    console.log("Query Form")
     this.httpClientService.getAllQueries(agency)
       .subscribe(data => {
-        this.customerQueries = data;
         console.log(data);
+        this.customerQueries = data;
+        
       })
     this.httpClientService.getRepliedQueries(agency)
       .subscribe(data => {
@@ -29,7 +30,7 @@ export class CustomerQueryComponent implements OnInit {
 
   }
   replyQuery(x) {
-    x.reply = document.getElementById("reply");
+   
     this.httpClientService.updateReply(x)
       .subscribe(data => {
         this.ngOnInit();

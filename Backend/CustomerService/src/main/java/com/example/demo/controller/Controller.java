@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import com.example.demo.service.QueryService;
 import com.example.demo.service.TransferConnectionService;
 
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class Controller {
 	@Autowired
@@ -29,6 +30,7 @@ public class Controller {
 	private TransferConnectionService transferConnectionService;
 
 	@PostMapping("/onlineBookings")
+	@LoadBalanced
 	public void saveOnlineBooking(@RequestBody OnlineBooking data) {
 
 		onlineBookingService.save(data);
@@ -36,17 +38,20 @@ public class Controller {
 	}
 
 	@GetMapping("/getCustomerData/{email}")
+	@LoadBalanced
 	public Customer getCustomerData(@PathVariable String email) {
 		return onlineBookingService.getCustomerData(email);
 
 	}
 
 	@PostMapping("/save")
+	@LoadBalanced
 	public void saveQueryForm(@RequestBody Query queryForm) {
 		queryService.saveForm(queryForm);
 	}
 
 	@PostMapping("/transferLocation")
+	@LoadBalanced
 	public void saveTransferLocation(@RequestBody TransferConnection data) {
 		System.out.println("controller" + data);
 		transferConnectionService.save(data);

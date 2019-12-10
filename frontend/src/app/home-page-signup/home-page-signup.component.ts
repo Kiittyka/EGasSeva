@@ -2,14 +2,14 @@ import { FormBuilder } from '@angular/forms';
 import { HttpClientService } from './../service/httpclient.service';
 import { Registration } from './registration.model';
 import { Component, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-home-page-signup',
   templateUrl: './home-page-signup.component.html',
   styleUrls: ['./home-page-signup.component.css']
 })
 export class HomePageSignupComponent implements OnInit {
-  isLoading: boolean ;
+  isLoading: boolean;
   message: Array<Registration>;
   user: Registration = new Registration("", "", "", true);
   constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
@@ -25,11 +25,19 @@ export class HomePageSignupComponent implements OnInit {
     console.log(localStorage.getItem("name"))
     console.log(localStorage.getItem("email"))
     this.httpClientService.registerUser(this.user)
-      .subscribe(data => {   
-        this.isLoading = false;  
-        alert("Check your inbox to complete registration");
-        this.message = data;
-        console.log(data)
-      });
-  }
+      .subscribe(data => {
+        this.isLoading = false;
+        // alert("Check your inbox to complete registration");
+        Swal.fire({
+          //title: 'Are you sure?',
+          text: 'Check your inbox to complete registration',
+          icon: 'info',
+          showCancelButton: true,
+
+          })
+
+          this.message = data;
+          console.log(data)
+        });
+      }
 }

@@ -7,14 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Setter
-@Getter
+@Data
 @Table(name="query")
-public class Queries {
+public class BookingQuery {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="query_id")
@@ -31,6 +29,7 @@ public class Queries {
 	private String agency;
 	@Column(name="reply")
 	private String reply;
+	
 	
 	
 }
