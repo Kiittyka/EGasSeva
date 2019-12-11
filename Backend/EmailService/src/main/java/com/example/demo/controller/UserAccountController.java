@@ -34,14 +34,12 @@ public class UserAccountController {
 	private EmailSenderService emailSenderService;
 
 	@PostMapping("/register")
-	public List<String> registerUser(@RequestBody User user) {
-		List<String> l = new ArrayList<String>();
+	public boolean registerUser(@RequestBody User user) {
 		System.out.println(user);
 		User existingUser = userRepository.findByEmailIgnoreCase(user.getEmail());
 		//System.out.println(existingUser);
 		if (existingUser != null) {
-			l.add("Email already exists");
-			return l;
+			return true;
 
 		} else {
 			userRepository.save(user);
@@ -59,8 +57,7 @@ public class UserAccountController {
 			emailSenderService.sendEmail(mailMessage);
 			System.out.println("mail sent"+mailMessage);
 			
-			l.add("Success");
-			return l;
+			return false;
 		}
 	}
 

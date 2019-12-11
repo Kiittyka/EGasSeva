@@ -54,8 +54,8 @@ public class ServiceImpl {
 	}
 
 	public void updateQuery(BookingQuery query) {
-		Query sqlQuery = entityManager.createQuery("update BookingQuery set reply=:reply where email=:email")
-				.setParameter("reply", query.getReply()).setParameter("email", query.getEmail());
+		Query sqlQuery = entityManager.createQuery("update BookingQuery set reply=:reply where queryId=:id")
+				.setParameter("reply", query.getReply()).setParameter("id", query.getQueryId());
 		int result = sqlQuery.executeUpdate();
 
 	}

@@ -25,13 +25,16 @@ public class OnlineBookingServiceImpl implements OnlineBookingService {
 	@Autowired
 	private OnlineBookingRepository onlineBookingRepository;
 
-	public void save(OnlineBooking data) {
+	public boolean save(OnlineBooking data) {
+		
 		String id=UUID.randomUUID().toString().substring(0, 8);
 		String timeStamp = new SimpleDateFormat("dd/MM/yyyy hh:MM:ss").format(Calendar.getInstance().getTime());
 		id = UUID.randomUUID().toString().substring(0, 8);
 		data.setSid(id);
 		data.setDate(timeStamp);
+		
 		onlineBookingRepository.save(data);
+		return true;
 	}
 
 	@Override

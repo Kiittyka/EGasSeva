@@ -55,17 +55,31 @@ export class OnlineBookingComponent implements OnInit {
     let city = this.gasbooking.controls['city'].value;
     let zip = this.gasbooking.controls['zip'].value;
     let accept = false;
-    let onlineBooking = new OnlineBooking(email, name, contact, agency, adhaar, country, state, city, zip, accept);
+    let onlineBooking = new OnlineBooking(email, contact, agency, adhaar, country, state, city, zip, accept);
     console.log(onlineBooking);
     this.httpClientService.sendSms(onlineBooking)
       .subscribe(data => {
-        Swal.fire({
-          //title: 'Customer created successfully.?',
-          text: 'Booked successfully.',
-          icon: 'success',
-          showCancelButton: true,
+        console.log("return",data);
+        if (data){
+          Swal.fire({
+            //title: 'Customer created successfully.?',
+            text: 'Booked successfully.',
+            icon: 'success',
+            showCancelButton: true,
+  
+            })
+        }
+        else{
+          Swal.fire({
+            //title: 'Customer created successfully.?',
+            text: 'Already Registered',
+            icon: 'error',
+            showCancelButton: true,
+  
+            })
+        }
 
-          })
+
         //alert("Booked successfully.");
       })
   }

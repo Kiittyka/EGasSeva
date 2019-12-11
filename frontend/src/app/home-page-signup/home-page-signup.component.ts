@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class HomePageSignupComponent implements OnInit {
   isLoading: boolean;
-  message: Array<Registration>;
+  message: String;
   user: Registration = new Registration("", "", "", true);
   constructor(private fb: FormBuilder, private httpClientService: HttpClientService) {
   }
@@ -26,18 +26,26 @@ export class HomePageSignupComponent implements OnInit {
     console.log(localStorage.getItem("email"))
     this.httpClientService.registerUser(this.user)
       .subscribe(data => {
-        this.isLoading = false;
+        if(!data) {
+          this.isLoading = false;
         // alert("Check your inbox to complete registration");
         Swal.fire({
           //title: 'Are you sure?',
           text: 'Check your inbox to complete registration',
           icon: 'info',
-          showCancelButton: true,
-
+          showCancelButton: true,       
           })
-
-          this.message = data;
+          this.message = "Success";
           console.log(data)
+        }
+        else {
+          this.isLoading = false;
+          this.message = "Email already exists";
+          console.log(data)
+        }
+
+          
         });
       }
 }
+

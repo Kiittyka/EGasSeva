@@ -31,9 +31,9 @@ public class Controller {
 
 	@PostMapping("/onlineBookings")
 	@LoadBalanced
-	public void saveOnlineBooking(@RequestBody OnlineBooking data) {
+	public boolean saveOnlineBooking(@RequestBody OnlineBooking data) {
 
-		onlineBookingService.save(data);
+		return onlineBookingService.save(data);
 
 	}
 

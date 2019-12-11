@@ -7,7 +7,7 @@ spring:
     password: pass@word1
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
   mail:
     host: smtp.gmail.com
     port: 587

@@ -1,6 +1,6 @@
 export class OnlineBooking {
     constructor(
-        public name:string,
+       
         public email:string,
         public contact:string,
         public agency:string,
