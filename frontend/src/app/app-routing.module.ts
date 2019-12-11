@@ -1,25 +1,25 @@
-import { CustomerQueryComponent } from './dealer/customer-query/customer-query.component';
-import { PaymentComponent } from './customer/payment/payment.component';
-import { TransferComponent } from './customer/transfer/transfer.component';
-import { CartComponent } from './customer/cart/cart.component';
-import { ProductListComponent } from './customer/product-list/product-list.component';
-import { LoginComponent } from './login/login.component';
-import { StepperErrorsExampleComponent } from './stepper-errors-example/stepper-errors-example.component';
-import { QueryFromComponent } from './customer/query-from/query-from.component';
-import { OnlineBookingComponent } from './customer/online-booking/online-booking.component';
-import { AdminComponent } from './admin/admin.component';
+import { CustomerQueryComponent } from './components/dealer/customer-query/customer-query.component';
+import { PaymentComponent } from './components/customer/payment/payment.component';
+import { TransferComponent } from './components/customer/transfer/transfer.component';
+import { CartComponent } from './components/customer/cart/cart.component';
+import { ProductListComponent } from './components/customer/product-list/product-list.component';
+import { LoginComponent } from './components/login/login.component';
+import { StepperErrorsExampleComponent } from './components/stepper-errors-example/stepper-errors-example.component';
+import { QueryFromComponent } from './components/customer/query-from/query-from.component';
+import { OnlineBookingComponent } from './components/customer/online-booking/online-booking.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LogoutComponent } from './logout/logout.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
-import { CustomerComponent } from './customer/customer/customer.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { HomePageServicesComponent } from './home-page-services/home-page-services.component';
-import { HomePageSignupComponent } from './home-page-signup/home-page-signup.component';
-import { HeaderComponent } from './header/header.component';
-import { DealerPageComponent } from './dealer/dealer-page/dealer-page.component';
-import { BookingInfoComponent } from './dealer/booking-info/booking-info.component';
+import { CustomerComponent } from './components/customer/customer/customer.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+
+import { HomePageSignupComponent } from './components/home-page-signup/home-page-signup.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DealerPageComponent } from './components/dealer/dealer-page/dealer-page.component';
+import { BookingInfoComponent } from './components/dealer/booking-info/booking-info.component';
 
 const routes: Routes = [
 
@@ -43,7 +43,6 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'home-page-header', component: HeaderComponent },
   { path: 'Home', component: HomePageComponent },
-  { path: 'Services', component: HomePageServicesComponent },
   { path: 'SignUp', component: HomePageSignupComponent },
   
   {path:'dealer',component: DealerPageComponent ,

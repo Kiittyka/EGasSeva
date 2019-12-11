@@ -1,18 +1,18 @@
-import { Customerdetails } from './../customerdetails.model';
-import { Message } from './../chat/chat-dialog/chat.service';
-import { Zipcode } from './../zipcode.model';
+import { Customerdetails } from '../models/customerdetails.model';
+import { Message } from './../components/chat-dialog/chat.service';
+import { Zipcode } from '../models/zipcode.model';
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Registration } from '../home-page-signup/registration.model';
+import { Registration } from '../models/registration.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import { Product } from '../customer/product-list/product.model';
+import { Product } from '../models/product.model';
 import { retry, catchError } from 'rxjs/operators';
-import { Cart } from '../customer/cart/cart.model';
-import { Login } from '../login/login.model';
-import { Phone } from '../customer/online-booking/phone.model';
-import { Query } from '../customer/query-from/query.model';
+import { Cart } from '../models/cart.model';
+import { Login } from '../models/login.model';
+import { Phone } from '../models/phone.model';
+import { Query } from '../models/query.model';
 
 export class Customer {
 
