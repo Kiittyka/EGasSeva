@@ -13,12 +13,12 @@ export class CustomerQueryComponent implements OnInit {
   constructor(private httpClientService: HttpClientService, ) { }
 
   ngOnInit() {
-    var agency = "Reliance Gas Agency";
+    var agency = "Gogas Agency";
     console.log("Query Form")
     this.httpClientService.getAllQueries(agency)
       .subscribe(data => {
-        console.log(data);
-        this.customerQueries = data;
+        this.customerQueries = data
+        this.customerQueries = this.customerQueries.filter( u => u !== agency)
         
       })
     this.httpClientService.getRepliedQueries(agency)
@@ -38,3 +38,4 @@ export class CustomerQueryComponent implements OnInit {
 
     }
   }
+

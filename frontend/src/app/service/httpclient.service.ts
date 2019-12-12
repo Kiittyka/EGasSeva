@@ -105,7 +105,7 @@ export class HttpClientService {
     return this.httpClient.post<Product>("http://localhost:8050/product-service/api/cart", product, this.httpOptions)
       .subscribe(
         success => console.log("Done"),
-        error => alert(error)
+        error => console.log(error)
       );
   }
 
@@ -118,30 +118,6 @@ export class HttpClientService {
     console.log("del id in cartService" + id)
     return this.httpClient.get<any>("http://localhost:8050/product-service/api/delCart?id=" + id)
   }
-
-  /** Deleting Items From Cart */
-  // public deleteItem(item){
-  //   return this.httpClient.delete<Product>('http://localhost:3002/api' + '/' + item.id, this.httpOptions)
-  //   .pipe(
-  //     retry(1),
-  //     catchError(this.handleError)
-  //   )
-  // }
-
-  /** Handeling Error */
-  //   handleError(error) {
-  //     let errorMessage = '';
-  //     if(error.error instanceof ErrorEvent) {
-  //       // Get client-side error
-  //       errorMessage = error.error.message;
-  //     } else {
-  //       // Get server-side error
-  //       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-  //     }
-  //     window.alert(errorMessage);
-  //     return throwError(errorMessage);
-  //  }
-
 
   sendSms(onlineBooking) {
    
@@ -167,11 +143,17 @@ getRepliedQueries(agency){
   return this.httpClient.get<Query[]>("http://localhost:8050/dealer-service/getRepliedQueries" + "/" + agency)
 
 }
-
+ sendMail(x:Query) {
+   console.log(x.email)
+  return this.httpClient.get<Query[]>("http://localhost:3010/api/sendReply?email=" + x.email + "&reply=" + x.reply)
+  .subscribe(
+    success => console.log("Done"),
+    error => console.log(error)
+  );
+ }
 updateReply(x: Query){
-  console.log(x)
-  return this.httpClient.post("http://localhost:8050/dealer-service/updateQueries" , x);
-  
+  this.sendMail(x);
+  //this.httpClient.get<Query[]>("http://localhost:3010/sendReply?email=" + x.email + "&reply=" + x.reply);
+  return this.httpClient.post("http://localhost:8050/dealer-service/updateQueries" , x)
 }
-
 }

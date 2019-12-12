@@ -46,13 +46,6 @@ public class ProductController {
 	public void addToCart(@RequestBody Product product) {
 		ModelMapper modelMapper = new ModelMapper();
 		Cart cart = modelMapper.map(product, Cart.class);
-//		List<Cart> l = cartService.getItemsInCart();
-//		if(l == null ) {
-//			cartService.insertProduct(cart);
-//		}
-//		for(int i = 0 ; i < l.size(); i++) {
-//			System.out.println("list is "+l.get(i));
-//		}
 		cartService.insertProduct(cart);
 		
 	}
@@ -63,12 +56,6 @@ public class ProductController {
 		return list;
 	}
 	
-//	@DeleteMapping(path = {"/{id}"})
-//	public void deleteCartItem(@PathVariable("id") int id) {
-//			Cart deletedProduct = null;
-//			deletedProduct = cartService.getProductById(id);
-//			cartService.deleteProduct(deletedProduct);
-//		}
 	
 	@GetMapping("/delCart")
 	public List<Cart> delCart(@RequestParam("id") int id) {

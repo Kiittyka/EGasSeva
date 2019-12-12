@@ -53,11 +53,13 @@ public class ServiceImpl {
 		return data;
 	}
 
-	public void updateQuery(BookingQuery query) {
+	public String updateQuery(BookingQuery query) {
 		Query sqlQuery = entityManager.createQuery("update BookingQuery set reply=:reply where email=:email")
 				.setParameter("reply", query.getReply()).setParameter("email", query.getEmail());
 		int result = sqlQuery.executeUpdate();
-
+		System.out.println("-------------------"+query.getReply());
+		return query.getReply();
+		
 	}
 
 }

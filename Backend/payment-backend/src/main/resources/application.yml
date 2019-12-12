@@ -8,5 +8,5 @@ spring:
     username: root
     password: pass@word1
   jpa:
-    hibernate:      ddl-auto: create
+    hibernate:      ddl-auto: update
 server:  port: 0

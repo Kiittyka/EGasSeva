@@ -41,9 +41,9 @@
     <textarea name="txnid" id="txnid" ng-model="txnid" rows="2" cols="2" hidden [(ngModel)]="payuform.txnid"></textarea>
     <textarea name="service_provider" id="service_provider" rows="2" cols="2" hidden></textarea>
     <button *ngIf="disablePaymentButton" type="button" class="btn btn-success" (click)="confirmPayment()">Confirm</button>
-    <button *ngIf="!disablePaymentButton" type="submit" class="btn btn-danger">Submit</button>
-    </form>  
-   </div>
+    <button *ngIf="!disablePaymentButton" type="button" class="btn btn-danger">Submit</button>
+    </form> 
+  </div>
   </div>
   
 

@@ -1,4 +1,5 @@
 export class Query {
+  reply: string;
     constructor(
         public fullName: string,
         public email: string,

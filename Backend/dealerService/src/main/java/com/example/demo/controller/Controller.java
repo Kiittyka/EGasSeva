@@ -42,7 +42,8 @@ public class Controller {
 	}
 	
 	@PostMapping("/updateQueries")
-	public void updateQueries(@RequestBody BookingQuery query) {
-		serviceImpl.updateQuery(query);
+	public String updateQueries(@RequestBody BookingQuery query) {
+		System.out.println("zxxcc");
+		return serviceImpl.updateQuery(query);
 	}
 }

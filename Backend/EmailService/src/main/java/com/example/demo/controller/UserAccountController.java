@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,14 +34,12 @@ public class UserAccountController {
 	private EmailSenderService emailSenderService;
 
 	@PostMapping("/register")
-	public List<String> registerUser(@RequestBody User user) {
-		List<String> l = new ArrayList<String>();
+	public boolean registerUser(@RequestBody User user) {
 		System.out.println(user);
 		User existingUser = userRepository.findByEmailIgnoreCase(user.getEmail());
-		//System.out.println(existingUser);
+		// System.out.println(existingUser);
 		if (existingUser != null) {
-			l.add("Email already exists");
-			return l;
+			return true;
 
 		} else {
 			userRepository.save(user);
@@ -57,19 +55,18 @@ public class UserAccountController {
 			mailMessage.setText("To confirm your account, please click here : "
 					+ " http://localhost:4200/registrationStepper?token=" + confirmationToken.getConfirmationToken());
 			emailSenderService.sendEmail(mailMessage);
-			System.out.println("mail sent"+mailMessage);
-			
-			l.add("Success");
-			return l;
+			System.out.println("mail sent" + mailMessage);
+
+			return false;
 		}
 	}
 
 	@RequestMapping(value = "/confirm-account", method = { RequestMethod.GET, RequestMethod.POST })
-	public List<String> confirmUserAccount( @RequestParam("token") String confirmationToken) {
+	public List<String> confirmUserAccount(@RequestParam("token") String confirmationToken) {
 		System.out.println(confirmationToken);
 		List<String> l = new ArrayList<String>();
 		ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
-		//System.out.println("token is"+token);
+		// System.out.println("token is"+token);
 		if (token != null) {
 			User user = userRepository.findByEmailIgnoreCase(token.getUser().getEmail());
 			user.setEnabled(true);
@@ -83,4 +80,17 @@ public class UserAccountController {
 		}
 	}
 
+	@GetMapping("/sendReply")
+	public void sendReply(@RequestParam("email") String email, @RequestParam("reply") String reply) {
+		System.out.println("sending email");
+
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setTo(email);
+		mailMessage.setSubject("Reply to your query");
+		mailMessage.setFrom("team.egasseva@gmail.com");
+		mailMessage.setText("Reply: " + reply);
+		emailSenderService.sendEmail(mailMessage);
+		System.out.println("mail sent" + mailMessage);
+
+	}
 }

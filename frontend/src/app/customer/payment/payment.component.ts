@@ -3,6 +3,7 @@ import { Product } from './../product-list/product.model';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -36,7 +37,7 @@ export class PaymentComponent implements OnInit {
   email: string;
   name: string;
   phone: string;
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
+  constructor(private http: HttpClient, private fb: FormBuilder, private router: Router, private route: ActivatedRoute) { }
   productinfo: string
 
 
@@ -64,5 +65,10 @@ export class PaymentComponent implements OnInit {
       }, error1 => {
         console.log(error1);
       })
+      this.goBackToCustomer()
+  }
+  goBackToCustomer(){
+    console.log("go back")
+    this.router.navigate(['../customer'], {relativeTo : this.route})
   }
 }
