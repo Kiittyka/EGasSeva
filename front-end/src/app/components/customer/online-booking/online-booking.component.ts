@@ -44,7 +44,7 @@ export class OnlineBookingComponent implements OnInit {
     this.isValidFormSubmitted = true;
 
 
-    let name = this.gasbooking.controls['fullName'].value;
+    //let name = this.gasbooking.controls['fullName'].value;
 
     let email = this.gasbooking.controls['email'].value;
     let contact = this.gasbooking.controls['contact'].value;

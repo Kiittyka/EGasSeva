@@ -39,7 +39,7 @@ public class UserAccountController {
 		User existingUser = userRepository.findByEmailIgnoreCase(user.getEmail());
 		// System.out.println(existingUser);
 		if (existingUser != null) {
-			return true;
+			return false;
 
 		} else {
 			userRepository.save(user);
@@ -57,7 +57,7 @@ public class UserAccountController {
 			emailSenderService.sendEmail(mailMessage);
 			System.out.println("mail sent" + mailMessage);
 
-			return false;
+			return true;
 		}
 	}
 

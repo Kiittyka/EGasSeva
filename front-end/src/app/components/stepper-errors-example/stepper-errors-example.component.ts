@@ -34,10 +34,10 @@ export class StepperErrorsExampleComponent implements OnInit {
 
   ngOnInit() {
 
-    this.name = localStorage.getItem("name");
-    this.email = localStorage.getItem("email");
-    console.log(localStorage.getItem("name"))
-    console.log(localStorage.getItem("email"))
+    this.name = localStorage.getItem("nameStepper");
+    this.email = localStorage.getItem("emailStepper");
+    // console.log(localStorage.getItem("name"))
+    // console.log(localStorage.getItem("email"))
     this.firstFormGroup = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(60)]),
       email: new FormControl('', [Validators.required]),

@@ -12,7 +12,9 @@ export class BookingInfoComponent implements OnInit {
   constructor(private http: HttpClient) { }
   
   ngOnInit() {
-    var agency = "Indo Gas Agency";
+    var agent = localStorage.getItem('agency')
+    console.log(agent)
+    var agency = "MVR Gas Agency";
     console.log("dealer gas booked")
     this.http.get<CustomerDetail[]>("http://localhost:8050/dealer-service/getOnlineBooking" + "/" + agency).subscribe(
       data => {

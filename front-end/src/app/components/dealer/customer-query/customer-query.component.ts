@@ -33,6 +33,7 @@ export class CustomerQueryComponent implements OnInit {
    
     this.httpClientService.updateReply(x)
       .subscribe(data => {
+        console.log("reply"+data)
         this.ngOnInit();
       })
 

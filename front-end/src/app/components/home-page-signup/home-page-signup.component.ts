@@ -20,13 +20,13 @@ export class HomePageSignupComponent implements OnInit {
   register(): void {
     console.log(this.user);
     this.isLoading = true;
-    localStorage.setItem("name", this.user.username)
-    localStorage.setItem("email", this.user.email)
-    console.log(localStorage.getItem("name"))
-    console.log(localStorage.getItem("email"))
+    localStorage.setItem("nameStepper", this.user.username)
+    localStorage.setItem("emailStepper", this.user.email)
+    console.log(localStorage.getItem("nameStepper"))
+    console.log(localStorage.getItem("emailStepper"))
     this.httpClientService.registerUser(this.user)
       .subscribe(data => {
-        if(!data) {
+        if(data) {
           this.isLoading = false;
         // alert("Check your inbox to complete registration");
         Swal.fire({

@@ -19,8 +19,8 @@ public class OnlineBooking {
 	private int id;
 	@Column(name="uuid")
 	private String sid;
-	@Column(name="name")
-	private String name;
+	@Column(name="email")
+	private String email;
 	@Column(name="contact")
 	private long contact; 
 	@Column(name="agency")

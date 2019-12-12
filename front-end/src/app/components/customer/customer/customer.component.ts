@@ -14,7 +14,7 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit() {
     this.email=localStorage.getItem('email');
-    
+    //this.username=localStorage.getItem('name');
     this.httpClientService.getCustomerDetails(this.email).subscribe(data => {
       
       localStorage.setItem('username',data.name);
@@ -25,9 +25,9 @@ export class CustomerComponent implements OnInit {
       localStorage.setItem('state',data.state);
       localStorage.setItem('city',data.city);
       localStorage.setItem('zipcode',data.zipcode);
-      
+      this.username=localStorage.getItem('username');
     })
-    this.username=localStorage.getItem('username');
+   
   }
   
 }
