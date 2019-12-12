@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<div class="container">
+<br>
+        <h2>Online-Booking </h2>
+    <form [formGroup]=" gasbooking" (ngSubmit)="sendSms() " >
+        <!-- Full Name -->
+        <div class="form-group">
+            <label for="name">Full Name    : </label>
+            <input class="form-control"  formControlName="fullName" id="name" required>
+        </div>
+
+       
+
+        <!-- Customer EmailId-->
+        <div class="form-group">
+            <label for="email">Email : </label>
+            <input class="form-control"  formControlName="email" required>
+        </div>
+
+
+        <!-- Gas Agency -->
+        <div class="form-group">
+            <label for="agency">Gas Agency : </label>
+            <input class="form-control"  formControlName="gasAgency" required>
+        </div>
+
+        <!--Customer Contact No-->
+        <div class="form-group">
+            <label for="contact">Contact No : </label>
+            <input type=number class="form-control"  formControlName="contact" required>
+        </div>
+
+       
+       
+        <!-- Customer Address -->
+        <div class="form-group">
+            <h4> Customer Address </h4>
+            <div>
+                <label>
+                    Country:
+                    <input type="text" class="form-control" formControlName="country"
+                        name="country">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+                <label>
+                    City:
+                    <input type="text" class="form-control" formControlName="city" name="city">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+                <label>
+                    State:
+                    <input type="text" class="form-control"  formControlName="state"
+                        name="state">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+                <label>
+                    Zip Code:
+                    <input type="number" class="form-control"  formControlName="zip"
+                        name="zip">
+                </label>
+
+            </div>
+             <!--Adhaar Number-->
+        <div class="form-group">
+            <label for="adhaarNo">Adhaar no: </label>
+            <input type="text" class="form-control" formControlName="adhaarNo">
+            <div *ngIf="adhaarNo.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
+                <div *ngIf="adhaarNo.errors.required">
+                    Adhaar number required.
+                </div>  
+                <div *ngIf="adhaarNo.errors.pattern">
+                    Enter valid adhaar number(Eg. xxxx xxxx xxxx)
+                </div> 
+            </div>
+        </div>
+
+        </div>
+
+        <button type="submit"  class="btn btn-primary">Book</button>
+
+       
+    </form>
+
+</div>
