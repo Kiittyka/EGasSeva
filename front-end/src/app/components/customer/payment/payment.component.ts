@@ -66,13 +66,5 @@ export class PaymentComponent implements OnInit {
       }, error1 => {
         console.log(error1);
       })
-      this.goBackToCustomer()
-  }
-  goBackToCustomer(){
-    console.log("go back")
-    this.router.navigate(['../customer'], {relativeTo : this.route})
-  }
-  goBackToCustomer(){
-    this.router.navigate(['../../customer'], {relativeTo : this.route})
   }
 }
