@@ -4,11 +4,11 @@ A Single Page Application for providing hassle-free online gas booking for custo
 ### Technologies
 <dl>
   <dt>Front End</dt>
-  <dd>Angular 8, HTML 5, CSS 3</dd>
+  <dd>Angular 8, HTML 5, CSS 3, Bootstrap 4</dd>
   <dt>Middle Ware</dt>
   <dd>Spring Boot</dd>
   <dt>Back End</dt>
-  <dd>MySQL Database, MongoDB</dd>
+  <dd>MySQL Database, MongoDB, H2 In-Memory Database</dd>
 </dl>
 
 ### Installing
@@ -27,6 +27,7 @@ A Single Page Application for providing hassle-free online gas booking for custo
 @deepraj1996<br/>
 @Karunya-konde<br/>
 @KavyaSKumar31<br/>
+@ashkotian84<br/>
 
 ## Version History
 - 0.1
