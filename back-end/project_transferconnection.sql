@@ -16,29 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `confirmation_token`
+-- Table structure for table `transferconnection`
 --
 
-DROP TABLE IF EXISTS `confirmation_token`;
+DROP TABLE IF EXISTS `transferconnection`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `confirmation_token` (
-  `token_id` bigint(20) NOT NULL,
-  `confirmation_token` varchar(255) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `user_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`token_id`),
-  KEY `FKhjrtky9wbd6lbk7mu9tuddqgn` (`user_id`)
+CREATE TABLE `transferconnection` (
+  `email` varchar(255) NOT NULL,
+  `accept` bit(1) DEFAULT NULL,
+  `adhaar` varchar(255) DEFAULT NULL,
+  `agency` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `zip` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `confirmation_token`
+-- Dumping data for table `transferconnection`
 --
 
-LOCK TABLES `confirmation_token` WRITE;
-/*!40000 ALTER TABLE `confirmation_token` DISABLE KEYS */;
-/*!40000 ALTER TABLE `confirmation_token` ENABLE KEYS */;
+LOCK TABLES `transferconnection` WRITE;
+/*!40000 ALTER TABLE `transferconnection` DISABLE KEYS */;
+INSERT INTO `transferconnection` VALUES ('krithikaudupa@gmail.com','\0','1234 1234 1234','Jyothi Gas Agency','South Karnataka','India','10/12/2019 09:12:44','krithika','Karnataka','575003'),('lolakutti@gmail.com','\0','1234 2342 1234','Indo Gas Agency','South Karnataka','India','10/12/2019 11:12:32','krithika','Karnataka','575005');
+/*!40000 ALTER TABLE `transferconnection` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-11 17:27:25
+-- Dump completed on 2019-12-11 17:27:26

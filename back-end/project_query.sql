@@ -16,29 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cart`
+-- Table structure for table `query`
 --
 
-DROP TABLE IF EXISTS `cart`;
+DROP TABLE IF EXISTS `query`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cart` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `price` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE `query` (
+  `query_id` int(11) NOT NULL AUTO_INCREMENT,
+  `agency` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `full_name` varchar(255) DEFAULT NULL,
+  `others` varchar(255) DEFAULT NULL,
+  `question` varchar(255) DEFAULT NULL,
+  `reply` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`query_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cart`
+-- Dumping data for table `query`
 --
 
-LOCK TABLES `cart` WRITE;
-/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+LOCK TABLES `query` WRITE;
+/*!40000 ALTER TABLE `query` DISABLE KEYS */;
+INSERT INTO `query` VALUES (2,'Gogas Agency','dianadsz1997@gmail.com','Diana','How many gas cylinders can be booked per month?','How many gas cylinders can be booked per month?','ghjk'),(1,'Gogas Agency','krithikaudupa@gmail.com','Krithika','How can I book a gas connection?','How can I book a gas connection?','deepraj'),(4,'Gogas Agency','krithikaudupa@gmail.com','krithika','How to cancel my gas booking?','How to cancel my gas booking?','deepraj');
+/*!40000 ALTER TABLE `query` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28 10:15:31
+-- Dump completed on 2019-12-11 17:27:27

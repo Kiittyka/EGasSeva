@@ -42,7 +42,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('Deepr','Deepraj','Karwar','8660498803','India','dprjpdnkr@gmail.com','Deepraj123','Karnataka',581305),('kdjrje@fmgmg.com','ksksks','lslls','1234567890','Inida','Kritika','qjqjqjq','ksksks',581005),('diana@gmail.com','Reliance Gas Agency','Delhi','9876543210','India','diana','hdssdbns','Delhi',110011),('sksks','smsmms','smsms','1234567890','snsnsns','sjsjjs','dsmdsmsms','smsnmsnms',123456),('jdbsndbf','Reliance Gas Agency','Delhi','0987654321','India','diana','jbjbjbjb','Delhi',110001);
+INSERT INTO `customer` VALUES ('dealer@gmail.com','Indo Gas Agency','Bangalore ','9876543210','India','dealer','$2a$10$1oFUIyXEmjC0Jr.4D7mPK.3Kcm6ZknAFc3xOd3b38m/2IXmvnThyS','Karnataka',560045),('admin@gmail.com','Indo Gas Agency','Bangalore ','9876754321','India','admin','$2a$10$DRHuuvkCkC92Np4pIQVZd.tCjEP/1Hwa4qVINLUQH3Hxf7.3/Vn6q','Karnataka',560045),('krithikaudupa@gmail.com','Indo Gas Agency','South Karnataka','9876543211','India','susan','$2a$10$R.hTPZG43b6PbreZ2s55YuCyLAHGIy4b5qqrnassckDRZ4FIx8EUy','Karnataka',575005),('lolakutti@gmail.com','Gogas Agency','Bangalore ','8796756142','India','kavya','$2a$10$Ez/w0gche71Qe/6DdFzmieALCcQ8GwAL/HH7A9i8uxo4wuLQrY0q6','Karnataka',560046);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28 10:15:31
+-- Dump completed on 2019-12-11 17:27:24
