@@ -1,9 +1,0 @@
-_id,product_id,name,description,price,quantity,url
-ObjectId("5dd7710679f4b33b2cdb61b6"),1,Burner,Gas Burner,150,1,/assets/images/Gas Burner.jpg
-ObjectId("5dd772c879f4b33b2cdb61b7"),2,Pipe,Gas Pipe,100,1,/assets/images/pipe.jpg
-ObjectId("5dd7738379f4b33b2cdb61b8"),3,Ignitor,Gas Lighter,250,1,/assets/images/Gas Lighter.jpg
-ObjectId("5de78e8e2192bd2b88c0b5da"),4,Gas Stove Part, Gas Stove's Part,140,1,/assets/images/GasStoveTop.png
-ObjectId("5de78f3a2192bd2b88c0b5db"),5,Knob,Cylinder Knob,70,1,/assets/images/knob.jpeg
-ObjectId("5de790362192bd2b88c0b5dc"),6,Burner,Gas Burner Part,40,1,/assets/images/burner.jpg
-ObjectId("5de7913d2192bd2b88c0b5dd"),7,Gas Knob,Flame Adjustable knob,40,1,/assets/images/gasknob.jpg
-ObjectId("5de791f32192bd2b88c0b5de"),8,Pressure Checker,Gas pressure Checker,400,1,/assets/images/GasPressureChecker.jpg
