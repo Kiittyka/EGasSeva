@@ -1,0 +1,171 @@
+<app-header></app-header>
+
+<br>
+<br>
+<br>
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out Details</ng-template>
+
+      <mat-form-field>
+        <input matInput type="name" placeholder="Full Name" class="form-control" formControlName="name" [(ngModel)]="name" required>
+        <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+        <mat-error *ngIf="hasError1('name', 'required')">Name is required</mat-error>
+        <mat-error *ngIf="hasError1('name', 'maxlength')">Max 60 characters required</mat-error>
+        <mat-error *ngIf="hasError1('name', 'minlength')">Min 3 characters required</mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field> <input matInput type="email" placeholder="Email" [(ngModel)]="email" class="form-control" formControlName="email"
+          required>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field> <input matInput type="number" placeholder="Contact" class="form-control"
+          formControlName="contact" required>
+        <mat-error *ngIf="hasError1('contact', 'pattern')">Not a valid number</mat-error>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+
+      <mat-form-field>
+          <input matInput type="number" placeholder="Zipcode" class="form-control" formControlName="zipcode" required>
+          <!-- <mat-error *ngIf="hasError3('zipcode', 'min')">Enter valid zipcode</mat-error>
+          <mat-error *ngIf="hasError3('zipcode', 'max')" >Enter valid zipcode</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <label>Country</label>
+
+        <input matInput type="text" [(ngModel)]="zip.country" class="form-control" formControlName="country" required>
+
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <label>State</label>
+        <input matInput type="text" [(ngModel)]="zip.state" class="form-control" formControlName="state" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <label>City</label>
+        <input matInput type="text" [(ngModel)]="zip.city" class="form-control" formControlName="city" required>
+
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <label>Agency</label>
+
+        <input matInput type="text" [(ngModel)]="zip.dealer" class="form-control" [disabled]="true"
+          formControlName="agency" required>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="frmSignup" errorMessage="Password is required.">
+
+      <form [formGroup]="frmSignup">
+
+          <mat-form-field>
+              <label for="password" [ngClass]="frmSignup.controls['password'].invalid ? 'text-danger' : ''">Password:</label>
+             
+              <input  matInput id="password" formControlName="password" type="password" class="form-control" [ngClass]="frmSignup.controls['password'].invalid ? 'is-invalid' : ''">
+              <!-- <label class="text-danger col" *ngIf="frmSignup.controls['password'].hasError('required')">
+                Password is Required!
+              </label> -->
+            </mat-form-field>
+              <mat-error class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                  frmSignup.controls['password'].hasError('minlength') ? 'cancel' :
+                  'check_circle' }}</i>
+                Must be at least 8 characters!
+              </mat-error>
+              <mat-error class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                  frmSignup.controls['password'].hasError('hasNumber') ? 'cancel' :
+                  'check_circle' }}</i>
+                Must contain at least 1 number!
+              </mat-error>
+              <mat-error class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                  frmSignup.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
+                  'check_circle' }}</i>
+                Must contain at least 1 in Capital Case!
+              </mat-error>
+              <mat-error class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                  frmSignup.controls['password'].hasError('hasSmallCase') ? 'cancel' :
+                  'check_circle' }}</i>
+                Must contain at least 1 Letter in Small Case!
+              </mat-error>
+              <mat-error class="col" [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ frmSignup.controls['password'].hasError('required') ||
+                  frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
+                  'check_circle' }}</i>
+                Must contain at least 1 Special Character!
+              </mat-error>
+            <mat-form-field>
+              <label for="confirmPassword" [ngClass]="frmSignup.controls['confirmPassword'].invalid ? 'text-danger' : ''">Confirm
+                Password:</label>
+              <input  matInput id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
+                [ngClass]="frmSignup.controls['confirmPassword'].invalid ? 'is-invalid' : ''">
+              </mat-form-field>
+              <mat-error class="text-danger" *ngIf="frmSignup.controls['confirmPassword'].hasError('required')">
+                Password is Required!
+              </mat-error>
+              <mat-error class="text-danger" *ngIf="frmSignup.controls['confirmPassword'].hasError('NoPassswordMatch')">
+                Password do not match
+              </mat-error>
+           
+              <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+      </form>
+  </mat-step>
+
+    <!-- <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Reset Password</ng-template>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Password" class="form-control" formControlName="password" required>
+        <mat-error *ngIf="hasError2('password', 'pattern')">Password must be at least 4 characters, no more than 8
+          characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <br>
+
+      <mat-form-field>
+        <label for="Confirm _password">Confirm Pasword: </label>
+        <input matInput type="text"  class="form-control" formControlName="confirm_password" required >
+        <mat-error *ngIf="hasError">Password didn't match</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form> -->
+
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="createCustomer()" routerLink="/Home">Submit</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

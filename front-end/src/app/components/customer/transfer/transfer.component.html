@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<div class="container">
+    <br>
+    <h2>Transfer Connection </h2>
+    <form [formGroup]=" gasbooking" (ngSubmit)="transferConnection() ">
+        <!-- Full Name -->
+        <div class="form-group">
+            <label for="name">Full Name : </label>
+            <input class="form-control"  formControlName="fullName" required>
+        </div>
+        <!-- Customer EmailId-->
+        <div class="form-group">
+            <label for="email">Email : </label>
+            <input class="form-control"  formControlName="email" required>
+        </div>
+        <!--Customer Contact No-->
+        <div class="form-group">
+            <label for="contact">Contact No : </label>
+            <input type=number class="form-control" formControlName="contact" required>
+        </div>
+        
+        <!-- Gas Agency -->
+        <div class="form-group">
+            <label for="Agency">Current Gas Agency : </label>
+            <input class="form-control"  formControlName="gasAgency" required>
+        </div>
+
+
+        <!-- Customer Address -->
+        <div>
+            <h4> Customer Old Address </h4>
+            <div class="form-group">
+                <label>
+                    Zip Code:
+                    <input type="number" class="form-control"  formControlName="zip">
+                </label>
+
+                <label>
+                    Country:
+                    <input type="text" class="form-control"  formControlName="country"
+                        name="country">
+                </label>
+                <!-- </div>
+    
+                <div class="form-group"> -->
+                <label>
+                    City:
+                    <input type="text" class="form-control"  formControlName="city" name="city">
+                </label>
+                <!-- </div>
+    
+                <div class="form-group"> -->
+                <label>
+                    State:
+                    <input type="text" class="form-control" formControlName="state"
+                        name="state"> </label>
+                <!-- </div>
+    
+                <div class="form-group"> -->
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Customer Address -->
+        <div>
+            <h4> Customer New Address </h4>
+            <div class="form-group">
+                <label>
+                    Zip Code:
+                    <input type="number" class="form-control" formControlName="newZip" id="newZip" required>
+                </label>
+
+                <label>
+                    Country:
+                    <input type="text" class="form-control" [(ngModel)]="zip.country" formControlName="newCountry"
+                        name="newCountry">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+                <label>
+                    State:
+                    <input type="text" class="form-control" [(ngModel)]="zip.state" formControlName="newState"
+                        id="newState">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+                <label>
+                    City:
+                    <input type="text" class="form-control" [(ngModel)]="zip.city" formControlName="newCity"
+                        id="newCity">
+                </label>
+                <!-- </div>
+        
+                    <div class="form-group"> -->
+
+
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="newAgency">New Gas Agency : </label>
+            <input type="text" class="form-control" [(ngModel)]="zip.dealer" formControlName="newAgency" id="newAgency">
+
+        </div>
+        <!--Adhaar Number-->
+        <div class="form-group">
+            <label for="adhaarNo">Adhaar no: </label>
+            <input type="text" class="form-control" formControlName="adhaarNo">
+            <div *ngIf="adhaarNo.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass]="'error'">
+                <div *ngIf="adhaarNo.errors.required">
+                    Adhaar number required.
+                </div>
+                <div *ngIf="adhaarNo.errors.pattern">
+                    Enter valid adhaar number(Eg. xxxx xxxx xxxx)
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Transfer</button>
+
+        <script>
+            // Disable form submissions if there are invalid fields
+            (function () {
+                'use strict';
+                window.addEventListener('load', function () {
+                    // Get the forms we want to add validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+
+    </form>
+
+</div>

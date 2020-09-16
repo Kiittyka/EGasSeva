@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div class="bg">
+    <div class="container">
+
+        <h2>Technical Support and Query Form </h2>
+        <form [formGroup]=" queryForm" (ngSubmit)="sendQuery() ">
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="name">Full Name    : </label>
+                <input class="form-control"  formControlName="fullName" required>
+            </div>
+            
+
+            <!--Email-->
+            <div class="form-group">
+                <label for="email">Email : </label>
+                <input class="form-control"  formControlName="email" required>
+            </div>
+
+            
+            <!-- Frequently asked questions-->
+
+            <div class="form-group">
+                <label for="question">Frequently asked questions ?</label>
+                <div id="answer">
+                    <select formControlName="question"  name="question" >
+                        <option value="Select a question" selected disabled>Select a question</option>
+                        <option value="How to create a new account ?">How to create a new account ?</option>
+                        <option value="How to track my gas delivery status ?">How to track my gas delivery status ?</option>
+                        <option value="How to cancel my gas booking ?">How to cancel my gas booking ?</option>
+                    </select>
+                </div>
+            </div>
+            <div *ngIf="queryForm.controls['question'].invalid && (queryForm.controls['question'].dirty || queryForm.controls['question'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="queryForm.controls['question'].errors.required">
+                    Select the Question.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="question">Others : </label>
+                <div id="text-box">
+                    <textarea formControlName="others" form="input" id="txtarea1" placeholder="Write your question here..."
+                        [(ngModel)]="user.others" name="reason_other" cols="40" rows="5"></textarea>
+                </div>
+            </div>
+            <div *ngIf="queryForm.controls['others'].invalid && (queryForm.controls['others'].dirty || queryForm.controls['others'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="queryForm.controls['others'].errors.required">
+                    Enter the Query
+                </div>
+            </div>
+            <button [disabled]="queryForm.pristine || queryForm.invalid" type="submit" class="btn btn-primary">Send </button>
+        </form>
+    </div>
+</div>

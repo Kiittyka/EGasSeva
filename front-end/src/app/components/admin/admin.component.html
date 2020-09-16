@@ -1,0 +1,83 @@
+
+
+
+<!-- right side-->
+<main class="admin_main">
+    <main>
+
+         <router-outlet>
+      
+      
+          <div class="top-nav">
+      
+              <img src="assets/images/logo.PNG" width="250" height="120">
+            
+             
+                <!-- <a class="logout" routerLink="/home">
+                    <i class="fa fa-cog" aria-hidden="true"></i> LogOut
+                  </a> -->
+         
+                  
+      
+          </div>
+          
+        </router-outlet> 
+        
+        <!-- <div class="sidebar-container">
+          <div class="sidebar-logo">
+            <h2>E Gas Seva</h2>
+          </div>
+          <ul class="sidebar-navigation">
+            <li class="header">
+              <img src="assets/images/c1.png" width="160" height="180">
+            </li>
+            <li>
+              <a routerLink="gasBooking">
+                <i class="fa fa-home" aria-hidden="true"></i> Reports
+              </a>
+            </li>
+            
+      
+          </ul>
+          
+        </div> -->
+       
+        
+  <!-- <div class="card" id="card">
+    <div class="chart-wrapper">
+      <canvas baseChart width="700" height="700" [datasets]="lineChartData" [labels]="lineChartLabels"
+        [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </div>
+
+
+  <div class="card1" id="card1">
+    <div class="chart-wrapper">
+      <canvas baseChart width="700" height="700" [datasets]="barChartData" [labels]="barChartLabels"
+        [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="chart-wrapper">
+        <canvas baseChart width="700" height="700" [datasets]="lineChartData" [labels]="lineChartLabels"
+          [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="chart-wrapper">
+        <canvas baseChart width="700" height="700" [datasets]="barChartData" [labels]="barChartLabels"
+          [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+
+</main>

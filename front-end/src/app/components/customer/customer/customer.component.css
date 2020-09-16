@@ -1,0 +1,306 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+    
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    line-height: 1;
+    color:gray;
+
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/*------end of css reset----*/
+
+
+
+/*------header-------*/
+header div span{
+    padding-right: 15px;
+}
+.toolbar{
+    background-color: brown;
+    height: 70px;
+}
+.dashboard{
+  padding-top: 10px;
+    font-weight:bold;
+    font-size: 36px;
+    font-family:  sans-serif;
+}
+h2{
+    font-size:34px;
+    color: black;
+    font-weight:600;
+    padding:10px;
+}
+/*------keft navigation bar-------*/
+#leftNav{
+    float:left;
+    width: 17%;
+    height:100%; 
+    
+}
+#rightNav{
+    float: right; 
+    width: 70%;  
+    text-align: left;
+    background-color: beige;
+    padding: 35px;
+}
+aside{
+    margin-top:75px;
+    min-height: 100vh;
+    position:fixed;
+}
+li{
+    list-style-type: none;
+}
+aside div li a{
+    text-decoration-line: none;
+    font-weight:bold;
+    color:black;
+    font-size: 20px;
+    border-block-color: black;
+    
+}
+aside div{
+  padding: 12px;
+  border-radius: 7px;
+  margin-left: 8px;
+  background-color: white;
+}
+aside div:hover{
+    background-color:lightgrey;
+}
+
+#cc{
+   
+   position:fixed;
+   bottom:0;
+   right:0;
+}
+
+
+#leftNav[_ngcontent-ler-c2] {
+    float: left;
+    width: 17%;
+    height: 100%;
+
+    background-color: lightgray;
+}
+h1{
+    
+    font-size:35px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    font-weight:700;
+    padding-top:0px;
+    
+   margin-top: 7%;
+   color:white;
+   font-style:normal;
+   
+}
+.modal-title {
+    background-color: rgb(19, 128, 179);
+    padding:10px;
+    border-top-left-radius: 1.125rem;
+    border-top-right-radius: 1.125rem;
+    margin-top:-2px;
+    
+}
+.modal-dialog .modal-content {
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    border-radius: 1.125rem;
+    border: 0;
+}
+.h1{
+    color:black;
+    font:bold;
+    margin-top:50px;
+   
+}
+
+/*top bar*/
+.top-nav{
+    height: 300px;
+    background-image: linear-gradient(to right,rgb(111, 132, 255),rgb(139, 138, 138));
+    float: right;
+    width: 80%;
+    margin-top:0px;
+}
+
+
+.top ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .top li {
+    float: right;
+  }
+  
+  .top li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .top li a:hover:not(.active) {
+    background-color: gray;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+  }
+
+  .sidebar-container {
+    position: fixed;
+    width: 317px;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: white;
+    color: black;
+  }
+  
+  .content-container {
+    padding-top: 20px;
+  }
+  
+  .sidebar-logo {
+    padding: 0px 15px 10px 30px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+  }
+  
+  .sidebar-navigation {
+    
+    margin: 20px;
+    list-style-type: none;
+    position: relative;
+    font-weight:600;
+    font-size:20px;
+    padding:10px;
+    text-align: center;
+    
+  }
+  
+  .sidebar-navigation li {
+    background-color: transparent;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+  }
+  
+  .sidebar-navigation li a {
+    padding: 10px 15px 10px 30px;
+    display: block;
+    color: black;
+  }
+  
+  .sidebar-navigation li .fa {
+    margin-right: 10px;
+  }
+  
+  .sidebar-navigation li a:active,
+  .sidebar-navigation li a:hover,
+  .sidebar-navigation li a:focus {
+    text-decoration: none;
+    outline: none;
+  }
+  
+  .sidebar-navigation li::before {
+    background-color: #2574A9;
+    position: absolute;
+    content: '';
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 3px;
+    z-index: -1;
+  }
+  
+  .sidebar-navigation li:hover::before {
+    width: 100%;
+  }
+  
+  .sidebar-navigation .header {
+    font-size: 110px;
+    
+    text-transform: uppercase;
+    background-color: white;
+    color:black;
+    font-weight: 200;
+    padding-top: 20px ;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  
+  .sidebar-navigation .header::before {
+    background-color: transparent;
+  }
+  
+  .content-container {
+    padding-left: 220px;
+  }
+
+.logout{
+    padding-bottom:100px;
+    margin: 20px;
+    list-style-type: none;
+    
+    font-weight:600;
+    font-size:20px;
+    padding:10px;
+    text-align: center;
+    color:black;
+}
+
+
+
+
+

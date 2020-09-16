@@ -1,0 +1,42 @@
+<!-- Editable table -->
+<div class="card">
+
+    <div class="card-body">
+        <div id="table" class="table-editable">
+            <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x"
+                        aria-hidden="true"></i></a></span>
+
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">Booking ID</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Contact</th>
+                        <th class="text-center">Address</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of customerDetail">
+                        <td class="pt-3-half">{{x.sid}}</td>
+                        <td class="pt-3-half">{{x.email}}</td>
+                        <td class="pt-3-half">{{x.contact}}</td>
+
+                        <td class="pt-3-half">{{x.city}}<br />{{x.state}}<br />{{x.zip}}</td>
+
+                        <td>
+                            <span class="table-remove"><button type="button" (click)="updateCustomer(x)"
+                                    class="btn btn-success btn-rounded btn-sm my-0">Accept</button></span>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Editable table -->

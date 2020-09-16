@@ -1,0 +1,11 @@
+server:
+  port: 8050
+spring:  application:    name: zuul-proxy
+  cloud:
+    config:
+     uri: http://localhost:8765
+zuul:
+  host:
+    connect-timeout-millis: 100000
+  
+      

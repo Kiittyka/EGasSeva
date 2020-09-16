@@ -1,0 +1,91 @@
+<div class="container">
+    <h2 style="text-align: center;" class="mt-2">Cart</h2>
+  
+    <!-- <div *ngIf="totalSum>0; else cartEmpty">
+    <div class="cart-item" *ngFor="let item of items">
+      <span>{{ item.name }}</span>
+      <span>{{ item.price | currency: 'INR' }}</span>
+      <div class="col-6">
+        <input type="number" value="{{item.quantity}}" #quant>
+        <input type="hidden" value="{{item.id}}" #prod>
+  
+      </div>
+      <button class="btn btn-info btn-sm" (click)="update(prod,quant)">Update</button>
+      <button class="btn btn-danger" (click)="removeItemFromCart(item)">Remove</button>  
+    </div>
+    <br/>
+    <div >
+  
+      <span><strong>Total : </strong>{{total | currency: 'INR'}}</span>
+    </div>
+  </div>
+  <ng-template #cartEmpty>
+    Cart is Empty
+  </ng-template>
+  <br/>
+  <span> <button (click)="onBack()" class="btn btn-primary">Continue Shopping</button></span> -->
+  
+    <div *ngIf="totalSum>0; else cartEmpty">
+      <br>
+  
+      <table id="cart" class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Subtotal</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tr *ngFor="let cart of items">
+          <td scope="row">
+            {{cart.name}}
+          </td>
+          <td>{{cart.price | currency:'INR'}}</td>
+          <td>
+  
+            <div class="row">
+              <div class="col-6">
+                <input type="number" style="width: 75px;" value="{{cart.quantity}}" min="1" #quant>
+                <input type="hidden" value="{{cart.id}}" #prod>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-info btn-sm" (click)="update(prod,quant)">Update</button>
+              </div>
+            </div>
+          </td>
+          <td>
+            {{cart.quantity*cart.price | currency:'INR'}}
+  
+          </td>
+          <td>
+            <!-- <button class="btn btn-info btn-sm" (click)="removeItemFromCart(cart)">Delete</button> -->
+            <button class="btn btn-info btn-sm" (click)="delete(prod)">Delete</button>
+          </td>
+        </tr>
+      </table>
+  
+      <div class="row">
+        <!-- <div class="col-9">Total  : {{total | currency:'INR'}}</div> -->
+        <div class="col-9">Total Sum : {{totalSum | currency:'INR'}}</div>
+      </div>
+    </div>
+      <ng-template #cartEmpty>
+        <div class="text-center">
+          <img src="assets/images/empty-cart.png" width="600" height="300" class="justify-center"><br>
+        </div>
+      </ng-template>
+      <div class="row">
+        <div class="col-auto mr-auto">
+            <button (click)="goBackToAccessories()" class="btn btn-primary"> Continue Shopping</button>
+        </div>
+        <div class="col-auto">
+            <button *ngIf="totalSum!=0" type="button" class="btn btn-primary right" (click)="goToPaymentPage()">Checkout </button>
+        </div>
+      </div>
+      <!-- <button (click)="goBackToAccessories()" class="btn btn-primary"> Continue Shopping</button>
+      <button *ngIf="totalSum!=0" type="button" class="btn btn-primary right" (click)="goToPaymentPage()">Checkout </button> -->
+    
+  </div>
+  

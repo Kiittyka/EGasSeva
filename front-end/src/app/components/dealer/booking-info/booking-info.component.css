@@ -1,0 +1,15 @@
+.card {
+    float: left;
+    width: 60%;
+    padding-right: 2%;
+    margin-top:-6%;
+    background-color: white;
+    align-content: center;
+    margin-left: 30%;
+    border-radius:1.6rem;
+}
+
+#table.table-editable{
+    margin-left:30px;
+
+}

@@ -1,0 +1,67 @@
+<!-- Editable table -->
+<div class="card">
+
+    <div class="card-body">
+
+        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x"
+                    aria-hidden="true"></i></a></span>
+
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+                <tr>
+
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Query</th>
+                    <th class="text-center">Reply</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of customerQueries">
+                    <td class="pt-3-half">{{x.fullName}}</td>
+                    <td class="pt-3-half">{{x.question}}</td>
+                    <td>
+
+                        <input type="text" [(ngModel)]="x.reply">
+
+                    <td>
+                        <span class="table-remove"><button type="button" class="btn btn-success btn-rounded btn-sm my-0"
+                                (click)=replyQuery(x)>Reply</button></span>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+        <br>
+        <hr>
+        <br>
+        <!-- <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+                <tr>
+
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Query</th>
+                    <th class="text-center">Replies</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let y of repliedQueries">
+                    <td class="pt-3-half">{{y.fullName}}</td>
+                    <td class="pt-3-half">{{y.question}}</td>
+                    <td class="pt-3-half">{{y.reply}}</td>
+
+
+                </tr>
+
+            </tbody>
+        </table> -->
+
+
+
+    </div>
+</div>
+
+
+
